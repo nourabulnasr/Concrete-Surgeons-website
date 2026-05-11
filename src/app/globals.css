@@ -1,26 +1,155 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Color system — warm light palette, OKLCH */
+  --color-cream-50:  oklch(99% 0.004 75);
+  --color-cream-100: oklch(98% 0.006 80);
+  --color-cream-200: oklch(95% 0.01 75);
+  --color-cream-300: oklch(92% 0.015 75);
+  --color-border-light: oklch(87% 0.014 75);
+  --color-border-mid:   oklch(80% 0.015 75);
+  --color-muted-400: oklch(70% 0.01 75);
+  --color-muted-500: oklch(58% 0.01 75);
+  --color-muted-600: oklch(50% 0.01 75);
+  --color-muted-700: oklch(40% 0.01 75);
+  --color-ink-800:   oklch(25% 0.02 75);
+  --color-ink-900:   oklch(12% 0.025 75);
+  --color-ink-950:   oklch(10% 0.025 75);
+  --color-amber-400: oklch(60% 0.20 65);
+  --color-amber-500: oklch(52% 0.20 62);
+  --color-green-600: oklch(42% 0.18 145);
+
+  /* Typography */
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Chivo", sans-serif;
+  --font-arabic: "Cairo", sans-serif;
+  --font-incident: "Big Shoulders", sans-serif;
+
+  /* Fluid type scale */
+  --text-hero: clamp(2.4rem, 4.5vw + 0.5rem, 5.5rem);
+  --text-h1: clamp(2.5rem, 5vw + 1rem, 5.5rem);
+  --text-h2: clamp(2rem, 3vw + 1rem, 3.5rem);
+  --text-h3: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
+  --text-lead: clamp(1.0625rem, 1vw + 0.5rem, 1.25rem);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: oklch(98% 0.006 80);
+  color: oklch(12% 0.025 75);
+  font-family: var(--font-body);
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
 }
+
+:lang(ar) body,
+:lang(ar) .font-body {
+  font-family: var(--font-arabic);
+}
+
+:lang(ar) .font-display {
+  font-family: var(--font-arabic);
+  font-weight: 700;
+}
+
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-incident { font-family: var(--font-incident); }
+
+/* Never override the incident font — "26" is Western numerals in both languages */
+:lang(ar) .font-incident { font-family: var(--font-incident); }
+
+.text-hero {
+  font-size: var(--text-hero);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-size: var(--text-h1);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+}
+
+.text-h2 {
+  font-size: var(--text-h2);
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+}
+
+.text-h3 {
+  font-size: var(--text-h3);
+  line-height: 1.1;
+}
+
+.text-lead {
+  font-size: var(--text-lead);
+  line-height: 1.65;
+}
+
+.label-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(60% 0.20 65);
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+.accent-rule {
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background-color: oklch(60% 0.20 65);
+}
+
+:focus-visible {
+  outline: 2px solid oklch(60% 0.20 65);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid oklch(82% 0.015 75);
+}
+
+::selection {
+  background-color: oklch(60% 0.20 65 / 0.2);
+  color: oklch(10% 0.025 75);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: oklch(93% 0.008 75); }
+::-webkit-scrollbar-thumb { background: oklch(70% 0.01 75); border-radius: 3px; }
