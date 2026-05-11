@@ -1,10 +1,6 @@
 'use client'
 import { useRef, useEffect } from 'react'
-import { motion, useReducedMotion } from 'motion/react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { motion, useMotionValue, useSpring, useReducedMotion } from 'motion/react'
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -59,36 +55,52 @@ interface Props {
 
 export function CertFilmStrip({ lang }: Props) {
   const isAr = lang === 'ar'
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const outerRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const prefersReduced = useReducedMotion()
 
+  // Raw scroll progress → spring-smoothed x translation
+  const scrollX = useMotionValue(0)
+  const springX = useSpring(scrollX, { stiffness: 80, damping: 20, restDelta: 0.5 })
+
   useEffect(() => {
-    // Check at effect time — avoids React state-driven conditional renders
-    // which conflict with GSAP's pin-spacer DOM mutations
-    if (prefersReduced || !sectionRef.current || !trackRef.current) return
-    if (window.matchMedia('(max-width: 767px)').matches) return
+    if (prefersReduced) return
 
-    const ctx = gsap.context(() => {
-      const track = trackRef.current!
+    const isMobile = window.matchMedia('(max-width: 767px)').matches
+    if (isMobile) return
 
-      gsap.to(track, {
-        x: () => -(track.scrollWidth - window.innerWidth + 80),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top top',
-          end: () => `+=${track.scrollWidth - window.innerWidth + 80}`,
-          scrub: 0.6,
-          pin: true,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-        },
-      })
-    }, sectionRef)
+    // Set outer container height = 100svh + horizontal scroll distance
+    // so the sticky section has exactly the right scroll budget.
+    const measure = () => {
+      const outer = outerRef.current
+      const track = trackRef.current
+      if (!outer || !track) return
+      const extra = track.scrollWidth - window.innerWidth + 80
+      outer.style.height = `calc(100svh + ${Math.max(0, extra)}px)`
+    }
+    measure()
+    window.addEventListener('resize', measure)
 
-    return () => ctx.revert()
-  }, [prefersReduced])
+    // Map vertical scroll progress → horizontal x offset
+    const update = () => {
+      const outer = outerRef.current
+      const track = trackRef.current
+      if (!outer || !track) return
+      const rect = outer.getBoundingClientRect()
+      const scrollable = outer.offsetHeight - window.innerHeight
+      if (scrollable <= 0) return
+      const progress = Math.max(0, Math.min(1, -rect.top / scrollable))
+      const maxX = -(track.scrollWidth - window.innerWidth + 80)
+      scrollX.set(progress * maxX)
+    }
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+
+    return () => {
+      window.removeEventListener('resize', measure)
+      window.removeEventListener('scroll', update)
+    }
+  }, [prefersReduced, scrollX])
 
   if (prefersReduced) {
     return (
@@ -101,16 +113,45 @@ export function CertFilmStrip({ lang }: Props) {
         }}
       >
         <div className="container">
-          <p className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)', marginBottom: '3rem' }}>
+          <p
+            className="font-body"
+            style={{
+              fontSize: '0.5rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'oklch(60% 0.20 65)',
+              marginBottom: '3rem',
+            }}
+          >
             {isAr ? '03 / سجل الاعتمادات' : '03 / CERTIFICATION RECORD'}
           </p>
           <div style={{ borderTop: '1px solid oklch(20% 0.015 75)' }}>
             {certs.map((cert) => (
-              <div key={cert.nameEn} style={{ borderBottom: '1px solid oklch(20% 0.015 75)', padding: '1.25rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span className="font-body" style={{ fontSize: '0.875rem', color: 'oklch(80% 0.008 75)' }}>
+              <div
+                key={cert.nameEn}
+                style={{
+                  borderBottom: '1px solid oklch(20% 0.015 75)',
+                  padding: '1.25rem 0',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <span
+                  className="font-body"
+                  style={{ fontSize: '0.875rem', color: 'oklch(80% 0.008 75)' }}
+                >
                   {isAr ? cert.nameAr : cert.nameEn}
                 </span>
-                <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.15em', color: 'oklch(42% 0.18 145)' }}>
+                <span
+                  className="font-body"
+                  style={{
+                    fontSize: '0.4375rem',
+                    letterSpacing: '0.22em',
+                    textTransform: 'uppercase',
+                    color: 'oklch(42% 0.18 145)',
+                  }}
+                >
                   {isAr ? 'اجتاز' : 'PASS'}
                 </span>
               </div>
@@ -121,158 +162,216 @@ export function CertFilmStrip({ lang }: Props) {
     )
   }
 
-  // Same DOM on both mobile and desktop.
-  // Desktop: GSAP pins this section and translates the track horizontally.
-  // Mobile:  CSS (csm-cert-track class) makes it overflow-x snap-scroll.
   return (
-    <section
-      ref={sectionRef}
+    // Outer: tall div that provides the scroll budget for the sticky section.
+    // Height is set dynamically in useEffect (desktop only).
+    // On mobile, CSS overrides to height: auto via .csm-cert-outer.
+    <div
+      ref={outerRef}
       data-navbar-dark="true"
-      className="csm-cert-section"
-      style={{
-        overflow: 'hidden',
-        background: 'oklch(8% 0.02 75)',
-        borderTop: '1px solid oklch(15% 0.015 75)',
-      }}
+      className="csm-cert-outer"
+      style={{ position: 'relative' }}
     >
-      <div
-        ref={trackRef}
-        className="csm-cert-track"
+      {/* Sticky section — stays in view while outer scrolls past */}
+      <section
+        className="csm-cert-section"
         style={{
-          display: 'flex',
-          alignItems: 'stretch',
-          width: 'max-content',
+          background: 'oklch(8% 0.02 75)',
+          borderTop: '1px solid oklch(15% 0.015 75)',
+          overflow: 'hidden',
+          position: 'sticky',
+          top: 0,
           height: '100svh',
-          willChange: 'transform',
         }}
       >
-        {/* Section label card */}
-        <div
+        {/* Track: motion.div so x MotionValue drives horizontal translation */}
+        <motion.div
+          ref={trackRef}
+          className="csm-cert-track"
           style={{
-            width: 'clamp(18rem, 28vw, 28rem)',
-            flexShrink: 0,
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            padding: 'clamp(3rem, 6vh, 5rem) clamp(2rem, 4vw, 4rem)',
-            borderRight: '1px solid oklch(18% 0.015 75)',
+            alignItems: 'stretch',
+            width: 'max-content',
+            height: '100%',
+            willChange: 'transform',
+            x: springX,
           }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: E }}
+          {/* Section label card */}
+          <div
+            style={{
+              width: 'clamp(18rem, 28vw, 28rem)',
+              flexShrink: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+              padding: 'clamp(3rem, 6vh, 5rem) clamp(2rem, 4vw, 4rem)',
+              borderRight: '1px solid oklch(18% 0.015 75)',
+            }}
           >
-            <p className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)', marginBottom: '1.5rem' }}>
-              03 /
-            </p>
-            <h2
-              className="font-display uppercase"
-              style={{
-                fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-                fontWeight: 700,
-                letterSpacing: '-0.02em',
-                lineHeight: 1.0,
-                color: 'oklch(96% 0.008 75)',
-                whiteSpace: 'pre-line',
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: E }}
             >
-              {isAr ? 'سجل\nالاعتمادات' : 'CERTIFICATION\nRECORD'}
-            </h2>
-            <p className="font-body" style={{ marginTop: '1.5rem', fontSize: '0.625rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'oklch(38% 0.01 75)', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
-              {isAr ? 'سبعة مختبرات مستقلة\nست وعشرون خاصية إنشائية' : 'SEVEN INDEPENDENT\nLABORATORIES'}
-            </p>
-            <p className="font-body hidden md:block" style={{ marginTop: '3rem', fontSize: '0.4375rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(28% 0.01 75)' }}>
-              {isAr ? '← مرر للاستكشاف' : 'SCROLL TO EXPLORE →'}
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Cert cards */}
-        {certs.map((cert, i) => {
-          const name = isAr ? cert.nameAr : cert.nameEn
-          const authority = isAr ? cert.authorityAr : cert.authorityEn
-
-          return (
-            <div
-              key={cert.nameEn}
-              style={{
-                width: 'clamp(20rem, 30vw, 32rem)',
-                flexShrink: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                padding: 'clamp(3rem, 6vh, 5rem) clamp(2rem, 4vw, 3.5rem)',
-                borderRight: '1px solid oklch(18% 0.015 75)',
-              }}
-            >
-              <span
-                className="font-incident select-none"
+              <p
+                className="font-body"
                 style={{
-                  fontSize: 'clamp(5rem, 12vw, 10rem)',
-                  fontWeight: 900,
-                  lineHeight: 0.88,
-                  letterSpacing: '-0.04em',
-                  color: 'oklch(14% 0.018 75)',
+                  fontSize: '0.5rem',
+                  letterSpacing: '0.25em',
+                  textTransform: 'uppercase',
+                  color: 'oklch(60% 0.20 65)',
+                  marginBottom: '1.5rem',
                 }}
               >
-                {String(i + 1).padStart(2, '0')}
-              </span>
+                03 /
+              </p>
+              <h2
+                className="font-display uppercase"
+                style={{
+                  fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.0,
+                  color: 'oklch(96% 0.008 75)',
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                {isAr ? 'سجل\nالاعتمادات' : 'CERTIFICATION\nRECORD'}
+              </h2>
+              <p
+                className="font-body"
+                style={{
+                  marginTop: '1.5rem',
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'oklch(38% 0.01 75)',
+                  lineHeight: 1.6,
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                {isAr
+                  ? 'سبعة مختبرات مستقلة\nست وعشرون خاصية إنشائية'
+                  : 'SEVEN INDEPENDENT\nLABORATORIES'}
+              </p>
+              <p
+                className="font-body hidden md:block"
+                style={{
+                  marginTop: '3rem',
+                  fontSize: '0.4375rem',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: 'oklch(28% 0.01 75)',
+                }}
+              >
+                {isAr ? '← مرر للاستكشاف' : 'SCROLL TO EXPLORE →'}
+              </p>
+            </motion.div>
+          </div>
 
-              <div>
-                <div
-                  className="font-display uppercase"
-                  style={{
-                    fontSize: 'clamp(1.1rem, 2.2vw, 1.875rem)',
-                    fontWeight: 700,
-                    letterSpacing: '-0.01em',
-                    lineHeight: 1.1,
-                    color: 'oklch(96% 0.008 75)',
-                    marginBottom: '0.75rem',
-                  }}
-                >
-                  {name}
-                </div>
-                <p
-                  className="font-body"
-                  style={{
-                    fontSize: '0.5625rem',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: 'oklch(40% 0.01 75)',
-                    lineHeight: 1.5,
-                    marginBottom: '1.5rem',
-                  }}
-                >
-                  {authority}
-                </p>
+          {/* Cert cards */}
+          {certs.map((cert, i) => {
+            const name = isAr ? cert.nameAr : cert.nameEn
+            const authority = isAr ? cert.authorityAr : cert.authorityEn
+
+            return (
+              <div
+                key={cert.nameEn}
+                style={{
+                  width: 'clamp(20rem, 30vw, 32rem)',
+                  flexShrink: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  padding: 'clamp(3rem, 6vh, 5rem) clamp(2rem, 4vw, 3.5rem)',
+                  borderRight: '1px solid oklch(18% 0.015 75)',
+                }}
+              >
                 <span
-                  className="font-body"
+                  className="font-incident select-none"
                   style={{
-                    display: 'inline-block',
-                    fontSize: '0.4375rem',
-                    letterSpacing: '0.22em',
-                    textTransform: 'uppercase',
-                    color: 'oklch(42% 0.18 145)',
-                    border: '1px solid oklch(32% 0.18 145)',
-                    padding: '0.3rem 0.6rem',
+                    fontSize: 'clamp(5rem, 12vw, 10rem)',
+                    fontWeight: 900,
+                    lineHeight: 0.88,
+                    letterSpacing: '-0.04em',
+                    color: 'oklch(14% 0.018 75)',
                   }}
                 >
-                  {isAr ? 'اجتاز' : 'PASS'}
+                  {String(i + 1).padStart(2, '0')}
                 </span>
-              </div>
-            </div>
-          )
-        })}
 
-        {/* End spacer */}
-        <div style={{ width: 'clamp(8rem, 15vw, 16rem)', flexShrink: 0, display: 'flex', alignItems: 'flex-end', padding: '3rem 2rem' }}>
-          <p className="font-body" style={{ fontSize: '0.4375rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(28% 0.01 75)' }}>
-            {isAr ? 'HM-500 — ٢٦ خاصية' : 'HM-500 — 26 PROPERTIES'}
-          </p>
-        </div>
-      </div>
-    </section>
+                <div>
+                  <div
+                    className="font-display uppercase"
+                    style={{
+                      fontSize: 'clamp(1.1rem, 2.2vw, 1.875rem)',
+                      fontWeight: 700,
+                      letterSpacing: '-0.01em',
+                      lineHeight: 1.1,
+                      color: 'oklch(96% 0.008 75)',
+                      marginBottom: '0.75rem',
+                    }}
+                  >
+                    {name}
+                  </div>
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: '0.5625rem',
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: 'oklch(40% 0.01 75)',
+                      lineHeight: 1.5,
+                      marginBottom: '1.5rem',
+                    }}
+                  >
+                    {authority}
+                  </p>
+                  <span
+                    className="font-body"
+                    style={{
+                      display: 'inline-block',
+                      fontSize: '0.4375rem',
+                      letterSpacing: '0.22em',
+                      textTransform: 'uppercase',
+                      color: 'oklch(42% 0.18 145)',
+                      border: '1px solid oklch(32% 0.18 145)',
+                      padding: '0.3rem 0.6rem',
+                    }}
+                  >
+                    {isAr ? 'اجتاز' : 'PASS'}
+                  </span>
+                </div>
+              </div>
+            )
+          })}
+
+          {/* End spacer */}
+          <div
+            style={{
+              width: 'clamp(8rem, 15vw, 16rem)',
+              flexShrink: 0,
+              display: 'flex',
+              alignItems: 'flex-end',
+              padding: '3rem 2rem',
+            }}
+          >
+            <p
+              className="font-body"
+              style={{
+                fontSize: '0.4375rem',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'oklch(28% 0.01 75)',
+              }}
+            >
+              {isAr ? 'HM-500 — ٢٦ خاصية' : 'HM-500 — 26 PROPERTIES'}
+            </p>
+          </div>
+        </motion.div>
+      </section>
+    </div>
   )
 }

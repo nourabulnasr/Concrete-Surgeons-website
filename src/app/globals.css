@@ -158,9 +158,14 @@ hr {
 ::-webkit-scrollbar-track { background: oklch(93% 0.008 75); }
 ::-webkit-scrollbar-thumb { background: oklch(70% 0.01 75); border-radius: 3px; }
 
-/* CertFilmStrip: mobile switches from GSAP-pin to native snap-scroll */
+/* CertFilmStrip: mobile collapses sticky layout → native snap-scroll */
 @media (max-width: 767px) {
+  .csm-cert-outer {
+    height: auto !important;
+  }
   .csm-cert-section {
+    position: relative !important;
+    height: auto !important;
     overflow: visible !important;
   }
   .csm-cert-track {
@@ -171,6 +176,8 @@ hr {
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     padding-bottom: clamp(2rem, 5vw, 3rem);
+    /* Cancel Framer Motion x transform on mobile */
+    transform: none !important;
   }
   .csm-cert-track::-webkit-scrollbar { display: none; }
   .csm-cert-track > * {
