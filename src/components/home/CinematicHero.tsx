@@ -153,10 +153,8 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
         overflow: 'hidden',
       }}
     >
-      {/* Animated canvas bg */}
       {!prefersReduced && <CinematicCanvas />}
 
-      {/* Static dark gradient fallback (always present, partially covered by canvas) */}
       <div
         aria-hidden
         style={{
@@ -168,18 +166,18 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
         }}
       />
 
-      {/* Content */}
       <div
         className="container relative z-10"
         style={{ paddingBlock: 'clamp(6rem, 14vh, 10rem)' }}
       >
         <div className={`flex flex-col ${isAr ? 'items-end text-right' : 'items-start text-left'}`}>
+
           {/* Section indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1, ease: E }}
-            style={{ opacity: contextOpacity }}
+            style={{ opacity: prefersReduced ? 1 : contextOpacity }}
             className={`flex items-center gap-3 mb-8 ${isAr ? 'flex-row-reverse' : ''}`}
           >
             <span
@@ -220,63 +218,118 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
             }}
           />
 
-          {/* "26" compression number */}
+          {/* Main number — scroll-compressed */}
           <motion.div
-            style={{ scale: prefersReduced ? 1 : scale, opacity: numberOpacity, transformOrigin: isAr ? 'right' : 'left' }}
+            style={{
+              scale: prefersReduced ? 1 : scale,
+              opacity: numberOpacity,
+              transformOrigin: isAr ? 'right' : 'left',
+            }}
           >
-            <span
-              className="font-incident block select-none"
+            {/* "14" and ".98" on the same line with staggered entrance */}
+            <div style={{ display: 'flex', alignItems: 'baseline', whiteSpace: 'nowrap' }}>
+              <motion.span
+                className="font-incident select-none"
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.25, ease: E }}
+                style={{
+                  fontSize: 'clamp(5rem, 22vw, 20rem)',
+                  fontWeight: 900,
+                  lineHeight: 0.84,
+                  letterSpacing: '-0.04em',
+                  color: 'oklch(96% 0.008 75)',
+                }}
+              >
+                14
+              </motion.span>
+              <motion.span
+                className="font-incident select-none"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.65, ease: E }}
+                style={{
+                  fontSize: 'clamp(5rem, 22vw, 20rem)',
+                  fontWeight: 900,
+                  lineHeight: 0.84,
+                  letterSpacing: '-0.04em',
+                  color: 'oklch(96% 0.008 75)',
+                }}
+              >
+                .98
+              </motion.span>
+            </div>
+
+            {/* Unit — amber, slides in from the left */}
+            <motion.p
+              className="font-incident select-none"
+              initial={{ opacity: 0, x: isAr ? 8 : -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 1.05, ease: E }}
               style={{
-                fontSize: 'clamp(7rem, 28vw, 22rem)',
+                fontSize: 'clamp(1.25rem, 3.5vw, 3rem)',
                 fontWeight: 900,
-                lineHeight: 0.84,
-                letterSpacing: '-0.04em',
-                color: 'oklch(96% 0.008 75)',
+                letterSpacing: '0.04em',
+                color: 'oklch(60% 0.20 65)',
+                lineHeight: 1,
+                marginTop: '0.5rem',
               }}
             >
-              26
-            </span>
+              N/MM²
+            </motion.p>
           </motion.div>
 
-          {/* Context text below the number */}
+          {/* Project label — clip-path wipe reveal */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: E }}
-            style={{ opacity: prefersReduced ? 1 : contextOpacity, marginTop: '1.5rem' }}
+            initial={{ clipPath: 'inset(0 100% 0 0)' }}
+            animate={{ clipPath: 'inset(0 0% 0 0)' }}
+            transition={{ duration: 0.7, delay: 1.45, ease: E }}
+            style={{ opacity: prefersReduced ? 1 : contextOpacity, marginTop: '1.25rem' }}
           >
             <p
               className="font-body"
               style={{
-                fontSize: 'clamp(0.65rem, 1.2vw, 0.875rem)',
+                fontSize: 'clamp(0.55rem, 1vw, 0.75rem)',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
                 color: 'oklch(55% 0.01 75)',
                 lineHeight: 1.6,
               }}
             >
-              {isAr ? 'عاماً من الهندسة الإنشائية الدقيقة' : 'YEARS OF PRECISION STRUCTURAL ENGINEERING'}
+              {isAr
+                ? 'قوة الترابط · محطة قطار السرعة نبارية-السادات الجديدة'
+                : 'BONDING STRENGTH · NEW NUBARIA-ALSADAT SPEED TRAIN STATION'}
             </p>
-            <p
-              className="font-body mt-1"
+          </motion.div>
+
+          {/* Stats — fade-up entrance, then scroll-fade-out */}
+          <motion.div style={{ opacity: prefersReduced ? 1 : contextOpacity, marginTop: '1.5rem' }}>
+            <motion.p
+              className="font-body"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.8, ease: E }}
               style={{
-                fontSize: 'clamp(0.5rem, 0.9vw, 0.6875rem)',
-                letterSpacing: '0.14em',
+                fontSize: '0.5rem',
+                letterSpacing: '0.18em',
                 textTransform: 'uppercase',
                 color: 'oklch(35% 0.01 75)',
+                lineHeight: 2,
               }}
             >
-              {isAr ? 'مصر — ٢٠٠٧' : 'EGYPT — EST. 2007'}
-            </p>
+              {isAr
+                ? '١٢ شهادة دولية · ٧ مختبرات معتمدة · ١٠٠٪ نجاح في اختبار الشد'
+                : '12 INTERNATIONAL CERTIFICATIONS · 7 INDEPENDENT LABS · 100% PULL-OUT PASS RATE'}
+            </motion.p>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll cue */}
+      {/* Scroll cue — appears after full reveal sequence */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.2 }}
+        transition={{ duration: 0.5, delay: 2.2 }}
         style={{
           position: 'absolute',
           bottom: '2.5rem',
