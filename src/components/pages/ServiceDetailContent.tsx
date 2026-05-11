@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 import { services } from '@/lib/services'
 import type { Service } from '@/lib/services'
 import type { Dictionary } from '@/lib/dictionaries'
@@ -238,16 +239,18 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                 >
                   {isAr ? 'هل تحتاج هذه الخدمة؟ تواصل معنا اليوم.' : 'Need this service? Get in touch today.'}
                 </p>
-                <Link
-                  href={`/${lang}/contact`}
-                  className="block w-full text-center py-3 text-xs font-700 uppercase tracking-widest transition-colors hover:opacity-90"
-                  style={{
-                    background: 'oklch(60% 0.20 65)',
-                    color: 'oklch(12% 0.025 75)',
-                  }}
-                >
-                  {dict.cta.primary}
-                </Link>
+                <MagneticButton strength={0.25} style={{ width: '100%' }}>
+                  <Link
+                    href={`/${lang}/contact`}
+                    className="block w-full text-center py-3 text-xs font-700 uppercase tracking-widest transition-colors hover:opacity-90"
+                    style={{
+                      background: 'oklch(60% 0.20 65)',
+                      color: 'oklch(12% 0.025 75)',
+                    }}
+                  >
+                    {dict.cta.primary}
+                  </Link>
+                </MagneticButton>
               </motion.div>
             </div>
           </div>

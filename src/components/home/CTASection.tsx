@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 import type { Dictionary } from '@/lib/dictionaries'
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
@@ -136,18 +137,20 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
             </a>
 
             <div className="pt-6">
-              <Link
-                href={`/${lang}/contact`}
-                className="font-body"
-                style={{
-                  fontSize: '0.5625rem',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: 'oklch(60% 0.20 65)',
-                }}
-              >
-                {isAr ? `← ${c.primary}` : `${c.primary} →`}
-              </Link>
+              <MagneticButton strength={0.28}>
+                <Link
+                  href={`/${lang}/contact`}
+                  className="font-body"
+                  style={{
+                    fontSize: '0.5625rem',
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: 'oklch(60% 0.20 65)',
+                  }}
+                >
+                  {isAr ? `← ${c.primary}` : `${c.primary} →`}
+                </Link>
+              </MagneticButton>
             </div>
           </div>
         </motion.div>

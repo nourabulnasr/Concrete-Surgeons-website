@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 import type { Dictionary } from '@/lib/dictionaries'
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
@@ -60,41 +61,60 @@ export function AboutContent({ dict, lang }: Props) {
 
   return (
     <>
-      {/* Monumental founding year hero */}
+      {/* Cinematic dark founding-year hero */}
       <div
+        data-navbar-dark="true"
         style={{
-          borderBottom: '1px solid oklch(82% 0.015 75)',
-          paddingTop: 'clamp(6rem, 12vh, 10rem)',
-          paddingBottom: 'clamp(2rem, 4vh, 4rem)',
+          background: 'oklch(7% 0.02 75)',
+          borderBottom: '1px solid oklch(15% 0.015 75)',
+          paddingTop: 'clamp(7rem, 14vh, 11rem)',
+          paddingBottom: 'clamp(3rem, 6vh, 5rem)',
           overflow: 'hidden',
+          position: 'relative',
         }}
       >
-        <div className="container">
+        {/* Subtle grain overlay */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.03\'/%3E%3C/svg%3E")',
+            pointerEvents: 'none',
+          }}
+        />
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           {/* Eyebrow */}
-          <motion.span
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, ease: E }}
-            className="label-eyebrow block mb-6"
+            className={`flex items-center gap-3 mb-8 ${isAr ? 'flex-row-reverse' : ''}`}
           >
-            {a.eyebrow}
-          </motion.span>
+            <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+              —
+            </span>
+            <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(40% 0.01 75)' }}>
+              {a.eyebrow}
+            </span>
+          </motion.div>
 
           {/* "2007" monumental */}
           <motion.div
-            className={`flex items-end gap-6 mb-8 ${isAr ? 'flex-row-reverse' : ''}`}
-            initial={{ opacity: 0, y: 20 }}
+            className={`flex items-end gap-6 mb-10 ${isAr ? 'flex-row-reverse' : ''}`}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: E, delay: 0.05 }}
           >
             <span
               className="font-incident select-none"
               style={{
-                fontSize: 'clamp(5rem, 14vw, 13rem)',
+                fontSize: 'clamp(5rem, 16vw, 14rem)',
                 fontWeight: 900,
-                lineHeight: 0.85,
-                color: 'oklch(90% 0.01 75)',
-                letterSpacing: '-0.03em',
+                lineHeight: 0.84,
+                color: 'oklch(96% 0.008 75)',
+                letterSpacing: '-0.04em',
               }}
             >
               2007
@@ -108,7 +128,7 @@ export function AboutContent({ dict, lang }: Props) {
                   fontSize: '0.5625rem',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  color: 'oklch(50% 0.01 75)',
+                  color: 'oklch(32% 0.01 75)',
                   lineHeight: 1,
                   whiteSpace: 'nowrap',
                 }}
@@ -122,13 +142,22 @@ export function AboutContent({ dict, lang }: Props) {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: E, delay: 0.15 }}
+            transition={{ duration: 0.5, ease: E, delay: 0.18 }}
           >
+            <div
+              style={{
+                width: 'clamp(3rem, 8vw, 6rem)',
+                height: '1px',
+                background: 'oklch(22% 0.015 75)',
+                marginBottom: '1.5rem',
+                marginInlineStart: isAr ? 'auto' : undefined,
+              }}
+            />
             <h1
               className="font-display font-800 uppercase"
               style={{
-                fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-                color: 'oklch(12% 0.025 75)',
+                fontSize: 'clamp(1.75rem, 4vw, 3.25rem)',
+                color: 'oklch(88% 0.008 75)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.015em',
                 marginBottom: '0.5rem',
@@ -140,7 +169,7 @@ export function AboutContent({ dict, lang }: Props) {
             <p
               className="font-display font-600 uppercase"
               style={{
-                fontSize: 'clamp(1.25rem, 2.5vw, 2rem)',
+                fontSize: 'clamp(1rem, 2.2vw, 1.75rem)',
                 color: 'oklch(60% 0.20 65)',
                 textAlign: isAr ? 'right' : 'left',
               }}
@@ -209,16 +238,18 @@ export function AboutContent({ dict, lang }: Props) {
                 transition={{ duration: 0.45, ease: E, delay: 0.1 }}
                 className={`mt-8 flex flex-col sm:flex-row gap-3 ${isAr ? 'sm:flex-row-reverse' : ''}`}
               >
-                <Link
-                  href={`/${lang}/contact`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
-                  style={{
-                    background: 'oklch(60% 0.20 65)',
-                    color: 'oklch(12% 0.025 75)',
-                  }}
-                >
-                  {dict.cta.primary}
-                </Link>
+                <MagneticButton strength={0.3}>
+                  <Link
+                    href={`/${lang}/contact`}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
+                    style={{
+                      background: 'oklch(60% 0.20 65)',
+                      color: 'oklch(12% 0.025 75)',
+                    }}
+                  >
+                    {dict.cta.primary}
+                  </Link>
+                </MagneticButton>
                 <Link
                   href={`/${lang}/projects`}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-600 uppercase tracking-widest transition-colors hover:bg-[oklch(95%_0.008_75)]"

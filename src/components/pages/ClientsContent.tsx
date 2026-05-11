@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 import type { Dictionary } from '@/lib/dictionaries'
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
@@ -233,16 +234,18 @@ export function ClientsContent({ lang, dict }: Props) {
               ? 'يختارنا أفضل المقاولين في المنطقة لأننا نقدم ما نعد به — دقة تقنية لا تتنازل، توثيق كامل، وصفر مفاجآت في الموقع.'
               : "The region's best contractors choose us because we deliver what we promise — technical precision without compromise, full documentation, and zero on-site surprises."}
           </p>
-          <Link
-            href={`/${lang}/contact`}
-            className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
-            style={{
-              background: 'oklch(60% 0.20 65)',
-              color: 'oklch(12% 0.025 75)',
-            }}
-          >
-            {dict.cta.primary}
-          </Link>
+          <MagneticButton strength={0.3}>
+            <Link
+              href={`/${lang}/contact`}
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
+              style={{
+                background: 'oklch(60% 0.20 65)',
+                color: 'oklch(12% 0.025 75)',
+              }}
+            >
+              {dict.cta.primary}
+            </Link>
+          </MagneticButton>
         </motion.div>
       </div>
     </div>

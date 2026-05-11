@@ -39,7 +39,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior intentionally omitted — Lenis owns smooth scroll */
 }
 
 body {
@@ -136,6 +136,10 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes csm-spin {
+  to { transform: rotate(360deg); }
+}
+
 .animate-fade-up {
   animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -153,3 +157,25 @@ hr {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: oklch(93% 0.008 75); }
 ::-webkit-scrollbar-thumb { background: oklch(70% 0.01 75); border-radius: 3px; }
+
+/* CertFilmStrip: mobile switches from GSAP-pin to native snap-scroll */
+@media (max-width: 767px) {
+  .csm-cert-section {
+    overflow: visible !important;
+  }
+  .csm-cert-track {
+    width: 100% !important;
+    height: auto !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: clamp(2rem, 5vw, 3rem);
+  }
+  .csm-cert-track::-webkit-scrollbar { display: none; }
+  .csm-cert-track > * {
+    scroll-snap-align: start;
+    min-height: 18rem;
+    width: 82vw !important;
+  }
+}

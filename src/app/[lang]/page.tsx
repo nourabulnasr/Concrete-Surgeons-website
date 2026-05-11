@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
-import { Hero } from '@/components/home/Hero'
+import { CinematicHero } from '@/components/home/CinematicHero'
+import { ProductReveal } from '@/components/home/ProductReveal'
 import { ServicesGrid } from '@/components/home/ServicesGrid'
-import { TrustSection } from '@/components/home/TrustSection'
+import { CertFilmStrip } from '@/components/home/CertFilmStrip'
 import { ProjectsTeaser } from '@/components/home/ProjectsTeaser'
 import { CTASection } from '@/components/home/CTASection'
 
@@ -85,9 +86,10 @@ export default async function HomePage({
           __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
         }}
       />
-      <Hero dict={dict} lang={lang as 'en' | 'ar'} />
+      <CinematicHero dict={dict} lang={lang as 'en' | 'ar'} />
+      <ProductReveal lang={lang as 'en' | 'ar'} />
       <ServicesGrid dict={dict} lang={lang as 'en' | 'ar'} />
-      <TrustSection dict={dict} lang={lang as 'en' | 'ar'} />
+      <CertFilmStrip lang={lang as 'en' | 'ar'} />
       <ProjectsTeaser dict={dict} lang={lang as 'en' | 'ar'} />
       <CTASection dict={dict} lang={lang as 'en' | 'ar'} />
     </>

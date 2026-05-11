@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, useScroll, useTransform, useSpring } from 'motion/react'
 import { useRef } from 'react'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 import type { Dictionary } from '@/lib/dictionaries'
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
@@ -292,16 +293,18 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
               ? 'هل مشروعك التالي على القائمة؟'
               : 'Is your next project on this list?'}
           </p>
-          <Link
-            href={`/${lang}/contact`}
-            className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
-            style={{
-              background: 'oklch(60% 0.20 65)',
-              color: 'oklch(12% 0.025 75)',
-            }}
-          >
-            {dict.cta.primary}
-          </Link>
+          <MagneticButton strength={0.3}>
+            <Link
+              href={`/${lang}/contact`}
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
+              style={{
+                background: 'oklch(60% 0.20 65)',
+                color: 'oklch(12% 0.025 75)',
+              }}
+            >
+              {dict.cta.primary}
+            </Link>
+          </MagneticButton>
         </motion.div>
       </div>
     </div>

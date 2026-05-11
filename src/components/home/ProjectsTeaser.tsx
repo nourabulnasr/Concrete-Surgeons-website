@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, useScroll, useTransform, useSpring } from 'motion/react'
 import { useRef } from 'react'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 import type { Dictionary } from '@/lib/dictionaries'
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
@@ -13,8 +14,8 @@ const listVariants = {
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 8 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: E } },
+  hidden: { clipPath: 'inset(0 100% 0 0)', opacity: 0 },
+  visible: { clipPath: 'inset(0 0% 0 0)', opacity: 1, transition: { duration: 0.65, ease: E } },
 }
 
 const fieldEntries = [
@@ -210,18 +211,20 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
         transition={{ duration: 0.4, delay: 0.3 }}
         style={{ marginTop: '2.5rem', textAlign: isAr ? 'right' : 'left' }}
       >
-        <Link
-          href={`/${lang}/projects`}
-          className="font-body"
-          style={{
-            fontSize: '0.5625rem',
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
-            color: 'oklch(45% 0.01 75)',
-          }}
-        >
-          {isAr ? '← عرض سجل الميدان الكامل' : 'View full field record →'}
-        </Link>
+        <MagneticButton strength={0.25}>
+          <Link
+            href={`/${lang}/projects`}
+            className="font-body"
+            style={{
+              fontSize: '0.5625rem',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'oklch(45% 0.01 75)',
+            }}
+          >
+            {isAr ? '← عرض سجل الميدان الكامل' : 'View full field record →'}
+          </Link>
+        </MagneticButton>
       </motion.div>
     </section>
   )

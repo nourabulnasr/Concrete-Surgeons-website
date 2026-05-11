@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Chivo, Barlow_Condensed, Cairo, Big_Shoulders } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { hasLocale, locales, getDictionary } from '@/lib/dictionaries'
@@ -6,6 +6,7 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { MotionProvider } from '@/components/providers/MotionProvider'
 import { PageTransition } from '@/components/providers/PageTransition'
+import { LenisProvider } from '@/components/layout/LenisProvider'
 import '../globals.css'
 
 const chivo = Chivo({
@@ -33,6 +34,15 @@ const bigShoulders = Big_Shoulders({
   variable: '--font-incident',
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0e0c09' },
+    { media: '(prefers-color-scheme: light)', color: '#0e0c09' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }))
@@ -94,16 +104,17 @@ export default async function LangLayout({
     <html
       lang={lang}
       dir={isRTL ? 'rtl' : 'ltr'}
-      data-scroll-behavior="smooth"
       className={`${chivo.variable} ${barlowCondensed.variable} ${cairo.variable} ${bigShoulders.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-[oklch(98%_0.006_80)] text-[oklch(12%_0.025_75)] antialiased font-body">
         <Navbar dict={dict.nav} lang={lang as 'en' | 'ar'} />
-        <MotionProvider>
-          <PageTransition>
-            <main className="flex-1">{children}</main>
-          </PageTransition>
-        </MotionProvider>
+        <LenisProvider>
+          <MotionProvider>
+            <PageTransition>
+              <main className="flex-1">{children}</main>
+            </PageTransition>
+          </MotionProvider>
+        </LenisProvider>
         <Footer dict={dict.footer} lang={lang as 'en' | 'ar'} />
       </body>
     </html>
