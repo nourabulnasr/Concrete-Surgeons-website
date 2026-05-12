@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
+import { buildAlternates, buildOG, buildTwitter } from '@/lib/metadata'
 import { CinematicHero } from '@/components/home/CinematicHero'
 import { ServicesGrid } from '@/components/home/ServicesGrid'
 import { DemolitionSection } from '@/components/home/DemolitionSection'
@@ -22,14 +23,9 @@ export async function generateMetadata({
   return {
     title: dict.meta.homeTitle,
     description: dict.meta.homeDescription,
-    alternates: {
-      canonical: `https://csmisr.com/${lang}`,
-      languages: {
-        en: 'https://csmisr.com/en',
-        ar: 'https://csmisr.com/ar',
-        'x-default': 'https://csmisr.com/en',
-      },
-    },
+    alternates: buildAlternates(lang, ''),
+    openGraph: buildOG(lang, dict.meta.homeTitle, dict.meta.homeDescription),
+    twitter: buildTwitter(dict.meta.homeTitle, dict.meta.homeDescription),
   }
 }
 
@@ -66,6 +62,11 @@ export default async function HomePage({
       longitude: 31.3327,
     },
     foundingDate: '2007',
+    image: 'https://csmisr.com/logo.jpg',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://csmisr.com/logo.jpg',
+    },
     areaServed: ['Egypt', 'UAE', 'Saudi Arabia', 'Gulf'],
     knowsAbout: [
       'Diamond Sawing',
@@ -77,8 +78,23 @@ export default async function HomePage({
       'Concrete Polishing',
       'HM-500 Injectable Epoxy',
     ],
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+        opens: '08:00',
+        closes: '18:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '14:00',
+      },
+    ],
     sameAs: [
       'https://www.facebook.com/ConcreteSurgeons/',
+      'https://www.linkedin.com/in/khalid-allam-product-development-consultant/',
     ],
   }
 

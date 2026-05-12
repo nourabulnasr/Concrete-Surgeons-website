@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
+import { buildAlternates, buildOG, buildTwitter } from '@/lib/metadata'
 import { ContactForm } from '@/components/shared/ContactForm'
 
 export async function generateMetadata({
@@ -14,13 +15,9 @@ export async function generateMetadata({
   return {
     title: dict.meta.contactTitle,
     description: dict.meta.contactDescription,
-    alternates: {
-      canonical: `https://csmisr.com/${lang}/contact`,
-      languages: {
-        en: 'https://csmisr.com/en/contact',
-        ar: 'https://csmisr.com/ar/contact',
-      },
-    },
+    alternates: buildAlternates(lang, '/contact'),
+    openGraph: buildOG(lang, dict.meta.contactTitle, dict.meta.contactDescription),
+    twitter: buildTwitter(dict.meta.contactTitle, dict.meta.contactDescription),
   }
 }
 
@@ -36,7 +33,7 @@ export default async function ContactPage({
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ContactPage',
+    '@type': 'WebPage',
     name: 'Contact Concrete Surgeons',
     url: `https://csmisr.com/${lang}/contact`,
     mainEntity: {

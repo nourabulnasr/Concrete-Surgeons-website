@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
+import { buildAlternates, buildOG, buildTwitter } from '@/lib/metadata'
 import { services, getService } from '@/lib/services'
 import { ServiceDetailContent } from '@/components/pages/ServiceDetailContent'
 
@@ -24,16 +25,13 @@ export async function generateMetadata({
   const name = lang === 'ar' ? service.nameAr : service.nameEn
   const tagline = lang === 'ar' ? service.taglineAr : service.taglineEn
 
+  const title = `${name} | Concrete Surgeons Egypt`
   return {
-    title: `${name} | Concrete Surgeons Egypt`,
+    title,
     description: tagline,
-    alternates: {
-      canonical: `https://csmisr.com/${lang}/services/${slug}`,
-      languages: {
-        en: `https://csmisr.com/en/services/${slug}`,
-        ar: `https://csmisr.com/ar/services/${slug}`,
-      },
-    },
+    alternates: buildAlternates(lang, `/services/${slug}`),
+    openGraph: buildOG(lang, title, tagline),
+    twitter: buildTwitter(title, tagline),
   }
 }
 
@@ -51,17 +49,27 @@ export default async function ServiceDetailPage({
   const name = lang === 'ar' ? service.nameAr : service.nameEn
   const currentIndex = services.findIndex((s) => s.slug === slug)
 
+  const tagline = lang === 'ar' ? service.taglineAr : service.taglineEn
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name,
-    description: lang === 'ar' ? service.taglineAr : service.taglineEn,
+    description: tagline,
+    serviceType: name,
+    serviceOutput: tagline,
+    url: `https://csmisr.com/${lang}/services/${slug}`,
     provider: {
       '@type': 'LocalBusiness',
+      '@id': 'https://csmisr.com',
       name: 'Concrete Surgeons',
       url: 'https://csmisr.com',
     },
-    areaServed: 'Egypt',
+    areaServed: ['Egypt', 'UAE', 'Saudi Arabia'],
+    offers: {
+      '@type': 'Offer',
+      areaServed: ['Egypt', 'UAE', 'Saudi Arabia'],
+      availableLanguage: ['English', 'Arabic'],
+    },
     '@id': `https://csmisr.com/${lang}/services/${slug}`,
   }
 
@@ -69,7 +77,7 @@ export default async function ServiceDetailPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://csmisr.com/${lang}` },
+      { '@type': 'ListItem', position: 1, name: lang === 'ar' ? 'الرئيسية' : 'Home', item: `https://csmisr.com/${lang}` },
       { '@type': 'ListItem', position: 2, name: dict.services.sectionLabel, item: `https://csmisr.com/${lang}/services` },
       { '@type': 'ListItem', position: 3, name, item: `https://csmisr.com/${lang}/services/${slug}` },
     ],

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
+import { buildAlternates, buildOG, buildTwitter } from '@/lib/metadata'
 import { ClientsContent } from '@/components/pages/ClientsContent'
 
 export async function generateMetadata({
@@ -10,19 +11,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params
   if (!hasLocale(lang)) return {}
+  const title = lang === 'ar' ? 'عملاؤنا | جراحو الخرسانة مصر' : 'Our Clients | Concrete Surgeons Egypt'
+  const description =
+    lang === 'ar'
+      ? 'المقاولون والمطورون والمهندسون الذين يثقون بجراحي الخرسانة في مصر والخليج.'
+      : 'The contractors, developers, and engineers who trust Concrete Surgeons across Egypt and the Gulf.'
   return {
-    title: lang === 'ar' ? 'عملاؤنا | جراحو الخرسانة مصر' : 'Our Clients | Concrete Surgeons Egypt',
-    description:
-      lang === 'ar'
-        ? 'المقاولون والمطورون والمهندسون الذين يثقون بجراحي الخرسانة في مصر والخليج.'
-        : 'The contractors, developers, and engineers who trust Concrete Surgeons across Egypt and the Gulf.',
-    alternates: {
-      canonical: `https://csmisr.com/${lang}/clients`,
-      languages: {
-        en: 'https://csmisr.com/en/clients',
-        ar: 'https://csmisr.com/ar/clients',
-      },
-    },
+    title,
+    description,
+    alternates: buildAlternates(lang, '/clients'),
+    openGraph: buildOG(lang, title, description),
+    twitter: buildTwitter(title, description),
   }
 }
 

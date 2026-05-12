@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
+import { buildAlternates, buildOG, buildTwitter } from '@/lib/metadata'
 import { ProjectsContent } from '@/components/pages/ProjectsContent'
 
 export async function generateMetadata({
@@ -14,13 +15,9 @@ export async function generateMetadata({
   return {
     title: dict.meta.projectsTitle,
     description: dict.meta.projectsDescription,
-    alternates: {
-      canonical: `https://csmisr.com/${lang}/projects`,
-      languages: {
-        en: 'https://csmisr.com/en/projects',
-        ar: 'https://csmisr.com/ar/projects',
-      },
-    },
+    alternates: buildAlternates(lang, '/projects'),
+    openGraph: buildOG(lang, dict.meta.projectsTitle, dict.meta.projectsDescription),
+    twitter: buildTwitter(dict.meta.projectsTitle, dict.meta.projectsDescription),
   }
 }
 
@@ -39,7 +36,7 @@ export default async function ProjectsPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://csmisr.com/${lang}` },
+      { '@type': 'ListItem', position: 1, name: lang === 'ar' ? 'الرئيسية' : 'Home', item: `https://csmisr.com/${lang}` },
       { '@type': 'ListItem', position: 2, name: p.sectionLabel, item: `https://csmisr.com/${lang}/projects` },
     ],
   }

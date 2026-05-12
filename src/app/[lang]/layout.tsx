@@ -63,22 +63,22 @@ export async function generateMetadata({
       default: dict.meta.homeTitle,
       template: '%s | Concrete Surgeons',
     },
-    description: dict.meta.homeDescription,
+    description:
+      lang === 'ar'
+        ? 'جراحو الخرسانة — متخصصون في القطع الماسي والهدم المتحكم والتدعيم الإنشائي في مصر والخليج'
+        : 'Concrete Surgeons — Diamond sawing, controlled demolition and structural retrofitting in Egypt and the Gulf.',
+    icons: {
+      icon: '/logo.jpg',
+      shortcut: '/logo.jpg',
+    },
     openGraph: {
       siteName: 'Concrete Surgeons',
       locale: lang === 'ar' ? 'ar_EG' : 'en_US',
       type: 'website',
+      images: [{ url: 'https://csmisr.com/logo.jpg', width: 512, height: 512, alt: 'Concrete Surgeons Egypt' }],
     },
     twitter: {
       card: 'summary_large_image',
-    },
-    alternates: {
-      canonical: `https://csmisr.com/${lang}`,
-      languages: {
-        en: 'https://csmisr.com/en',
-        ar: 'https://csmisr.com/ar',
-        'x-default': 'https://csmisr.com/en',
-      },
     },
     robots: {
       index: true,

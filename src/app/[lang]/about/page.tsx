@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
+import { buildAlternates, buildOG, buildTwitter } from '@/lib/metadata'
 import { AboutContent } from '@/components/pages/AboutContent'
 
 export async function generateMetadata({
@@ -14,13 +15,9 @@ export async function generateMetadata({
   return {
     title: dict.meta.aboutTitle,
     description: dict.meta.aboutDescription,
-    alternates: {
-      canonical: `https://csmisr.com/${lang}/about`,
-      languages: {
-        en: 'https://csmisr.com/en/about',
-        ar: 'https://csmisr.com/ar/about',
-      },
-    },
+    alternates: buildAlternates(lang, '/about'),
+    openGraph: buildOG(lang, dict.meta.aboutTitle, dict.meta.aboutDescription),
+    twitter: buildTwitter(dict.meta.aboutTitle, dict.meta.aboutDescription),
   }
 }
 
@@ -35,22 +32,11 @@ export default async function AboutPage({
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Concrete Surgeons',
-    alternateName: 'جراحين الخرسانة',
-    url: 'https://csmisr.com',
-    foundingDate: '2007',
-    founder: {
-      '@type': 'Person',
-      name: 'Khaled Allam',
-      jobTitle: 'Founder & CEO',
-    },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '70 Joseph Tito Street',
-      addressLocality: 'New Nozha',
-      addressRegion: 'Cairo',
-      addressCountry: 'EG',
+    '@type': 'AboutPage',
+    name: lang === 'ar' ? 'من نحن — جراحو الخرسانة' : 'About Concrete Surgeons',
+    url: `https://csmisr.com/${lang}/about`,
+    about: {
+      '@id': 'https://csmisr.com',
     },
   }
 

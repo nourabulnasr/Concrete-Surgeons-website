@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
+import { buildAlternates, buildOG, buildTwitter } from '@/lib/metadata'
 import { ComparisonContent } from '@/components/comparison/ComparisonContent'
 
 export async function generateMetadata({
@@ -14,13 +15,9 @@ export async function generateMetadata({
   return {
     title: dict.meta.comparisonTitle,
     description: dict.meta.comparisonDescription,
-    alternates: {
-      canonical: `https://csmisr.com/${lang}/comparison`,
-      languages: {
-        en: 'https://csmisr.com/en/comparison',
-        ar: 'https://csmisr.com/ar/comparison',
-      },
-    },
+    alternates: buildAlternates(lang, '/comparison'),
+    openGraph: buildOG(lang, dict.meta.comparisonTitle, dict.meta.comparisonDescription),
+    twitter: buildTwitter(dict.meta.comparisonTitle, dict.meta.comparisonDescription),
   }
 }
 

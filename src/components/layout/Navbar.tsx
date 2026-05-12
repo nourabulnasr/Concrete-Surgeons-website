@@ -16,6 +16,7 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const otherLang = lang === 'en' ? 'ar' : 'en'
+  const otherLangHref = pathname.replace(`/${lang}`, `/${otherLang}`) || `/${otherLang}`
   const darkCountRef = useRef(new Map<Element, boolean>())
   const logoAccentRef = useRef<HTMLSpanElement>(null)
   const logoTextRef = useRef<HTMLSpanElement>(null)
@@ -187,7 +188,7 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
         {/* Desktop actions */}
         <div className="hidden md:flex items-center gap-6">
           <Link
-            href={`/${otherLang}`}
+            href={otherLangHref}
             className="font-body transition-colors duration-150 hover:opacity-60"
             style={{
               fontSize: '0.5625rem',
@@ -293,7 +294,7 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
 
               <div className="flex items-center justify-between pt-5">
                 <Link
-                  href={`/${otherLang}`}
+                  href={otherLangHref}
                   className="font-body"
                   style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: langColor }}
                 >
