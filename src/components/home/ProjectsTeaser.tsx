@@ -110,20 +110,20 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
       style={{
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-        background: 'oklch(98% 0.006 80)',
+        background: 'oklch(99% 0.004 80)',
         borderTop: '1px solid oklch(87% 0.014 75)',
       }}
     >
-      {/* 04 / FIELD RECORD */}
+      {/* FIELD RECORD */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
-        className="flex items-baseline gap-5 mb-12"
+        className={`flex items-baseline gap-5 mb-12 ${isAr ? 'flex-row-reverse' : ''}`}
       >
         <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
-          04 /
+          —
         </span>
         <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 75)' }}>
           {isAr ? 'سجل الميدان' : 'FIELD RECORD'}

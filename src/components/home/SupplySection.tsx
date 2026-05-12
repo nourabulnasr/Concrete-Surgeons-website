@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'motion/react'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -248,13 +249,15 @@ export function SupplySection({ lang }: Props) {
             transition={{ duration: 0.4, delay: 0.6 }}
             style={{ marginTop: '2.5rem' }}
           >
-            <Link
-              href={`/${lang}/comparison`}
-              className="font-body"
-              style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}
-            >
-              {isAr ? '← مقارنة المواصفات مع هيلتي' : 'COMPARE SPECIFICATIONS VS HILTI →'}
-            </Link>
+            <MagneticButton strength={0.25}>
+              <Link
+                href={`/${lang}/comparison`}
+                className="font-body"
+                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}
+              >
+                {isAr ? '← مقارنة المواصفات مع هيلتي' : 'COMPARE SPECIFICATIONS VS HILTI →'}
+              </Link>
+            </MagneticButton>
           </motion.div>
         </div>
       </div>

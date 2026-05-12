@@ -6,46 +6,76 @@ const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 const certs = [
   {
-    nameEn: 'Safety Report',
-    nameAr: 'تقرير السلامة',
-    authorityEn: 'CTC — National Center of Quality Supervision',
-    authorityAr: 'المركز الوطني للإشراف على الجودة',
+    nameEn: 'ISO 9001:2015',
+    nameAr: 'ISO 9001:2015',
+    authorityEn: 'TQCSI — Australia',
+    authorityAr: 'TQCSI — أستراليا',
   },
   {
-    nameEn: 'Non-Toxic Report',
-    nameAr: 'تقرير عدم السمية',
-    authorityEn: 'National Building Materials Test Center',
-    authorityAr: 'المركز الوطني لاختبار مواد البناء',
+    nameEn: 'CE Mark',
+    nameAr: 'علامة CE',
+    authorityEn: 'European Conformity',
+    authorityAr: 'المطابقة الأوروبية',
   },
   {
-    nameEn: 'Horizontal Flame Resistance',
-    nameAr: 'مقاومة اللهب الأفقي',
-    authorityEn: 'National Fire Systems QC Center',
-    authorityAr: 'مركز ضمان جودة أنظمة الحريق',
+    nameEn: 'UKAS Management Systems',
+    nameAr: 'أنظمة إدارة UKAS',
+    authorityEn: 'UK Accreditation Service',
+    authorityAr: 'هيئة الاعتماد البريطانية',
   },
   {
-    nameEn: 'Non-Ethanediamine',
-    nameAr: 'خلو من الإيثانولامين',
-    authorityEn: 'National Building Materials Test Center',
-    authorityAr: 'المركز الوطني لاختبار مواد البناء',
+    nameEn: 'TÜV Rheinland',
+    nameAr: 'TÜV راينلاند',
+    authorityEn: 'Germany',
+    authorityAr: 'ألمانيا',
   },
   {
-    nameEn: 'Acute Oral Toxicity',
-    nameAr: 'السمية الفموية الحادة',
-    authorityEn: 'Shanghai CDC',
-    authorityAr: 'مركز مكافحة أمراض شنغهاي',
+    nameEn: 'JAS-ANZ',
+    nameAr: 'JAS-ANZ',
+    authorityEn: 'Joint Accreditation — Australia / New Zealand',
+    authorityAr: 'الاعتماد المشترك — أستراليا / نيوزيلندا',
   },
   {
-    nameEn: 'Welding Resistance',
-    nameAr: 'مقاومة اللحام',
-    authorityEn: 'Independent Laboratory',
-    authorityAr: 'مختبر مستقل',
+    nameEn: 'TQCSI',
+    nameAr: 'TQCSI',
+    authorityEn: 'Total Quality Certification Services International',
+    authorityAr: 'خدمات التصديق على الجودة الكلية الدولية',
   },
   {
-    nameEn: 'Anchor Fatigue Test',
-    nameAr: 'اختبار إجهاد المثبت',
-    authorityEn: 'Independent Laboratory',
-    authorityAr: 'مختبر مستقل',
+    nameEn: 'ECM',
+    nameAr: 'ECM',
+    authorityEn: 'Italy',
+    authorityAr: 'إيطاليا',
+  },
+  {
+    nameEn: 'ICRI',
+    nameAr: 'ICRI',
+    authorityEn: 'International Concrete Repair Institute',
+    authorityAr: 'المعهد الدولي لإصلاح الخرسانة',
+  },
+  {
+    nameEn: 'AACB',
+    nameAr: 'AACB',
+    authorityEn: 'Association of Accredited Certification Bodies',
+    authorityAr: 'رابطة هيئات التصديق المعتمدة',
+  },
+  {
+    nameEn: 'IAF',
+    nameAr: 'IAF',
+    authorityEn: 'International Accreditation Forum',
+    authorityAr: 'المنتدى الدولي للاعتماد',
+  },
+  {
+    nameEn: 'CMA / MA',
+    nameAr: 'CMA / MA',
+    authorityEn: 'China Metrology Accreditation',
+    authorityAr: 'اعتماد القياس الصيني',
+  },
+  {
+    nameEn: 'CNAS + ILAC-MRA',
+    nameAr: 'CNAS + ILAC-MRA',
+    authorityEn: 'China National Accreditation + International Mutual Recognition',
+    authorityAr: 'الاعتماد الوطني الصيني + التقدير المتبادل الدولي',
   },
 ]
 
@@ -123,7 +153,7 @@ export function CertFilmStrip({ lang }: Props) {
               marginBottom: '3rem',
             }}
           >
-            {isAr ? '03 / سجل الاعتمادات' : '03 / CERTIFICATION RECORD'}
+            {isAr ? 'سجل الاعتمادات' : 'CERTIFICATION RECORD'}
           </p>
           <div style={{ borderTop: '1px solid oklch(20% 0.015 75)' }}>
             {certs.map((cert) => (
@@ -215,18 +245,6 @@ export function CertFilmStrip({ lang }: Props) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: E }}
             >
-              <p
-                className="font-body"
-                style={{
-                  fontSize: '0.5rem',
-                  letterSpacing: '0.25em',
-                  textTransform: 'uppercase',
-                  color: 'oklch(60% 0.20 65)',
-                  marginBottom: '1.5rem',
-                }}
-              >
-                03 /
-              </p>
               <h2
                 className="font-display uppercase"
                 style={{
@@ -253,8 +271,8 @@ export function CertFilmStrip({ lang }: Props) {
                 }}
               >
                 {isAr
-                  ? 'سبعة مختبرات مستقلة\nست وعشرون خاصية إنشائية'
-                  : 'SEVEN INDEPENDENT\nLABORATORIES'}
+                  ? 'اثنتا عشرة شهادة دولية\nسبعة مختبرات مستقلة'
+                  : 'TWELVE INTERNATIONAL\nCERTIFICATIONS'}
               </p>
               <p
                 className="font-body hidden md:block"
@@ -367,7 +385,7 @@ export function CertFilmStrip({ lang }: Props) {
                 color: 'oklch(28% 0.01 75)',
               }}
             >
-              {isAr ? 'HM-500 — ٢٦ خاصية' : 'HM-500 — 26 PROPERTIES'}
+              {isAr ? 'HM-500 — ١٢ شهادة' : 'HM-500 — 12 CERTIFICATIONS'}
             </p>
           </div>
         </motion.div>
