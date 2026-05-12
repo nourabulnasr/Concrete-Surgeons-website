@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { hasLocale, getDictionary } from '@/lib/dictionaries'
 import { CinematicHero } from '@/components/home/CinematicHero'
-import { ProductReveal } from '@/components/home/ProductReveal'
 import { ServicesGrid } from '@/components/home/ServicesGrid'
+import { DemolitionSection } from '@/components/home/DemolitionSection'
+import { SupplySection } from '@/components/home/SupplySection'
+import { ProductReveal } from '@/components/home/ProductReveal'
+import { EgyptianProjects } from '@/components/home/EgyptianProjects'
 import { CertFilmStrip } from '@/components/home/CertFilmStrip'
 import { ProjectsTeaser } from '@/components/home/ProjectsTeaser'
 import { CTASection } from '@/components/home/CTASection'
@@ -72,6 +75,7 @@ export default async function HomePage({
       'Concrete Drilling',
       'Firestop',
       'Concrete Polishing',
+      'HM-500 Injectable Epoxy',
     ],
     sameAs: [
       'https://www.facebook.com/ConcreteSurgeons/',
@@ -86,11 +90,23 @@ export default async function HomePage({
           __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
         }}
       />
+      {/* 01 — Hero */}
       <CinematicHero dict={dict} lang={lang as 'en' | 'ar'} />
-      <ProductReveal lang={lang as 'en' | 'ar'} />
+      {/* 02 — Two business arms overview */}
       <ServicesGrid dict={dict} lang={lang as 'en' | 'ar'} />
+      {/* 03 — Demolition & Structural deep-dive */}
+      <DemolitionSection lang={lang as 'en' | 'ar'} />
+      {/* 04 — HM-500 supply deep-dive */}
+      <SupplySection lang={lang as 'en' | 'ar'} />
+      {/* 3D product reveal — no section number, immersive */}
+      <ProductReveal lang={lang as 'en' | 'ar'} />
+      {/* 05 — Verified in the field: 5 Egyptian projects */}
+      <EgyptianProjects lang={lang as 'en' | 'ar'} />
+      {/* Certifications film strip */}
       <CertFilmStrip lang={lang as 'en' | 'ar'} />
+      {/* 500+ parallax teaser */}
       <ProjectsTeaser dict={dict} lang={lang as 'en' | 'ar'} />
+      {/* 06 — Contact */}
       <CTASection dict={dict} lang={lang as 'en' | 'ar'} />
     </>
   )

@@ -29,7 +29,7 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
         className="flex items-baseline gap-5 mb-12"
       >
         <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
-          05 /
+          06 /
         </span>
         <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 75)' }}>
           {isAr ? 'التواصل' : 'CONTACT'}
