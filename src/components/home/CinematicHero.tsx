@@ -153,6 +153,28 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
         overflow: 'hidden',
       }}
     >
+      {/* Video bg — src swapped when Amr's footage is ready; graceful no-op if missing */}
+      {!prefersReduced && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: 0.15,
+            pointerEvents: 'none',
+          }}
+        >
+          <source src="/videos/hero-drilling.mp4" type="video/mp4" />
+        </video>
+      )}
+
       {!prefersReduced && <CinematicCanvas />}
 
       <div

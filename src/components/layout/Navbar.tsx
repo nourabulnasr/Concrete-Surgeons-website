@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'motion/react'
+import gsap from 'gsap'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import type { Dictionary } from '@/lib/dictionaries'
 
@@ -16,11 +17,40 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
   const pathname = usePathname()
   const otherLang = lang === 'en' ? 'ar' : 'en'
   const darkCountRef = useRef(new Map<Element, boolean>())
+  const logoAccentRef = useRef<HTMLSpanElement>(null)
+  const logoTextRef = useRef<HTMLSpanElement>(null)
+  const morphFiredRef = useRef(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Reset morph trigger on page navigation so it can fire on the next homepage visit
+  useEffect(() => {
+    morphFiredRef.current = false
+  }, [pathname])
+
+  // Hero-exit logo morph — fires once when hero number has fully faded (~scrollY 580)
+  useEffect(() => {
+    const onScroll = () => {
+      if (morphFiredRef.current) return
+      if (window.scrollY < 580) return
+      morphFiredRef.current = true
+      gsap.fromTo(
+        logoAccentRef.current,
+        { y: -5 },
+        { y: 0, duration: 0.45, ease: 'expo.out', clearProps: 'transform' }
+      )
+      gsap.fromTo(
+        logoTextRef.current,
+        { y: -5 },
+        { y: 0, duration: 0.55, delay: 0.07, ease: 'expo.out', clearProps: 'transform' }
+      )
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -104,6 +134,7 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
           aria-label="Concrete Surgeons — Home"
         >
           <span
+            ref={logoAccentRef}
             className="font-body"
             style={{
               fontSize: '0.4375rem',
@@ -116,6 +147,7 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
             CS /
           </span>
           <span
+            ref={logoTextRef}
             className="font-display uppercase group-hover:opacity-70 transition-opacity duration-200"
             style={{
               fontSize: '0.8125rem',

@@ -112,8 +112,8 @@ export function ProductReveal({ lang }: Props) {
             }}
           >
             {isAr
-              ? 'مقاومة شد ≥ 13 ميغاباسكال — ≥ 99 ميغاباسكال ضغطي — 26 خاصية مثبتة ميدانياً'
-              : '≥13 MPa bond strength — ≥99 MPa compressive — 26 field-proven properties'}
+              ? 'مقاومة شد ≥ 13 ميغاباسكال — ≥ 99 ميغاباسكال ضغطي — تصلب كامل 6 ساعات عند ≥30°م'
+              : '≥13 MPa bond strength — ≥99 MPa compressive — 6-hr full cure at ≥30°C'}
           </p>
         </div>
       </section>
@@ -243,9 +243,9 @@ export function ProductReveal({ lang }: Props) {
               label: isAr ? 'ضغط محوري' : 'COMPRESSIVE',
             },
             {
-              n: '26',
-              unit: '',
-              label: isAr ? 'خاصية ميدانية مثبتة' : 'FIELD-PROVEN PROPERTIES',
+              n: '6',
+              unit: 'HRS',
+              label: isAr ? 'تصلب كامل ≥30°C' : 'FULL CURE AT ≥30°C',
             },
           ].map((spec, i) => (
             <motion.div
