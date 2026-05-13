@@ -66,10 +66,9 @@ export function DemolitionSection({ lang }: Props) {
 
   return (
     <section
-      data-navbar-dark="true"
       style={{
-        background: 'oklch(8% 0.02 75)',
-        borderTop: '1px solid oklch(18% 0.015 75)',
+        background: 'oklch(97% 0.008 75)',
+        borderTop: '1px solid oklch(87% 0.014 75)',
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
       }}
@@ -88,7 +87,7 @@ export function DemolitionSection({ lang }: Props) {
         <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(50% 0.01 75)' }}>
           {isAr ? 'الخدمات الإنشائية' : 'STRUCTURAL SERVICES'}
         </span>
-        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(22% 0.015 75)' }}>
+        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(40% 0.01 75)' }}>
           {isAr ? 'ست تخصصات — مقاول واحد مسؤول' : 'SIX CAPABILITIES — ONE ACCOUNTABLE CONTRACTOR'}
         </span>
       </motion.div>
@@ -108,7 +107,7 @@ export function DemolitionSection({ lang }: Props) {
             fontWeight: 900,
             lineHeight: 0.84,
             letterSpacing: '-0.04em',
-            color: 'oklch(13% 0.02 75)',
+            color: 'oklch(87% 0.01 75)',
           }}
         >
           6
@@ -126,7 +125,7 @@ export function DemolitionSection({ lang }: Props) {
           fontSize: 'clamp(0.5rem, 0.9vw, 0.6875rem)',
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
-          color: 'oklch(35% 0.01 75)',
+          color: 'oklch(50% 0.01 75)',
           marginBottom: 'clamp(3rem, 6vh, 5rem)',
         }}
       >
@@ -141,14 +140,14 @@ export function DemolitionSection({ lang }: Props) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-40px' }}
-        style={{ borderTop: '1px solid oklch(18% 0.015 75)' }}
+        style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}
       >
         {capabilities.map((cap, i) => (
           <motion.div key={cap.slug} variants={itemVariants}>
             <Link
               href={`/${lang}/services/${cap.slug}`}
               className="group block"
-              style={{ borderBottom: '1px solid oklch(18% 0.015 75)' }}
+              style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
             >
               <div
                 className="grid items-center py-5 md:py-6"
@@ -162,7 +161,7 @@ export function DemolitionSection({ lang }: Props) {
                   className="font-incident block"
                   style={{
                     fontSize: 'clamp(1.25rem, 2vw, 1.75rem)',
-                    color: 'oklch(22% 0.015 75)',
+                    color: 'oklch(80% 0.012 75)',
                     fontWeight: 900,
                     lineHeight: 1,
                   }}
@@ -175,7 +174,7 @@ export function DemolitionSection({ lang }: Props) {
                     className="font-display uppercase group-hover:text-[oklch(60%_0.20_65)] transition-colors duration-150"
                     style={{
                       fontSize: 'clamp(1rem, 1.8vw, 1.6rem)',
-                      color: 'oklch(82% 0.01 75)',
+                      color: 'oklch(12% 0.025 75)',
                       fontWeight: 700,
                       letterSpacing: '-0.01em',
                       lineHeight: 1.1,
@@ -187,7 +186,7 @@ export function DemolitionSection({ lang }: Props) {
                     className="font-body mt-1 hidden md:block"
                     style={{
                       fontSize: '0.625rem',
-                      color: 'oklch(38% 0.01 75)',
+                      color: 'oklch(54% 0.01 75)',
                       lineHeight: 1.5,
                     }}
                   >
@@ -197,7 +196,7 @@ export function DemolitionSection({ lang }: Props) {
 
                 <span
                   className="font-body group-hover:text-[oklch(60%_0.20_65)] transition-colors duration-150"
-                  style={{ fontSize: '0.75rem', color: 'oklch(28% 0.015 75)' }}
+                  style={{ fontSize: '0.75rem', color: 'oklch(48% 0.015 75)' }}
                 >
                   {isAr ? '←' : '→'}
                 </span>

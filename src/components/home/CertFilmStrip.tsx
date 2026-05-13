@@ -135,11 +135,10 @@ export function CertFilmStrip({ lang }: Props) {
   if (prefersReduced) {
     return (
       <section
-        data-navbar-dark="true"
         style={{
-          background: 'oklch(8% 0.02 75)',
+          background: 'oklch(96% 0.01 75)',
           padding: 'clamp(5rem, 10vh, 8rem) clamp(1.5rem, 5vw, 5rem)',
-          borderTop: '1px solid oklch(15% 0.015 75)',
+          borderTop: '1px solid oklch(87% 0.014 75)',
         }}
       >
         <div className="container">
@@ -155,12 +154,12 @@ export function CertFilmStrip({ lang }: Props) {
           >
             {isAr ? 'سجل الاعتمادات' : 'CERTIFICATION RECORD'}
           </p>
-          <div style={{ borderTop: '1px solid oklch(20% 0.015 75)' }}>
+          <div style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}>
             {certs.map((cert) => (
               <div
                 key={cert.nameEn}
                 style={{
-                  borderBottom: '1px solid oklch(20% 0.015 75)',
+                  borderBottom: '1px solid oklch(87% 0.014 75)',
                   padding: '1.25rem 0',
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -169,7 +168,7 @@ export function CertFilmStrip({ lang }: Props) {
               >
                 <span
                   className="font-body"
-                  style={{ fontSize: '0.875rem', color: 'oklch(80% 0.008 75)' }}
+                  style={{ fontSize: '0.875rem', color: 'oklch(14% 0.025 75)' }}
                 >
                   {isAr ? cert.nameAr : cert.nameEn}
                 </span>
@@ -198,7 +197,6 @@ export function CertFilmStrip({ lang }: Props) {
     // On mobile, CSS overrides to height: auto via .csm-cert-outer.
     <div
       ref={outerRef}
-      data-navbar-dark="true"
       className="csm-cert-outer"
       style={{ position: 'relative' }}
     >
@@ -206,8 +204,8 @@ export function CertFilmStrip({ lang }: Props) {
       <section
         className="csm-cert-section"
         style={{
-          background: 'oklch(8% 0.02 75)',
-          borderTop: '1px solid oklch(15% 0.015 75)',
+          background: 'oklch(96% 0.01 75)',
+          borderTop: '1px solid oklch(87% 0.014 75)',
           overflow: 'hidden',
           position: 'sticky',
           top: 0,
@@ -236,7 +234,7 @@ export function CertFilmStrip({ lang }: Props) {
               flexDirection: 'column',
               justifyContent: 'flex-end',
               padding: 'clamp(3rem, 6vh, 5rem) clamp(2rem, 4vw, 4rem)',
-              borderRight: '1px solid oklch(18% 0.015 75)',
+              borderRight: '1px solid oklch(87% 0.014 75)',
             }}
           >
             <motion.div
@@ -252,7 +250,7 @@ export function CertFilmStrip({ lang }: Props) {
                   fontWeight: 700,
                   letterSpacing: '-0.02em',
                   lineHeight: 1.0,
-                  color: 'oklch(96% 0.008 75)',
+                  color: 'oklch(12% 0.025 75)',
                   whiteSpace: 'pre-line',
                 }}
               >
@@ -265,7 +263,7 @@ export function CertFilmStrip({ lang }: Props) {
                   fontSize: '0.625rem',
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: 'oklch(38% 0.01 75)',
+                  color: 'oklch(54% 0.01 75)',
                   lineHeight: 1.6,
                   whiteSpace: 'pre-line',
                 }}
@@ -281,7 +279,7 @@ export function CertFilmStrip({ lang }: Props) {
                   fontSize: '0.4375rem',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: 'oklch(28% 0.01 75)',
+                  color: 'oklch(44% 0.01 75)',
                 }}
               >
                 {isAr ? '← مرر للاستكشاف' : 'SCROLL TO EXPLORE →'}
@@ -304,7 +302,7 @@ export function CertFilmStrip({ lang }: Props) {
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   padding: 'clamp(3rem, 6vh, 5rem) clamp(2rem, 4vw, 3.5rem)',
-                  borderRight: '1px solid oklch(18% 0.015 75)',
+                  borderRight: '1px solid oklch(87% 0.014 75)',
                 }}
               >
                 <span
@@ -314,7 +312,7 @@ export function CertFilmStrip({ lang }: Props) {
                     fontWeight: 900,
                     lineHeight: 0.88,
                     letterSpacing: '-0.04em',
-                    color: 'oklch(14% 0.018 75)',
+                    color: 'oklch(88% 0.01 75)',
                   }}
                 >
                   {String(i + 1).padStart(2, '0')}
@@ -328,7 +326,7 @@ export function CertFilmStrip({ lang }: Props) {
                       fontWeight: 700,
                       letterSpacing: '-0.01em',
                       lineHeight: 1.1,
-                      color: 'oklch(96% 0.008 75)',
+                      color: 'oklch(12% 0.025 75)',
                       marginBottom: '0.75rem',
                     }}
                   >
@@ -340,7 +338,7 @@ export function CertFilmStrip({ lang }: Props) {
                       fontSize: '0.5625rem',
                       letterSpacing: '0.12em',
                       textTransform: 'uppercase',
-                      color: 'oklch(40% 0.01 75)',
+                      color: 'oklch(58% 0.01 75)',
                       lineHeight: 1.5,
                       marginBottom: '1.5rem',
                     }}
@@ -382,7 +380,7 @@ export function CertFilmStrip({ lang }: Props) {
                 fontSize: '0.4375rem',
                 letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                color: 'oklch(28% 0.01 75)',
+                color: 'oklch(44% 0.01 75)',
               }}
             >
               {isAr ? 'HM-500 — ١٢ شهادة' : 'HM-500 — 12 CERTIFICATIONS'}

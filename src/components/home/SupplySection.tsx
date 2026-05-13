@@ -59,10 +59,9 @@ export function SupplySection({ lang }: Props) {
 
   return (
     <section
-      data-navbar-dark="true"
       style={{
-        background: 'oklch(9% 0.018 75)',
-        borderTop: '1px solid oklch(15% 0.015 75)',
+        background: 'oklch(99% 0.004 80)',
+        borderTop: '1px solid oklch(87% 0.014 75)',
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
       }}
@@ -81,7 +80,7 @@ export function SupplySection({ lang }: Props) {
         <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(50% 0.01 75)' }}>
           {isAr ? 'توريد HM-500' : 'HM-500 SUPPLY'}
         </span>
-        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(22% 0.015 75)' }}>
+        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(40% 0.01 75)' }}>
           {isAr ? 'الموزع الإقليمي المعتمد — مصر' : 'AUTHORIZED REGIONAL DISTRIBUTOR · EGYPT'}
         </span>
       </motion.div>
@@ -104,7 +103,7 @@ export function SupplySection({ lang }: Props) {
                 fontWeight: 900,
                 lineHeight: 0.84,
                 letterSpacing: '-0.03em',
-                color: 'oklch(14% 0.02 75)',
+                color: 'oklch(88% 0.01 75)',
               }}
             >
               HM-500
@@ -121,7 +120,7 @@ export function SupplySection({ lang }: Props) {
               fontSize: 'clamp(0.5rem, 0.9vw, 0.6875rem)',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'oklch(35% 0.01 75)',
+              color: 'oklch(52% 0.01 75)',
               lineHeight: 1.8,
             }}
           >
@@ -136,15 +135,15 @@ export function SupplySection({ lang }: Props) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease: E }}
-            style={{ marginTop: '2.5rem', borderTop: '1px solid oklch(18% 0.015 75)' }}
+            style={{ marginTop: '2.5rem', borderTop: '1px solid oklch(87% 0.014 75)' }}
           >
             {specs.map((s) => (
               <div
                 key={s.labelEn}
                 className={`flex items-baseline justify-between py-3.5 ${isAr ? 'flex-row-reverse' : ''}`}
-                style={{ borderBottom: '1px solid oklch(14% 0.015 75)' }}
+                style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
               >
-                <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(35% 0.01 75)' }}>
+                <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(54% 0.01 75)' }}>
                   {isAr ? s.labelAr : s.labelEn}
                 </span>
                 <span className="font-incident" style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1.2rem)', fontWeight: 900, color: 'oklch(60% 0.20 65)', letterSpacing: '-0.01em' }}>
@@ -192,7 +191,7 @@ export function SupplySection({ lang }: Props) {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
             className="font-body mb-8"
-            style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(32% 0.01 75)' }}
+            style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(52% 0.01 75)' }}
           >
             {isAr ? 'أربع تقنيات احتكارية' : '4 PROPRIETARY TECHNOLOGIES'}
           </motion.p>
@@ -207,12 +206,12 @@ export function SupplySection({ lang }: Props) {
               <motion.div
                 key={tech.n}
                 variants={techItem}
-                style={{ borderTop: '1px solid oklch(16% 0.015 75)', paddingBlock: '1.5rem' }}
+                style={{ borderTop: '1px solid oklch(87% 0.014 75)', paddingBlock: '1.5rem' }}
               >
                 <div className={`flex gap-5 items-start ${isAr ? 'flex-row-reverse' : ''}`}>
                   <span
                     className="font-incident shrink-0"
-                    style={{ fontSize: '0.875rem', fontWeight: 900, color: 'oklch(28% 0.015 75)', letterSpacing: '-0.01em', paddingTop: '0.1rem' }}
+                    style={{ fontSize: '0.875rem', fontWeight: 900, color: 'oklch(44% 0.015 75)', letterSpacing: '-0.01em', paddingTop: '0.1rem' }}
                   >
                     {tech.n}
                   </span>
@@ -222,7 +221,7 @@ export function SupplySection({ lang }: Props) {
                       style={{
                         fontSize: '0.6875rem',
                         fontWeight: 600,
-                        color: 'oklch(72% 0.01 75)',
+                        color: 'oklch(14% 0.025 75)',
                         lineHeight: 1.3,
                         marginBottom: '0.5rem',
                       }}
@@ -231,7 +230,7 @@ export function SupplySection({ lang }: Props) {
                     </p>
                     <p
                       className="font-body"
-                      style={{ fontSize: '0.625rem', color: 'oklch(40% 0.01 75)', lineHeight: 1.65 }}
+                      style={{ fontSize: '0.625rem', color: 'oklch(58% 0.01 75)', lineHeight: 1.65 }}
                     >
                       {isAr ? tech.bodyAr : tech.bodyEn}
                     </p>
@@ -239,7 +238,7 @@ export function SupplySection({ lang }: Props) {
                 </div>
               </motion.div>
             ))}
-            <div style={{ borderTop: '1px solid oklch(16% 0.015 75)' }} />
+            <div style={{ borderTop: '1px solid oklch(87% 0.014 75)' }} />
           </motion.div>
 
           <motion.div

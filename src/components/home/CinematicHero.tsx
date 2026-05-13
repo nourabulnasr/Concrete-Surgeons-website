@@ -153,6 +153,12 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
         overflow: 'hidden',
       }}
     >
+      <h1 className="sr-only">
+        {isAr
+          ? 'جراحو الخرسانة مصر — قطع الخرسانة بالماس، الهدم الهندسي، وتوريد إيبوكسي HM-500'
+          : 'Concrete Surgeons Egypt — Diamond Sawing, Controlled Demolition & HM-500 Epoxy'}
+      </h1>
+
       {/* Video bg — src swapped when Amr's footage is ready; graceful no-op if missing */}
       {!prefersReduced && (
         <video

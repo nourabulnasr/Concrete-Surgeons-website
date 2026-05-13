@@ -72,9 +72,9 @@ export function ProductReveal({ lang }: Props) {
     return (
       <section
         style={{
-          background: 'oklch(9% 0.02 75)',
+          background: 'oklch(99% 0.004 80)',
           padding: 'clamp(5rem, 12vw, 8rem) clamp(1.5rem, 5vw, 4rem)',
-          borderTop: '1px solid oklch(18% 0.015 75)',
+          borderTop: '1px solid oklch(87% 0.014 75)',
         }}
       >
         <div className="container">
@@ -97,7 +97,7 @@ export function ProductReveal({ lang }: Props) {
               fontWeight: 700,
               letterSpacing: '-0.02em',
               lineHeight: 1.05,
-              color: 'oklch(96% 0.008 75)',
+              color: 'oklch(12% 0.025 75)',
             }}
           >
             {isAr ? 'نظام التثبيت\nHM-500' : 'HM-500\nANCHOR SYSTEM'}
@@ -106,7 +106,7 @@ export function ProductReveal({ lang }: Props) {
             className="font-body mt-6"
             style={{
               fontSize: '0.875rem',
-              color: 'oklch(50% 0.01 75)',
+              color: 'oklch(45% 0.01 75)',
               lineHeight: 1.7,
               maxWidth: '42ch',
             }}
@@ -210,7 +210,7 @@ export function ProductReveal({ lang }: Props) {
               fontSize: '0.4375rem',
               letterSpacing: '0.25em',
               textTransform: 'uppercase',
-              color: 'oklch(38% 0.01 75)',
+              color: 'oklch(52% 0.01 75)',
             }}
           >
             {isAr ? '← اسحب' : 'drag →'}
@@ -285,7 +285,7 @@ export function ProductReveal({ lang }: Props) {
                   fontSize: '0.4375rem',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  color: 'oklch(45% 0.01 75)',
+                  color: 'oklch(58% 0.01 75)',
                   marginTop: '0.25rem',
                 }}
               >

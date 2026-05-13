@@ -95,7 +95,7 @@ export function AboutContent({ dict, lang }: Props) {
             <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
               —
             </span>
-            <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(40% 0.01 75)' }}>
+            <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(54% 0.01 75)' }}>
               {a.eyebrow}
             </span>
           </motion.div>
@@ -128,7 +128,7 @@ export function AboutContent({ dict, lang }: Props) {
                   fontSize: '0.5625rem',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  color: 'oklch(32% 0.01 75)',
+                  color: 'oklch(46% 0.01 75)',
                   lineHeight: 1,
                   whiteSpace: 'nowrap',
                 }}

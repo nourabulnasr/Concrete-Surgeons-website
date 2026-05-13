@@ -30,7 +30,7 @@ export async function generateMetadata({
     title,
     description: tagline,
     alternates: buildAlternates(lang, `/services/${slug}`),
-    openGraph: buildOG(lang, title, tagline),
+    openGraph: buildOG(lang, title, tagline, `/services/${slug}`),
     twitter: buildTwitter(title, tagline),
   }
 }

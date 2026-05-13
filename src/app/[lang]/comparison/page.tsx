@@ -16,7 +16,7 @@ export async function generateMetadata({
     title: dict.meta.comparisonTitle,
     description: dict.meta.comparisonDescription,
     alternates: buildAlternates(lang, '/comparison'),
-    openGraph: buildOG(lang, dict.meta.comparisonTitle, dict.meta.comparisonDescription),
+    openGraph: buildOG(lang, dict.meta.comparisonTitle, dict.meta.comparisonDescription, '/comparison'),
     twitter: buildTwitter(dict.meta.comparisonTitle, dict.meta.comparisonDescription),
   }
 }

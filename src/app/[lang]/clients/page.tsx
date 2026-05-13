@@ -20,7 +20,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: buildAlternates(lang, '/clients'),
-    openGraph: buildOG(lang, title, description),
+    openGraph: buildOG(lang, title, description, '/clients'),
     twitter: buildTwitter(title, description),
   }
 }

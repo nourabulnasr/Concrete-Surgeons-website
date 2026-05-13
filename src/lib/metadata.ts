@@ -11,8 +11,9 @@ export function buildAlternates(lang: string, path: string) {
   }
 }
 
-export function buildOG(lang: string, title: string, description: string) {
+export function buildOG(lang: string, title: string, description: string, path = '') {
   return {
+    url: `https://csmisr.com/${lang}${path}`,
     siteName: 'Concrete Surgeons',
     locale: lang === 'ar' ? 'ar_EG' : 'en_US',
     type: 'website' as const,

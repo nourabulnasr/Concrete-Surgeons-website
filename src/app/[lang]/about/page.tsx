@@ -16,7 +16,7 @@ export async function generateMetadata({
     title: dict.meta.aboutTitle,
     description: dict.meta.aboutDescription,
     alternates: buildAlternates(lang, '/about'),
-    openGraph: buildOG(lang, dict.meta.aboutTitle, dict.meta.aboutDescription),
+    openGraph: buildOG(lang, dict.meta.aboutTitle, dict.meta.aboutDescription, '/about'),
     twitter: buildTwitter(dict.meta.aboutTitle, dict.meta.aboutDescription),
   }
 }
