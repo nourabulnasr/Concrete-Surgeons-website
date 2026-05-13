@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useScroll, useTransform, useSpring } from 'motion/react'
 import { useRef } from 'react'
@@ -31,6 +32,8 @@ const projects = [
     descriptionEn: 'High-reach demolition of a pharmaceutical facility while maintaining adjacent operational areas. Zero production downtime.',
     descriptionAr: 'هدم عالي الارتفاع لمنشأة صناعية دوائية مع الحفاظ على المناطق التشغيلية المجاورة. صفر توقف إنتاجي.',
     client: 'GSK',
+    image: '/projects/gsk-demolition.png',
+    imageAlt: 'GSK pharmaceutical facility high-reach selective concrete demolition — Concrete Surgeons Egypt controlled demolition specialists',
   },
   {
     slug: 'damietta-port-anchoring',
@@ -44,6 +47,8 @@ const projects = [
     descriptionEn: 'Post-installed adhesive anchoring for marine quay structures. Wet environment installation with full pull-out documentation.',
     descriptionAr: 'تثبيت لاصق لاحق لهياكل أرصفة بحرية. تركيب في بيئة رطبة مع توثيق كامل لاختبار السحب.',
     client: 'Damietta Containers & Cargo',
+    image: '/projects/damietta-port.jpg',
+    imageAlt: 'Damietta Port marine quay adhesive anchoring with HM-500 epoxy in wet conditions — Concrete Surgeons Egypt drilling and anchoring',
   },
   {
     slug: 'diamond-wire-cutting',
@@ -57,6 +62,8 @@ const projects = [
     descriptionEn: 'Diamond wire sawing for large structural openings in a high-rise concrete core. Dust-free, vibration-free cutting in an occupied building.',
     descriptionAr: 'قطع بالسلك الماسي لفتحات إنشائية كبيرة في قلب خرساني. قطع خالٍ من الغبار والاهتزاز في مبنى مأهول.',
     client: null,
+    image: '/projects/diamond-wire-cutting.jpg',
+    imageAlt: 'Diamond wire sawing for large structural concrete opening in occupied Cairo high-rise — Concrete Surgeons Egypt diamond sawing specialists',
   },
   {
     slug: 'cfrp-structural-retrofitting',
@@ -70,6 +77,8 @@ const projects = [
     descriptionEn: 'CFRP laminate strengthening of beams and columns following structural assessment. Full load verification and documentation.',
     descriptionAr: 'تدعيم لاميناتCFRP للكمرات والأعمدة عقب التقييم الإنشائي. تحقق كامل من الحمل وتوثيق.',
     client: null,
+    image: '/projects/structural-retrofitting.jpg',
+    imageAlt: 'CFRP carbon fibre reinforced polymer structural retrofitting and beam strengthening on commercial tower in Cairo — Concrete Surgeons Egypt',
   },
   {
     slug: 'controlled-demolition-industrial',
@@ -83,6 +92,8 @@ const projects = [
     descriptionEn: 'Interior strip-out and partial slab demolition in an operational manufacturing facility using Brokk robotic demolition.',
     descriptionAr: 'هدم داخلي وهدم جزئي للألواح في منشأة تصنيع تشغيلية باستخدام روبوت بروك للهدم.',
     client: null,
+    image: '/projects/demolition.jpg',
+    imageAlt: 'Industrial selective strip-out and controlled concrete slab demolition in operational manufacturing facility, 6th of October Egypt — Concrete Surgeons',
   },
   {
     slug: 'rebar-anchoring-marine',
@@ -96,6 +107,8 @@ const projects = [
     descriptionEn: '840 post-installed adhesive anchors for a façade cladding system using HM-500 epoxy. 100% pull-out test pass rate.',
     descriptionAr: '840 مثبت لاصق لاحق لنظام كسوة واجهة باستخدام إيبوكسي HM-500. معدل نجاح 100% في اختبار السحب.',
     client: null,
+    image: '/projects/rebar-anchor.png',
+    imageAlt: '840 post-installed HM-500 adhesive rebar anchors for facade cladding system with 100% pull-out test pass rate — Concrete Surgeons Egypt',
   },
 ]
 
@@ -192,7 +205,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                     paddingInline: 'clamp(0.5rem, 1vw, 1rem)',
                   }}
                 >
-                  {/* Col 1: Index (RTL: right) */}
+                  {/* Col 1: Index */}
                   <span
                     className="font-incident"
                     style={{
@@ -225,8 +238,28 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                     </p>
                   </div>
 
-                  {/* Col 3: Meta — location · year · service (RTL: left) */}
-                  <div className="hidden lg:flex flex-col items-end gap-1 pt-0.5">
+                  {/* Col 3: Image + meta (desktop only) */}
+                  <div className="hidden lg:flex flex-col items-end gap-2 pt-0.5">
+                    {/* Project photo */}
+                    <div
+                      style={{
+                        position: 'relative',
+                        width: 140,
+                        height: 90,
+                        flexShrink: 0,
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.imageAlt}
+                        fill
+                        sizes="140px"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+
+                    {/* Year / service / location */}
                     <span
                       className="font-incident"
                       style={{

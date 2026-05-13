@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'motion/react'
 import { MagneticButton } from '@/components/ui/MagneticButton'
@@ -25,6 +26,8 @@ const clients = [
     industryAr: 'نفط وغاز',
     noteEn: 'Pipeline and refinery infrastructure',
     noteAr: 'بنية تحتية لخطوط الأنابيب والمصافي',
+    logo: '/clients/petrojet.png',
+    logoAlt: 'Petrojet logo — oil & gas client, diamond sawing and structural retrofitting by Concrete Surgeons Egypt',
   },
   {
     name: 'Horizon Egypt',
@@ -33,6 +36,8 @@ const clients = [
     industryAr: 'عقارات',
     noteEn: 'Residential high-rise structural work',
     noteAr: 'أعمال إنشائية في المباني السكنية الشاهقة',
+    logo: '/clients/horizon-egypt.png',
+    logoAlt: 'Horizon Egypt logo — real estate developer, structural retrofitting and drilling by Concrete Surgeons Egypt',
   },
   {
     name: 'Eng. Adnan Saffarini Office',
@@ -41,6 +46,8 @@ const clients = [
     industryAr: 'استشارات هندسية',
     noteEn: 'Structural assessment and retrofit',
     noteAr: 'تقييم إنشائي وتدعيم',
+    logo: '/clients/saffarini.png',
+    logoAlt: 'Eng. Adnan Saffarini Office logo — structural engineering consultancy, CFRP retrofitting and anchoring projects',
   },
   {
     name: 'Sika',
@@ -49,6 +56,8 @@ const clients = [
     industryAr: 'مواد بناء',
     noteEn: 'Certified installation partner',
     noteAr: 'شريك تركيب معتمد',
+    logo: '/clients/sika.png',
+    logoAlt: 'Sika logo — certified installation partner of Concrete Surgeons Egypt for HM-500 adhesive anchor systems',
   },
   {
     name: 'Ministry of Housing',
@@ -57,6 +66,8 @@ const clients = [
     industryAr: 'قطاع حكومي',
     noteEn: 'Public infrastructure projects',
     noteAr: 'مشاريع البنية التحتية العامة',
+    logo: '/clients/ministry-housing.png',
+    logoAlt: 'Ministry of Housing Egypt logo — government infrastructure client, controlled demolition and structural work',
   },
   {
     name: 'CNBM / Sinoma',
@@ -65,6 +76,8 @@ const clients = [
     industryAr: 'إنشاءات',
     noteEn: 'Industrial facility retrofitting',
     noteAr: 'تدعيم المنشآت الصناعية',
+    logo: '/clients/cnbm-sinoma.png',
+    logoAlt: 'CNBM Sinoma logo — industrial construction client, structural retrofitting and diamond sawing by Concrete Surgeons Egypt',
   },
   {
     name: 'GSK',
@@ -73,6 +86,8 @@ const clients = [
     industryAr: 'صناعات دوائية',
     noteEn: 'High-reach selective demolition',
     noteAr: 'هدم انتقائي عالي الارتفاع',
+    logo: '/clients/gsk.png',
+    logoAlt: 'GSK GlaxoSmithKline logo — pharmaceutical facility, high-reach selective demolition by Concrete Surgeons Egypt',
   },
   {
     name: 'Damietta Containers & Cargo',
@@ -81,6 +96,8 @@ const clients = [
     industryAr: 'موانئ ولوجستيات',
     noteEn: 'Marine infrastructure anchoring',
     noteAr: 'تثبيت بنية تحتية بحرية',
+    logo: '/clients/dchc.jpeg',
+    logoAlt: 'Damietta Containers and Cargo DCHC logo — port infrastructure, marine adhesive anchoring with HM-500 epoxy by Concrete Surgeons Egypt',
   },
 ]
 
@@ -156,13 +173,13 @@ export function ClientsContent({ lang, dict }: Props) {
                 <div
                   className="grid items-center hover:bg-[oklch(96%_0.008_75)] transition-colors duration-150"
                   style={{
-                    gridTemplateColumns: 'clamp(2rem, 4vw, 3.25rem) 1fr auto',
-                    gap: 'clamp(1.25rem, 2.5vw, 2.5rem)',
+                    gridTemplateColumns: 'clamp(2rem, 4vw, 3.25rem) 80px 1fr auto',
+                    gap: 'clamp(1rem, 2vw, 2rem)',
                     paddingBlock: 'clamp(1.25rem, 2vh, 2rem)',
                     paddingInline: 'clamp(0.5rem, 1vw, 1rem)',
                   }}
                 >
-                  {/* Col 1: Index (RTL: right) */}
+                  {/* Col 1: Index */}
                   <span
                     className="font-incident"
                     style={{
@@ -175,12 +192,36 @@ export function ClientsContent({ lang, dict }: Props) {
                     {String(i + 1).padStart(2, '0')}
                   </span>
 
-                  {/* Col 2: Name + note */}
+                  {/* Col 2: Logo */}
+                  <div
+                    style={{
+                      position: 'relative',
+                      width: 72,
+                      height: 36,
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Image
+                      src={client.logo}
+                      alt={client.logoAlt}
+                      fill
+                      sizes="72px"
+                      style={{
+                        objectFit: 'contain',
+                        objectPosition: isAr ? 'right center' : 'left center',
+                        filter: 'grayscale(1)',
+                        opacity: 0.65,
+                        transition: 'opacity 0.2s, filter 0.2s',
+                      }}
+                    />
+                  </div>
+
+                  {/* Col 3: Name + note */}
                   <div>
                     <div
                       className="font-display uppercase"
                       style={{
-                        fontSize: 'clamp(1.1rem, 2.2vw, 1.875rem)',
+                        fontSize: 'clamp(1rem, 2vw, 1.75rem)',
                         fontWeight: 700,
                         letterSpacing: '-0.01em',
                         lineHeight: 1.1,
@@ -197,7 +238,7 @@ export function ClientsContent({ lang, dict }: Props) {
                     </p>
                   </div>
 
-                  {/* Col 3: Industry badge (RTL: left) */}
+                  {/* Col 4: Industry badge */}
                   <div className="hidden sm:block flex-shrink-0">
                     <span
                       className="font-body"
