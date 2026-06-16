@@ -50,17 +50,17 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, ease: E }}
-            className={`flex items-center gap-2 text-xs text-stone-500 mb-10 uppercase tracking-widest ${isAr ? 'flex-row-reverse justify-end' : ''}`}
+            className={`flex items-center gap-2 text-xs text-[oklch(48%_0.007_264)] mb-10 uppercase tracking-widest ${isAr ? 'flex-row-reverse justify-end' : ''}`}
           >
-            <Link href={`/${lang}`} className="hover:text-stone-700 transition-colors">
+            <Link href={`/${lang}`} className="hover:text-[oklch(38%_0.008_264)] transition-colors">
               {isAr ? 'الرئيسية' : 'Home'}
             </Link>
-            <span className="text-stone-300">/</span>
-            <Link href={`/${lang}/services`} className="hover:text-stone-700 transition-colors">
+            <span className="text-[oklch(86%_0.005_264)]">/</span>
+            <Link href={`/${lang}/services`} className="hover:text-[oklch(38%_0.008_264)] transition-colors">
               {dict.services.sectionLabel}
             </Link>
-            <span className="text-stone-300">/</span>
-            <span className="text-stone-400">{name}</span>
+            <span className="text-[oklch(86%_0.005_264)]">/</span>
+            <span className="text-[oklch(58%_0.006_264)]">{name}</span>
           </motion.nav>
 
           {/* Hero row: monumental number + title */}
@@ -72,7 +72,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                 fontSize: 'clamp(5rem, 11vw, 10rem)',
                 fontWeight: 900,
                 lineHeight: 0.85,
-                color: 'oklch(90% 0.01 75)',
+                color: 'oklch(90% 0.01 264)',
                 letterSpacing: '-0.02em',
               }}
             >
@@ -88,7 +88,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                   fontWeight: 800,
                   letterSpacing: '-0.015em',
                   lineHeight: 1.0,
-                  color: 'oklch(12% 0.025 75)',
+                  color: 'oklch(12% 0.012 264)',
                   marginBottom: '0.75rem',
                   textAlign: isAr ? 'right' : 'left',
                 }}
@@ -102,7 +102,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                 className="font-body"
                 style={{
                   fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
-                  color: 'oklch(60% 0.20 65)',
+                  color: 'oklch(41% 0.144 264)',
                   maxWidth: '600px',
                   lineHeight: 1.5,
                   textAlign: isAr ? 'right' : 'left',
@@ -122,7 +122,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
         transition={{ duration: 0.7, ease: E, delay: 0.25 }}
         style={{
           height: '1px',
-          background: 'oklch(60% 0.20 65 / 0.4)',
+          background: 'oklch(41% 0.144 264 / 0.4)',
           transformOrigin: isAr ? 'right' : 'left',
         }}
       />
@@ -141,7 +141,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, ease: E, delay: i * 0.08 }}
-                    className="text-stone-600 leading-relaxed text-base"
+                    className="text-[oklch(48%_0.007_264)] leading-relaxed text-base"
                     style={{ textAlign: isAr ? 'right' : 'left' }}
                   >
                     {para}
@@ -166,14 +166,14 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                     <motion.li
                       key={i}
                       variants={sidebarItem}
-                      className={`flex items-start gap-3 text-sm text-stone-500 ${isAr ? 'flex-row-reverse' : ''}`}
+                      className={`flex items-start gap-3 text-sm text-[oklch(48%_0.007_264)] ${isAr ? 'flex-row-reverse' : ''}`}
                     >
                       <span
                         className="mt-1.5 flex-shrink-0 rounded-full"
                         style={{
                           width: '4px',
                           height: '4px',
-                          background: 'oklch(60% 0.20 65)',
+                          background: 'oklch(41% 0.144 264)',
                           display: 'inline-block',
                         }}
                       />
@@ -203,7 +203,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                         className="font-display font-700 flex-shrink-0 mt-0.5"
                         style={{
                           fontSize: '0.6875rem',
-                          color: 'oklch(60% 0.20 65)',
+                          color: 'oklch(41% 0.144 264)',
                           width: '1.25rem',
                           textAlign: isAr ? 'right' : 'left',
                         }}
@@ -211,7 +211,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <span
-                        className="text-sm text-stone-500"
+                        className="text-sm text-[oklch(48%_0.007_264)]"
                         style={{ textAlign: isAr ? 'right' : 'left' }}
                       >
                         {step}
@@ -229,12 +229,12 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                 transition={{ duration: 0.5, ease: E }}
                 className="p-6"
                 style={{
-                  background: 'oklch(96% 0.008 75)',
-                  border: '1px solid oklch(82% 0.015 75)',
+                  background: 'oklch(96% 0.008 264)',
+                  border: '1px solid oklch(82% 0.012 264)',
                 }}
               >
                 <p
-                  className="text-sm text-stone-400 mb-4"
+                  className="text-sm text-[oklch(58%_0.006_264)] mb-4"
                   style={{ textAlign: isAr ? 'right' : 'left' }}
                 >
                   {isAr ? 'هل تحتاج هذه الخدمة؟ تواصل معنا اليوم.' : 'Need this service? Get in touch today.'}
@@ -244,8 +244,8 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
                     href={`/${lang}/contact`}
                     className="block w-full text-center py-3 text-xs font-700 uppercase tracking-widest transition-colors hover:opacity-90"
                     style={{
-                      background: 'oklch(60% 0.20 65)',
-                      color: 'oklch(12% 0.025 75)',
+                      background: 'oklch(51% 0.207 29)',
+                      color: 'oklch(99% 0 264)',
                     }}
                   >
                     {dict.cta.primary}
@@ -258,7 +258,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
       </div>
 
       {/* Next service */}
-      <div style={{ borderTop: '1px solid oklch(82% 0.015 75)' }}>
+      <div style={{ borderTop: '1px solid oklch(82% 0.012 264)' }}>
         <Link
           href={`/${lang}/services/${nextService.slug}`}
           className={`group container flex items-center justify-between py-8 hover:opacity-75 transition-opacity ${isAr ? 'flex-row-reverse' : ''}`}
@@ -269,17 +269,17 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
               fontSize: '0.5625rem',
               textTransform: 'uppercase',
               letterSpacing: '0.2em',
-              color: 'oklch(55% 0.01 75)',
+              color: 'oklch(55% 0.01 264)',
             }}
           >
             {isAr ? 'الخدمة التالية' : 'Next Service'}
           </span>
           <div className={`flex items-center gap-4 ${isAr ? 'flex-row-reverse' : ''}`}>
             <span
-              className="font-display uppercase font-700 group-hover:text-[oklch(12%_0.025_75)] transition-colors"
+              className="font-display uppercase font-700 group-hover:text-[oklch(12%_0.012_264)] transition-colors"
               style={{
                 fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-                color: 'oklch(45% 0.01 75)',
+                color: 'oklch(45% 0.01 264)',
               }}
             >
               {nextName}
@@ -289,7 +289,7 @@ export function ServiceDetailContent({ service, lang, currentIndex, dict }: Prop
               height="16"
               viewBox="0 0 16 16"
               fill="none"
-              className="text-stone-400 group-hover:translate-x-1 transition-transform"
+              className="text-[oklch(58%_0.006_264)] group-hover:translate-x-1 transition-transform"
               style={{ transform: isAr ? 'scaleX(-1)' : undefined }}
             >
               <path

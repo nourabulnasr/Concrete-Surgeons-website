@@ -36,9 +36,9 @@ export function ContactForm({ dict, lang }: { dict: ContactDict; lang: 'en' | 'a
   }
 
   const inputClass =
-    'w-full bg-white border border-[oklch(82%_0.015_75)] px-4 py-3 text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-[oklch(60%_0.20_65)] transition-colors'
+    'w-full bg-white border border-[oklch(82%_0.012_264)] px-4 py-3 text-sm text-[oklch(26%_0.009_264)] placeholder:text-[oklch(58%_0.006_264)] focus:outline-none focus:border-[oklch(41%_0.144_264)] transition-colors'
 
-  const labelClass = 'block text-xs uppercase tracking-widest text-stone-500 mb-2'
+  const labelClass = 'block text-xs uppercase tracking-widest text-[oklch(48%_0.007_264)] mb-2'
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
@@ -132,7 +132,7 @@ export function ContactForm({ dict, lang }: { dict: ContactDict; lang: 'en' | 'a
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full py-4 bg-[oklch(60%_0.20_65)] text-[oklch(12%_0.025_75)] text-sm font-700 uppercase tracking-widest rounded-sm hover:bg-[oklch(52%_0.20_62)] disabled:opacity-60 transition-colors"
+        className="w-full py-4 bg-[oklch(51%_0.207_29)] text-[oklch(99%_0_264)] text-sm font-700 uppercase tracking-widest rounded-sm hover:bg-[oklch(44%_0.20_29)] disabled:opacity-60 transition-colors"
       >
         {status === 'loading' ? '...' : dict.submitLabel}
       </button>

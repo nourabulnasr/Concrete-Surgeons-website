@@ -39,7 +39,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
   return (
     <section
       className="relative min-h-svh overflow-hidden flex flex-col"
-      style={{ background: 'oklch(98% 0.006 80)' }}
+      style={{ background: 'oklch(98% 0.006 264)' }}
       aria-label="Hero"
     >
       {/* Ambient — subtle warm tint from bottom-left corner */}
@@ -48,7 +48,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 65% 55% at 10% 90%, oklch(85% 0.06 75 / 0.35), transparent)',
+            'radial-gradient(ellipse 65% 55% at 10% 90%, oklch(80% 0.05 264 / 0.28), transparent)',
         }}
       />
 
@@ -79,7 +79,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                 transition={{ duration: 0.55, ease: E, delay: 0.2 }}
                 style={{
                   fontSize: 'clamp(8.5rem, 35vw, 32rem)',
-                  color: 'oklch(10% 0.025 75)',
+                  color: 'oklch(10% 0.012 264)',
                   fontWeight: 900,
                   letterSpacing: '-0.02em',
                   lineHeight: 0.88,
@@ -106,7 +106,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                     fontSize: '0.5625rem',
                     letterSpacing: '0.22em',
                     textTransform: 'uppercase',
-                    color: 'oklch(45% 0.01 75)',
+                    color: 'oklch(45% 0.01 264)',
                     lineHeight: 1,
                     whiteSpace: 'nowrap',
                   }}
@@ -132,7 +132,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                 fontSize: '0.5625rem',
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
-                color: 'oklch(45% 0.01 75)',
+                color: 'oklch(45% 0.01 264)',
               }}
             >
               {isAr ? 'خاصية هندسية مختبرة' : 'STRUCTURAL PROPERTIES TESTED'}
@@ -152,7 +152,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
               transition={{ duration: 0.25, ease: 'linear', delay: 0.85 }}
               style={{
                 height: '1px',
-                background: 'oklch(87% 0.014 75)',
+                background: 'oklch(87% 0.012 264)',
                 originX: isAr ? 1 : 0,
               }}
             />
@@ -173,7 +173,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                   fontSize: '0.5625rem',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: 'oklch(60% 0.20 65)',
+                  color: 'oklch(41% 0.144 264)',
                 }}
               >
                 01 /
@@ -184,7 +184,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                   fontSize: '0.5625rem',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: 'oklch(45% 0.01 75)',
+                  color: 'oklch(45% 0.01 264)',
                 }}
               >
                 {isAr ? 'مواصفات المادة' : 'MATERIAL SPECIFICATION'}
@@ -195,7 +195,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                   fontSize: '0.5625rem',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: 'oklch(80% 0.015 75)',
+                  color: 'oklch(80% 0.012 264)',
                 }}
               >
                 {isAr ? 'جراحو الخرسانة — مصر' : 'CONCRETE SURGEONS — EGYPT'}
@@ -217,7 +217,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                   maxWidth: '52ch',
                   fontSize: 'clamp(0.8125rem, 0.5vw + 0.65rem, 0.9375rem)',
                   lineHeight: 1.72,
-                  color: 'oklch(40% 0.01 75)',
+                  color: 'oklch(40% 0.01 264)',
                 }}
               >
                 {h.body}
@@ -232,8 +232,8 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                   className="font-body inline-flex items-center"
                   style={{
                     padding: '0.875rem 1.5rem',
-                    background: 'oklch(60% 0.20 65)',
-                    color: 'oklch(12% 0.025 75)',
+                    background: 'oklch(51% 0.207 29)',
+                    color: 'oklch(99% 0 264)',
                     fontSize: '0.625rem',
                     fontWeight: 700,
                     letterSpacing: '0.15em',
@@ -241,10 +241,10 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                     transition: 'background 0.2s',
                   }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.background = 'oklch(52% 0.20 62)'
+                    e.currentTarget.style.background = 'oklch(44% 0.20 29)'
                   }}
                   onMouseOut={(e) => {
-                    e.currentTarget.style.background = 'oklch(60% 0.20 65)'
+                    e.currentTarget.style.background = 'oklch(51% 0.207 29)'
                   }}
                 >
                   {h.cta}
@@ -254,8 +254,8 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                   className="font-body inline-flex items-center"
                   style={{
                     padding: '0.875rem 1.5rem',
-                    border: '1px solid oklch(82% 0.015 75)',
-                    color: 'oklch(45% 0.01 75)',
+                    border: '1px solid oklch(82% 0.012 264)',
+                    color: 'oklch(45% 0.01 264)',
                     fontSize: '0.625rem',
                     fontWeight: 600,
                     letterSpacing: '0.15em',
@@ -263,12 +263,12 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
                     transition: 'border-color 0.2s, color 0.2s',
                   }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.borderColor = 'oklch(65% 0.01 75)'
-                    e.currentTarget.style.color = 'oklch(35% 0.01 75)'
+                    e.currentTarget.style.borderColor = 'oklch(65% 0.01 264)'
+                    e.currentTarget.style.color = 'oklch(35% 0.01 264)'
                   }}
                   onMouseOut={(e) => {
-                    e.currentTarget.style.borderColor = 'oklch(82% 0.015 75)'
-                    e.currentTarget.style.color = 'oklch(45% 0.01 75)'
+                    e.currentTarget.style.borderColor = 'oklch(82% 0.012 264)'
+                    e.currentTarget.style.color = 'oklch(45% 0.01 264)'
                   }}
                 >
                   {h.ctaSecondary}
@@ -296,7 +296,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar' }) {
             fontSize: '0.5625rem',
             letterSpacing: '0.28em',
             textTransform: 'uppercase',
-            color: 'oklch(55% 0.01 75)',
+            color: 'oklch(55% 0.01 264)',
           }}
         >
           {isAr ? '↓ مرر' : '↓ scroll'}

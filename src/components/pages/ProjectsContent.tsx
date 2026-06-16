@@ -124,7 +124,7 @@ function ParallaxNumber({ isAr }: { isAr: boolean }) {
         className="font-incident block select-none"
         style={{
           fontSize: 'clamp(5rem, 18vw, 14rem)',
-          color: 'oklch(10% 0.025 75)',
+          color: 'oklch(10% 0.012 264)',
           fontWeight: 900,
           letterSpacing: '-0.03em',
           lineHeight: 0.88,
@@ -166,7 +166,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                 fontSize: '0.5625rem',
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
-                color: 'oklch(50% 0.01 75)',
+                color: 'oklch(50% 0.01 264)',
                 lineHeight: 1,
                 whiteSpace: 'nowrap',
               }}
@@ -182,7 +182,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
-          style={{ borderTop: '1px solid oklch(82% 0.015 75)' }}
+          style={{ borderTop: '1px solid oklch(82% 0.012 264)' }}
         >
           {projects.map((project, i) => {
             const title = isAr ? project.titleAr : project.titleEn
@@ -194,7 +194,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
               <motion.div
                 key={project.slug}
                 variants={rowVariants}
-                style={{ borderBottom: '1px solid oklch(82% 0.015 75)' }}
+                style={{ borderBottom: '1px solid oklch(82% 0.012 264)' }}
               >
                 <div
                   className="grid items-start"
@@ -212,7 +212,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                       fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
                       fontWeight: 900,
                       lineHeight: 1,
-                      color: 'oklch(82% 0.012 75)',
+                      color: 'oklch(82% 0.012 264)',
                       paddingTop: '0.15rem',
                     }}
                   >
@@ -228,12 +228,12 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                         fontWeight: 700,
                         letterSpacing: '-0.01em',
                         lineHeight: 1.1,
-                        color: 'oklch(12% 0.025 75)',
+                        color: 'oklch(12% 0.012 264)',
                       }}
                     >
                       {title}
                     </div>
-                    <p className="text-sm text-stone-400 leading-relaxed hidden md:block">
+                    <p className="text-sm text-[oklch(58%_0.006_264)] leading-relaxed hidden md:block">
                       {description}
                     </p>
                   </div>
@@ -265,7 +265,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                       style={{
                         fontSize: '1.25rem',
                         fontWeight: 900,
-                        color: 'oklch(87% 0.012 75)',
+                        color: 'oklch(87% 0.012 264)',
                         lineHeight: 1,
                       }}
                     >
@@ -277,7 +277,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                         fontSize: '0.5rem',
                         letterSpacing: '0.2em',
                         textTransform: 'uppercase',
-                        color: 'oklch(60% 0.20 65)',
+                        color: 'oklch(41% 0.144 264)',
                       }}
                     >
                       {service}
@@ -288,7 +288,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                         fontSize: '0.5rem',
                         letterSpacing: '0.15em',
                         textTransform: 'uppercase',
-                        color: 'oklch(60% 0.01 75)',
+                        color: 'oklch(60% 0.01 264)',
                       }}
                     >
                       {location}
@@ -300,7 +300,7 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
                           fontSize: '0.5rem',
                           letterSpacing: '0.12em',
                           textTransform: 'uppercase',
-                          color: 'oklch(70% 0.01 75)',
+                          color: 'oklch(70% 0.01 264)',
                         }}
                       >
                         {project.client}
@@ -319,9 +319,9 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: E }}
-          className="mt-16 pt-10 border-t border-[oklch(82%_0.015_75)] flex flex-col items-start gap-5"
+          className="mt-16 pt-10 border-t border-[oklch(82%_0.012_264)] flex flex-col items-start gap-5"
         >
-          <p className="text-stone-500 text-sm max-w-[480px]" style={{ textAlign: isAr ? 'right' : 'left' }}>
+          <p className="text-[oklch(48%_0.007_264)] text-sm max-w-[480px]" style={{ textAlign: isAr ? 'right' : 'left' }}>
             {isAr
               ? 'هل مشروعك التالي على القائمة؟'
               : 'Is your next project on this list?'}
@@ -331,8 +331,8 @@ export function ProjectsContent({ lang, dict }: { lang: 'en' | 'ar'; dict: Dicti
               href={`/${lang}/contact`}
               className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
               style={{
-                background: 'oklch(60% 0.20 65)',
-                color: 'oklch(12% 0.025 75)',
+                background: 'oklch(51% 0.207 29)',
+                color: 'oklch(99% 0 264)',
               }}
             >
               {dict.cta.primary}

@@ -24,8 +24,8 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
   return (
     <footer
       style={{
-        background: 'oklch(7% 0.02 75)',
-        borderTop: '1px solid oklch(15% 0.015 75)',
+        background: 'oklch(7% 0.012 264)',
+        borderTop: '1px solid oklch(15% 0.012 264)',
       }}
     >
       {/* Monumental wordmark */}
@@ -34,7 +34,7 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
           paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
           paddingTop: 'clamp(4rem, 8vh, 6rem)',
           paddingBottom: '2rem',
-          borderBottom: '1px solid oklch(15% 0.015 75)',
+          borderBottom: '1px solid oklch(15% 0.012 264)',
           overflow: 'hidden',
         }}
       >
@@ -52,7 +52,7 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
                 fontWeight: 700,
                 letterSpacing: '-0.02em',
                 lineHeight: 0.9,
-                color: 'oklch(96% 0.008 75)',
+                color: 'oklch(96% 0.008 264)',
               }}
             >
               {isAr ? 'جراحو الخرسانة' : 'Concrete Surgeons'}
@@ -66,7 +66,7 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
         style={{
           paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
           paddingBlock: 'clamp(3rem, 6vh, 5rem)',
-          borderBottom: '1px solid oklch(15% 0.015 75)',
+          borderBottom: '1px solid oklch(15% 0.012 264)',
         }}
       >
         <div
@@ -81,7 +81,7 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
                 fontSize: '0.4375rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                color: 'oklch(60% 0.20 65)',
+                color: 'oklch(41% 0.144 264)',
                 marginBottom: '1.5rem',
               }}
             >
@@ -92,11 +92,11 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
                 <li key={s.slug}>
                   <Link
                     href={`/${lang}/services/${s.slug}`}
-                    className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_75)]"
+                    className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_264)]"
                     style={{
                       fontSize: '0.75rem',
                       letterSpacing: '0.06em',
-                      color: 'oklch(45% 0.01 75)',
+                      color: 'oklch(45% 0.01 264)',
                     }}
                   >
                     {lang === 'ar' ? s.ar : s.en}
@@ -114,7 +114,7 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
                 fontSize: '0.4375rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                color: 'oklch(60% 0.20 65)',
+                color: 'oklch(41% 0.144 264)',
                 marginBottom: '1.5rem',
               }}
             >
@@ -130,11 +130,11 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_75)]"
+                    className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_264)]"
                     style={{
                       fontSize: '0.75rem',
                       letterSpacing: '0.06em',
-                      color: 'oklch(45% 0.01 75)',
+                      color: 'oklch(45% 0.01 264)',
                     }}
                   >
                     {lang === 'ar' ? link.ar : link.en}
@@ -152,7 +152,7 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
                 fontSize: '0.4375rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                color: 'oklch(60% 0.20 65)',
+                color: 'oklch(41% 0.144 264)',
                 marginBottom: '1.5rem',
               }}
             >
@@ -161,21 +161,21 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
             <address className="not-italic" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <span
                 className="font-body"
-                style={{ fontSize: '0.75rem', color: 'oklch(38% 0.01 75)', lineHeight: 1.5 }}
+                style={{ fontSize: '0.75rem', color: 'oklch(38% 0.01 264)', lineHeight: 1.5 }}
               >
                 {dict.address}
               </span>
               <a
                 href="tel:+201028588003"
-                className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_75)]"
-                style={{ fontSize: '0.75rem', color: 'oklch(50% 0.01 75)', letterSpacing: '0.04em' }}
+                className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_264)]"
+                style={{ fontSize: '0.75rem', color: 'oklch(50% 0.01 264)', letterSpacing: '0.04em' }}
               >
                 +20 102 858 8003
               </a>
               <a
                 href="mailto:info@csmisr.com"
-                className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_75)]"
-                style={{ fontSize: '0.75rem', color: 'oklch(50% 0.01 75)' }}
+                className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_264)]"
+                style={{ fontSize: '0.75rem', color: 'oklch(50% 0.01 264)' }}
               >
                 info@csmisr.com
               </a>
@@ -190,8 +190,8 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
                     fontSize: '0.5rem',
                     letterSpacing: '0.2em',
                     textTransform: 'uppercase',
-                    color: 'oklch(60% 0.20 65)',
-                    border: '1px solid oklch(28% 0.015 65)',
+                    color: 'oklch(41% 0.144 264)',
+                    border: '1px solid oklch(28% 0.012 264)',
                     padding: '0.4rem 0.75rem',
                   }}
                 >
@@ -217,7 +217,7 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
       >
         <p
           className="font-body"
-          style={{ fontSize: '0.4375rem', letterSpacing: '0.15em', color: 'oklch(30% 0.01 75)', textTransform: 'uppercase' }}
+          style={{ fontSize: '0.4375rem', letterSpacing: '0.15em', color: 'oklch(30% 0.01 264)', textTransform: 'uppercase' }}
         >
           © {new Date().getFullYear()} Concrete Surgeons — {dict.rights}
         </p>
@@ -232,15 +232,15 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body transition-colors duration-150 hover:text-[oklch(65%_0.01_75)]"
-              style={{ fontSize: '0.4375rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(28% 0.01 75)' }}
+              className="font-body transition-colors duration-150 hover:text-[oklch(65%_0.01_264)]"
+              style={{ fontSize: '0.4375rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(28% 0.01 264)' }}
             >
               {s.label}
             </a>
           ))}
           <span
             className="font-body"
-            style={{ fontSize: '0.4375rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(22% 0.01 75)' }}
+            style={{ fontSize: '0.4375rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(22% 0.01 264)' }}
           >
             {isAr ? 'القاهرة، مصر — ٢٠٠٧' : 'Cairo, Egypt — Est. 2007'}
           </span>

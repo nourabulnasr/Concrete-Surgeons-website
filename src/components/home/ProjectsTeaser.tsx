@@ -65,7 +65,7 @@ function ParallaxHero({ isAr }: { isAr: boolean }) {
           transition={{ duration: 0.55, ease: E }}
           style={{
             fontSize: 'clamp(5rem, 18vw, 14rem)',
-            color: 'oklch(10% 0.025 75)',
+            color: 'oklch(10% 0.012 264)',
             fontWeight: 900,
             letterSpacing: '-0.02em',
             lineHeight: 0.88,
@@ -89,7 +89,7 @@ function ParallaxHero({ isAr }: { isAr: boolean }) {
               fontSize: '0.5625rem',
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: 'oklch(50% 0.01 75)',
+              color: 'oklch(50% 0.01 264)',
               lineHeight: 1,
               whiteSpace: 'nowrap',
             }}
@@ -110,8 +110,8 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
       style={{
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-        background: 'oklch(99% 0.004 80)',
-        borderTop: '1px solid oklch(87% 0.014 75)',
+        background: 'oklch(99% 0.004 264)',
+        borderTop: '1px solid oklch(87% 0.012 264)',
       }}
     >
       {/* FIELD RECORD */}
@@ -122,13 +122,13 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
         transition={{ duration: 0.4 }}
         className={`flex items-baseline gap-5 mb-12 ${isAr ? 'flex-row-reverse' : ''}`}
       >
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
           —
         </span>
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 75)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 264)' }}>
           {isAr ? 'سجل الميدان' : 'FIELD RECORD'}
         </span>
-        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.015 75)' }}>
+        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.012 264)' }}>
           {isAr ? '500+ مشروع — مصر والخليج' : '500+ PROJECTS — EGYPT & THE GULF'}
         </span>
       </motion.div>
@@ -142,7 +142,7 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-40px' }}
-        style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}
+        style={{ borderTop: '1px solid oklch(87% 0.012 264)' }}
       >
         {fieldEntries.map((entry, i) => {
           const name = isAr ? entry.nameAr : entry.nameEn
@@ -152,7 +152,7 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
             <motion.div
               key={entry.nameEn}
               variants={itemVariants}
-              style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+              style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
             >
               <div
                 className="grid items-center py-5 md:py-6"
@@ -166,7 +166,7 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
                   className="font-incident block"
                   style={{
                     fontSize: 'clamp(1.25rem, 2vw, 1.75rem)',
-                    color: 'oklch(80% 0.015 75)',
+                    color: 'oklch(80% 0.012 264)',
                     fontWeight: 900,
                     lineHeight: 1,
                   }}
@@ -178,7 +178,7 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
                     className="font-body"
                     style={{
                       fontSize: 'clamp(0.875rem, 1.2vw, 1.0625rem)',
-                      color: 'oklch(20% 0.02 75)',
+                      color: 'oklch(20% 0.012 264)',
                       fontWeight: 500,
                       lineHeight: 1.2,
                     }}
@@ -189,7 +189,7 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
                     className="font-body mt-1"
                     style={{
                       fontSize: '0.625rem',
-                      color: 'oklch(50% 0.01 75)',
+                      color: 'oklch(50% 0.01 264)',
                       letterSpacing: '0.08em',
                       textTransform: 'uppercase',
                     }}
@@ -219,7 +219,7 @@ export function ProjectsTeaser({ dict: _dict, lang }: { dict: Dictionary; lang: 
               fontSize: '0.5625rem',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              color: 'oklch(45% 0.01 75)',
+              color: 'oklch(45% 0.01 264)',
             }}
           >
             {isAr ? '← عرض سجل الميدان الكامل' : 'View full field record →'}

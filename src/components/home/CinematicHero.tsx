@@ -149,7 +149,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'oklch(7% 0.02 75)',
+        background: 'oklch(7% 0.012 264)',
         overflow: 'hidden',
       }}
     >
@@ -189,7 +189,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(ellipse 70% 60% at 30% 20%, oklch(18% 0.035 65 / 0.5) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 70% 80%, oklch(14% 0.03 70 / 0.4) 0%, transparent 60%)',
+            'radial-gradient(ellipse 70% 60% at 30% 20%, oklch(18% 0.012 264 / 0.5) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 70% 80%, oklch(14% 0.012 264 / 0.4) 0%, transparent 60%)',
           pointerEvents: 'none',
         }}
       />
@@ -214,7 +214,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                 fontSize: '0.5rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                color: 'oklch(60% 0.20 65)',
+                color: 'oklch(41% 0.144 264)',
               }}
             >
               01 /
@@ -225,7 +225,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                 fontSize: '0.5rem',
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
-                color: 'oklch(40% 0.01 75)',
+                color: 'oklch(40% 0.01 264)',
               }}
             >
               {isAr ? 'جراحو الخرسانة' : 'CONCRETE SURGEONS'}
@@ -240,7 +240,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
             style={{
               width: 'clamp(3rem, 8vw, 7rem)',
               height: '1px',
-              background: 'oklch(25% 0.015 75)',
+              background: 'oklch(25% 0.012 264)',
               transformOrigin: isAr ? 'right' : 'left',
               marginBottom: '1.5rem',
             }}
@@ -266,7 +266,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                   fontWeight: 900,
                   lineHeight: 0.84,
                   letterSpacing: '-0.04em',
-                  color: 'oklch(96% 0.008 75)',
+                  color: 'oklch(96% 0.008 264)',
                 }}
               >
                 14
@@ -281,7 +281,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                   fontWeight: 900,
                   lineHeight: 0.84,
                   letterSpacing: '-0.04em',
-                  color: 'oklch(96% 0.008 75)',
+                  color: 'oklch(96% 0.008 264)',
                 }}
               >
                 .98
@@ -298,7 +298,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                 fontSize: 'clamp(1.25rem, 3.5vw, 3rem)',
                 fontWeight: 900,
                 letterSpacing: '0.04em',
-                color: 'oklch(60% 0.20 65)',
+                color: 'oklch(41% 0.144 264)',
                 lineHeight: 1,
                 marginTop: '0.5rem',
               }}
@@ -320,7 +320,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                 fontSize: 'clamp(0.55rem, 1vw, 0.75rem)',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: 'oklch(55% 0.01 75)',
+                color: 'oklch(55% 0.01 264)',
                 lineHeight: 1.6,
               }}
             >
@@ -341,7 +341,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                 fontSize: '0.5rem',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: 'oklch(35% 0.01 75)',
+                color: 'oklch(35% 0.01 264)',
                 lineHeight: 2,
               }}
             >
@@ -376,7 +376,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
             fontSize: '0.4375rem',
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'oklch(35% 0.01 75)',
+            color: 'oklch(35% 0.01 264)',
           }}
         >
           {isAr ? 'تمرير' : 'SCROLL'}
@@ -384,7 +384,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ width: 1, height: '2rem', background: 'oklch(25% 0.015 75)' }}
+          style={{ width: 1, height: '2rem', background: 'oklch(25% 0.012 264)' }}
         />
       </motion.div>
     </section>

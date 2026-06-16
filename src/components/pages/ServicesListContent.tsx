@@ -33,7 +33,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: E }}
-          className={`flex flex-wrap gap-x-16 gap-y-6 pb-14 mb-14 border-b border-[oklch(82%_0.015_75)] ${isAr ? 'flex-row-reverse' : ''}`}
+          className={`flex flex-wrap gap-x-16 gap-y-6 pb-14 mb-14 border-b border-[oklch(82%_0.012_264)] ${isAr ? 'flex-row-reverse' : ''}`}
         >
           {stats.map((s) => (
             <div key={s.n}>
@@ -43,7 +43,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
                   fontSize: 'clamp(2.25rem, 4vw, 3.5rem)',
                   fontWeight: 900,
                   lineHeight: 1,
-                  color: 'oklch(12% 0.025 75)',
+                  color: 'oklch(12% 0.012 264)',
                   letterSpacing: '-0.03em',
                 }}
               >
@@ -55,7 +55,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
                   fontSize: '0.5rem',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  color: 'oklch(50% 0.01 75)',
+                  color: 'oklch(50% 0.01 264)',
                 }}
               >
                 {s.label}
@@ -69,7 +69,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
           variants={listVariants}
           initial="hidden"
           animate="visible"
-          style={{ borderTop: '1px solid oklch(82% 0.015 75)' }}
+          style={{ borderTop: '1px solid oklch(82% 0.012 264)' }}
         >
           {services.map((service, i) => {
             const name = isAr ? service.nameAr : service.nameEn
@@ -80,10 +80,10 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
               <motion.div key={service.slug} variants={rowVariants}>
                 <Link
                   href={`/${lang}/services/${service.slug}`}
-                  className="group block border-b border-[oklch(82%_0.015_75)]"
+                  className="group block border-b border-[oklch(82%_0.012_264)]"
                 >
                   <div
-                    className="grid items-center transition-colors duration-150 group-hover:bg-[oklch(96%_0.008_75)]"
+                    className="grid items-center transition-colors duration-150 group-hover:bg-[oklch(96%_0.008_264)]"
                     style={{
                       gridTemplateColumns: 'clamp(2.5rem, 4.5vw, 4rem) 1fr auto',
                       gap: 'clamp(1.5rem, 3vw, 3rem)',
@@ -94,10 +94,10 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
                     {/* Col 1: Index number (RTL: renders on right) */}
                     <motion.span
                       layoutId={`service-num-${service.slug}`}
-                      className="font-incident block group-hover:text-[oklch(60%_0.20_65)] transition-colors duration-200"
+                      className="font-incident block group-hover:text-[oklch(41%_0.144_264)] transition-colors duration-200"
                       style={{
                         fontSize: 'clamp(1.75rem, 3.5vw, 3rem)',
-                        color: 'oklch(82% 0.012 75)',
+                        color: 'oklch(82% 0.012 264)',
                         fontWeight: 900,
                         lineHeight: 1,
                       }}
@@ -112,7 +112,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
                         className="font-display uppercase"
                         style={{
                           fontSize: 'clamp(1.3rem, 2.6vw, 2.25rem)',
-                          color: 'oklch(12% 0.025 75)',
+                          color: 'oklch(12% 0.012 264)',
                           fontWeight: 700,
                           letterSpacing: '-0.01em',
                           lineHeight: 1.1,
@@ -124,7 +124,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
                         className="font-body mt-2 hidden md:block"
                         style={{
                           fontSize: '0.75rem',
-                          color: 'oklch(50% 0.01 75)',
+                          color: 'oklch(50% 0.01 264)',
                           letterSpacing: '0.01em',
                         }}
                       >
@@ -141,7 +141,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
                             fontSize: '0.45rem',
                             letterSpacing: '0.22em',
                             textTransform: 'uppercase',
-                            color: 'oklch(65% 0.01 75)',
+                            color: 'oklch(65% 0.01 264)',
                             marginBottom: '0.15rem',
                           }}
                         >
@@ -152,7 +152,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
                           style={{
                             fontSize: '1.5rem',
                             fontWeight: 900,
-                            color: 'oklch(88% 0.01 75)',
+                            color: 'oklch(88% 0.01 264)',
                             lineHeight: 1,
                           }}
                         >
@@ -160,8 +160,8 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
                         </div>
                       </div>
                       <span
-                        className="font-body group-hover:text-[oklch(25%_0.01_75)] transition-colors"
-                        style={{ fontSize: '0.875rem', color: 'oklch(60% 0.01 75)' }}
+                        className="font-body group-hover:text-[oklch(25%_0.01_264)] transition-colors"
+                        style={{ fontSize: '0.875rem', color: 'oklch(60% 0.01 264)' }}
                       >
                         {isAr ? '←' : '→'}
                       </span>
@@ -178,7 +178,7 @@ export function ServicesListContent({ lang, sectionLabel }: { lang: 'en' | 'ar';
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.65, ease: E }}
-          className="mt-14 text-sm text-stone-400 max-w-[520px]"
+          className="mt-14 text-sm text-[oklch(58%_0.006_264)] max-w-[520px]"
           style={{ textAlign: isAr ? 'right' : 'left' }}
         >
           {isAr

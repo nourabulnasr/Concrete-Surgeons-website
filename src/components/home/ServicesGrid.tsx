@@ -13,8 +13,8 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
       style={{
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-        background: 'oklch(99% 0.004 80)',
-        borderTop: '1px solid oklch(87% 0.014 75)',
+        background: 'oklch(99% 0.004 264)',
+        borderTop: '1px solid oklch(87% 0.012 264)',
       }}
     >
       {/* 02 / WHAT WE DO */}
@@ -25,13 +25,13 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
         transition={{ duration: 0.4 }}
         className={`flex items-baseline gap-5 mb-12 ${isAr ? 'flex-row-reverse' : ''}`}
       >
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
           02 /
         </span>
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 75)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 264)' }}>
           {isAr ? 'ما نقوم به' : 'WHAT WE DO'}
         </span>
-        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.015 75)' }}>
+        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.012 264)' }}>
           {isAr ? 'شركتان في شركة واحدة' : 'TWO BUSINESSES. ONE COMPANY.'}
         </span>
       </motion.div>
@@ -39,7 +39,7 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
       {/* Two business arms — equal visual weight */}
       <div
         className="grid grid-cols-1 md:grid-cols-2"
-        style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}
+        style={{ borderTop: '1px solid oklch(87% 0.012 264)' }}
       >
         {/* Arm 1 — Demolition & Structural */}
         <motion.div
@@ -47,7 +47,7 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, ease: E }}
-          style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+          style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
         >
           <Link
             href={`/${lang}/services`}
@@ -61,20 +61,20 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
                 fontWeight: 900,
                 lineHeight: 0.84,
                 letterSpacing: '-0.03em',
-                color: 'oklch(91% 0.008 75)',
+                color: 'oklch(91% 0.008 264)',
                 marginBottom: '1.5rem',
               }}
             >
               01
             </span>
             <div
-              className="font-display uppercase group-hover:text-[oklch(60%_0.20_65)] transition-colors duration-200"
+              className="font-display uppercase group-hover:text-[oklch(41%_0.144_264)] transition-colors duration-200"
               style={{
                 fontSize: 'clamp(1.1rem, 2.2vw, 1.9rem)',
                 fontWeight: 700,
                 letterSpacing: '-0.01em',
                 lineHeight: 1.05,
-                color: 'oklch(12% 0.025 75)',
+                color: 'oklch(12% 0.012 264)',
                 marginBottom: '1rem',
               }}
             >
@@ -84,7 +84,7 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
               className="font-body"
               style={{
                 fontSize: '0.625rem',
-                color: 'oklch(50% 0.01 75)',
+                color: 'oklch(50% 0.01 264)',
                 lineHeight: 1.65,
                 marginBottom: '2rem',
               }}
@@ -94,8 +94,8 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
                 : 'Diamond Sawing · Controlled Demolition · Drilling & Anchoring · Structural Retrofitting · Firestop · Concrete Polishing'}
             </p>
             <span
-              className="font-body group-hover:text-[oklch(35%_0.01_75)] transition-colors duration-150"
-              style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}
+              className="font-body group-hover:text-[oklch(35%_0.01_264)] transition-colors duration-150"
+              style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}
             >
               {isAr ? '← كل التخصصات' : 'ALL CAPABILITIES →'}
             </span>
@@ -108,7 +108,7 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.1, ease: E }}
-          style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+          style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
         >
           <Link
             href={`/${lang}/comparison`}
@@ -122,20 +122,20 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
                 fontWeight: 900,
                 lineHeight: 0.84,
                 letterSpacing: '-0.03em',
-                color: 'oklch(91% 0.008 75)',
+                color: 'oklch(91% 0.008 264)',
                 marginBottom: '1.5rem',
               }}
             >
               02
             </span>
             <div
-              className="font-display uppercase group-hover:text-[oklch(60%_0.20_65)] transition-colors duration-200"
+              className="font-display uppercase group-hover:text-[oklch(41%_0.144_264)] transition-colors duration-200"
               style={{
                 fontSize: 'clamp(1.1rem, 2.2vw, 1.9rem)',
                 fontWeight: 700,
                 letterSpacing: '-0.01em',
                 lineHeight: 1.05,
-                color: 'oklch(12% 0.025 75)',
+                color: 'oklch(12% 0.012 264)',
                 marginBottom: '1rem',
               }}
             >
@@ -145,7 +145,7 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
               className="font-body"
               style={{
                 fontSize: '0.625rem',
-                color: 'oklch(50% 0.01 75)',
+                color: 'oklch(50% 0.01 264)',
                 lineHeight: 1.65,
                 marginBottom: '2rem',
               }}
@@ -155,8 +155,8 @@ export function ServicesGrid({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
                 : 'Authorized regional distributor for HORSE Construction Egypt — 12 international certifications · 14.98 N/mm² on the speed train station'}
             </p>
             <span
-              className="font-body group-hover:text-[oklch(35%_0.01_75)] transition-colors duration-150"
-              style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}
+              className="font-body group-hover:text-[oklch(35%_0.01_264)] transition-colors duration-150"
+              style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}
             >
               {isAr ? '← عرض المنتج' : 'VIEW PRODUCT →'}
             </span>

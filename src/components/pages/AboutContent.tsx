@@ -65,8 +65,8 @@ export function AboutContent({ dict, lang }: Props) {
       <div
         data-navbar-dark="true"
         style={{
-          background: 'oklch(7% 0.02 75)',
-          borderBottom: '1px solid oklch(15% 0.015 75)',
+          background: 'oklch(7% 0.012 264)',
+          borderBottom: '1px solid oklch(15% 0.012 264)',
           paddingTop: 'clamp(7rem, 14vh, 11rem)',
           paddingBottom: 'clamp(3rem, 6vh, 5rem)',
           overflow: 'hidden',
@@ -92,10 +92,10 @@ export function AboutContent({ dict, lang }: Props) {
             transition={{ duration: 0.4, ease: E }}
             className={`flex items-center gap-3 mb-8 ${isAr ? 'flex-row-reverse' : ''}`}
           >
-            <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+            <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
               —
             </span>
-            <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(54% 0.01 75)' }}>
+            <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(54% 0.01 264)' }}>
               {a.eyebrow}
             </span>
           </motion.div>
@@ -113,7 +113,7 @@ export function AboutContent({ dict, lang }: Props) {
                 fontSize: 'clamp(5rem, 16vw, 14rem)',
                 fontWeight: 900,
                 lineHeight: 0.84,
-                color: 'oklch(96% 0.008 75)',
+                color: 'oklch(96% 0.008 264)',
                 letterSpacing: '-0.04em',
               }}
             >
@@ -128,7 +128,7 @@ export function AboutContent({ dict, lang }: Props) {
                   fontSize: '0.5625rem',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  color: 'oklch(46% 0.01 75)',
+                  color: 'oklch(46% 0.01 264)',
                   lineHeight: 1,
                   whiteSpace: 'nowrap',
                 }}
@@ -148,7 +148,7 @@ export function AboutContent({ dict, lang }: Props) {
               style={{
                 width: 'clamp(3rem, 8vw, 6rem)',
                 height: '1px',
-                background: 'oklch(22% 0.015 75)',
+                background: 'oklch(22% 0.012 264)',
                 marginBottom: '1.5rem',
                 marginInlineStart: isAr ? 'auto' : undefined,
               }}
@@ -157,7 +157,7 @@ export function AboutContent({ dict, lang }: Props) {
               className="font-display font-800 uppercase"
               style={{
                 fontSize: 'clamp(1.75rem, 4vw, 3.25rem)',
-                color: 'oklch(88% 0.008 75)',
+                color: 'oklch(88% 0.008 264)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.015em',
                 marginBottom: '0.5rem',
@@ -170,7 +170,7 @@ export function AboutContent({ dict, lang }: Props) {
               className="font-display font-600 uppercase"
               style={{
                 fontSize: 'clamp(1rem, 2.2vw, 1.75rem)',
-                color: 'oklch(60% 0.20 65)',
+                color: 'oklch(41% 0.144 264)',
                 textAlign: isAr ? 'right' : 'left',
               }}
             >
@@ -194,7 +194,7 @@ export function AboutContent({ dict, lang }: Props) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, ease: E, delay: i * 0.08 }}
-                    className={i === 0 ? 'text-lead text-stone-600 leading-relaxed' : 'text-base text-stone-500 leading-relaxed'}
+                    className={i === 0 ? 'text-lead text-[oklch(48%_0.007_264)] leading-relaxed' : 'text-base text-[oklch(48%_0.007_264)] leading-relaxed'}
                     style={{ textAlign: isAr ? 'right' : 'left' }}
                   >
                     {text}
@@ -208,25 +208,25 @@ export function AboutContent({ dict, lang }: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, ease: E }}
-                className={`flex items-center gap-5 py-6 border-t border-[oklch(82%_0.015_75)] ${isAr ? 'flex-row-reverse' : ''}`}
+                className={`flex items-center gap-5 py-6 border-t border-[oklch(82%_0.012_264)] ${isAr ? 'flex-row-reverse' : ''}`}
               >
                 <div
                   className="flex-shrink-0 flex items-center justify-center"
                   style={{
                     width: '3rem',
                     height: '3rem',
-                    background: 'oklch(60% 0.20 65)',
+                    background: 'oklch(41% 0.144 264)',
                     fontSize: '0.875rem',
                     fontWeight: 700,
-                    color: 'oklch(12% 0.025 75)',
+                    color: 'oklch(99% 0 264)',
                     fontFamily: 'var(--font-display)',
                   }}
                 >
                   KA
                 </div>
                 <div style={{ textAlign: isAr ? 'right' : 'left' }}>
-                  <div className="text-sm font-600 text-stone-700">{a.founderName}</div>
-                  <div className="text-xs text-stone-500 uppercase tracking-widest mt-0.5">{a.founderTitle}</div>
+                  <div className="text-sm font-600 text-[oklch(38%_0.008_264)]">{a.founderName}</div>
+                  <div className="text-xs text-[oklch(48%_0.007_264)] uppercase tracking-widest mt-0.5">{a.founderTitle}</div>
                 </div>
               </motion.div>
 
@@ -243,8 +243,8 @@ export function AboutContent({ dict, lang }: Props) {
                     href={`/${lang}/contact`}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
                     style={{
-                      background: 'oklch(60% 0.20 65)',
-                      color: 'oklch(12% 0.025 75)',
+                      background: 'oklch(51% 0.207 29)',
+                      color: 'oklch(99% 0 264)',
                     }}
                   >
                     {dict.cta.primary}
@@ -252,10 +252,10 @@ export function AboutContent({ dict, lang }: Props) {
                 </MagneticButton>
                 <Link
                   href={`/${lang}/projects`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-600 uppercase tracking-widest transition-colors hover:bg-[oklch(95%_0.008_75)]"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-600 uppercase tracking-widest transition-colors hover:bg-[oklch(95%_0.008_264)]"
                   style={{
-                    border: '1px solid oklch(82% 0.015 75)',
-                    color: 'oklch(45% 0.01 75)',
+                    border: '1px solid oklch(82% 0.012 264)',
+                    color: 'oklch(45% 0.01 264)',
                   }}
                 >
                   {dict.projects.viewAll}
@@ -276,11 +276,11 @@ export function AboutContent({ dict, lang }: Props) {
                 viewport={{ once: true }}
                 className="mb-12"
                 style={{
-                  borderTop: '1px solid oklch(82% 0.015 75)',
+                  borderTop: '1px solid oklch(82% 0.012 264)',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '1px',
-                  background: 'oklch(82% 0.015 75)',
+                  background: 'oklch(82% 0.012 264)',
                 }}
               >
                 {values.map(({ title, body }, i) => (
@@ -288,7 +288,7 @@ export function AboutContent({ dict, lang }: Props) {
                     key={i}
                     variants={itemVariants}
                     className="p-6"
-                    style={{ background: 'oklch(98% 0.006 80)' }}
+                    style={{ background: 'oklch(98% 0.006 264)' }}
                   >
                     <div className={`flex items-start gap-4 ${isAr ? 'flex-row-reverse' : ''}`}>
                       <span
@@ -296,7 +296,7 @@ export function AboutContent({ dict, lang }: Props) {
                         style={{
                           fontSize: '1.25rem',
                           fontWeight: 900,
-                          color: 'oklch(60% 0.20 65)',
+                          color: 'oklch(41% 0.144 264)',
                           lineHeight: 1.1,
                           marginTop: '0.1rem',
                         }}
@@ -308,12 +308,12 @@ export function AboutContent({ dict, lang }: Props) {
                           className="font-display font-700 uppercase mb-1.5"
                           style={{
                             fontSize: '1rem',
-                            color: 'oklch(18% 0.025 75)',
+                            color: 'oklch(18% 0.012 264)',
                           }}
                         >
                           {title}
                         </h3>
-                        <p className="text-sm text-stone-500 leading-relaxed">{body}</p>
+                        <p className="text-sm text-[oklch(48%_0.007_264)] leading-relaxed">{body}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -329,21 +329,21 @@ export function AboutContent({ dict, lang }: Props) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                style={{ borderTop: '1px solid oklch(82% 0.015 75)' }}
+                style={{ borderTop: '1px solid oklch(82% 0.012 264)' }}
               >
                 {timeline.map(({ yearEn, yearAr, eventEn, eventAr }) => (
                   <motion.div
                     key={yearEn}
                     variants={itemVariants}
                     className={`flex gap-6 items-start py-4 ${isAr ? 'flex-row-reverse' : ''}`}
-                    style={{ borderBottom: '1px solid oklch(92% 0.01 75)' }}
+                    style={{ borderBottom: '1px solid oklch(92% 0.01 264)' }}
                   >
                     <span
                       className="font-incident flex-shrink-0"
                       style={{
                         fontSize: '1rem',
                         fontWeight: 900,
-                        color: 'oklch(60% 0.20 65)',
+                        color: 'oklch(41% 0.144 264)',
                         width: '4.5rem',
                         lineHeight: 1.2,
                         textAlign: isAr ? 'right' : 'left',
@@ -352,7 +352,7 @@ export function AboutContent({ dict, lang }: Props) {
                       {isAr ? yearAr : yearEn}
                     </span>
                     <span
-                      className="text-sm text-stone-500 leading-relaxed"
+                      className="text-sm text-[oklch(48%_0.007_264)] leading-relaxed"
                       style={{ textAlign: isAr ? 'right' : 'left' }}
                     >
                       {isAr ? eventAr : eventEn}

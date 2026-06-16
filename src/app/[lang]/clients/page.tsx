@@ -38,11 +38,11 @@ export default async function ClientsPage({
   return (
     <>
       {/* Page header */}
-      <div className="pt-32 pb-12 border-b border-[oklch(82%_0.015_75)]">
+      <div className="pt-32 pb-12 border-b border-[oklch(82%_0.012_264)]">
         <div className="container">
           <span className="label-eyebrow block mb-4">{dict.clients.sectionLabel}</span>
           <h1
-            className="font-display font-700 uppercase text-stone-900"
+            className="font-display font-700 uppercase text-[oklch(16%_0.011_264)]"
             style={{
               fontSize: 'clamp(2rem, 5vw, 4rem)',
               letterSpacing: '-0.015em',

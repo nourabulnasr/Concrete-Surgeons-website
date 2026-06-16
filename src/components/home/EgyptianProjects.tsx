@@ -93,8 +93,8 @@ export function EgyptianProjects({ lang }: Props) {
   return (
     <section
       style={{
-        background: 'oklch(99% 0.004 80)',
-        borderTop: '1px solid oklch(87% 0.014 75)',
+        background: 'oklch(99% 0.004 264)',
+        borderTop: '1px solid oklch(87% 0.012 264)',
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
       }}
@@ -107,10 +107,10 @@ export function EgyptianProjects({ lang }: Props) {
         transition={{ duration: 0.4 }}
         className={`flex items-baseline gap-5 mb-8 ${isAr ? 'flex-row-reverse' : ''}`}
       >
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
           05 /
         </span>
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 75)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 264)' }}>
           {isAr ? 'مثبت ميدانياً' : 'VERIFIED IN THE FIELD'}
         </span>
       </motion.div>
@@ -130,7 +130,7 @@ export function EgyptianProjects({ lang }: Props) {
             fontWeight: 700,
             letterSpacing: '-0.015em',
             lineHeight: 1.05,
-            color: 'oklch(12% 0.025 75)',
+            color: 'oklch(12% 0.012 264)',
           }}
         >
           {isAr
@@ -141,7 +141,7 @@ export function EgyptianProjects({ lang }: Props) {
           className="font-body mt-3"
           style={{
             fontSize: '0.625rem',
-            color: 'oklch(50% 0.01 75)',
+            color: 'oklch(50% 0.01 264)',
             letterSpacing: '0.05em',
             lineHeight: 1.7,
             maxWidth: '58ch',
@@ -159,13 +159,13 @@ export function EgyptianProjects({ lang }: Props) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-40px' }}
-        style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}
+        style={{ borderTop: '1px solid oklch(87% 0.012 264)' }}
       >
         {projects.map((p) => (
           <motion.div
             key={p.n}
             variants={itemVariants}
-            style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+            style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
           >
             <div
               className="grid items-start py-5 md:py-7"
@@ -180,7 +180,7 @@ export function EgyptianProjects({ lang }: Props) {
                 className="font-incident block"
                 style={{
                   fontSize: 'clamp(1.25rem, 2vw, 1.75rem)',
-                  color: 'oklch(82% 0.015 75)',
+                  color: 'oklch(82% 0.012 264)',
                   fontWeight: 900,
                   lineHeight: 1,
                   paddingTop: '0.1rem',
@@ -195,7 +195,7 @@ export function EgyptianProjects({ lang }: Props) {
                   className="font-display uppercase"
                   style={{
                     fontSize: 'clamp(0.875rem, 1.6vw, 1.35rem)',
-                    color: 'oklch(12% 0.025 75)',
+                    color: 'oklch(12% 0.012 264)',
                     fontWeight: 700,
                     letterSpacing: '-0.01em',
                     lineHeight: 1.15,
@@ -205,11 +205,11 @@ export function EgyptianProjects({ lang }: Props) {
                   {isAr ? p.nameAr : p.nameEn}
                 </div>
                 <div className={`flex flex-wrap gap-x-3 gap-y-0.5 items-center ${isAr ? 'flex-row-reverse justify-end' : ''}`}>
-                  <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}>
+                  <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}>
                     {isAr ? p.consultantAr : p.consultantEn}
                   </span>
-                  <span style={{ color: 'oklch(80% 0.015 75)', fontSize: '0.375rem' }}>·</span>
-                  <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'oklch(60% 0.01 75)' }}>
+                  <span style={{ color: 'oklch(80% 0.012 264)', fontSize: '0.375rem' }}>·</span>
+                  <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'oklch(60% 0.01 264)' }}>
                     {isAr ? p.standardAr : p.standardEn}
                   </span>
                 </div>
@@ -222,7 +222,7 @@ export function EgyptianProjects({ lang }: Props) {
                   style={{
                     fontSize: 'clamp(0.875rem, 1.4vw, 1.2rem)',
                     fontWeight: 900,
-                    color: 'oklch(60% 0.20 65)',
+                    color: 'oklch(41% 0.144 264)',
                     letterSpacing: '-0.01em',
                     lineHeight: 1,
                     whiteSpace: 'nowrap',

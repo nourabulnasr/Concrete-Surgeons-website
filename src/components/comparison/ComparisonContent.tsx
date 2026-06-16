@@ -165,14 +165,14 @@ function SectionHeader({
       transition={{ duration: 0.4 }}
       className="flex items-baseline gap-5 mb-10"
     >
-      <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+      <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
         {number}
       </span>
-      <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 75)' }}>
+      <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 264)' }}>
         {label}
       </span>
       {descriptor && (
-        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.015 75)' }}>
+        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.012 264)' }}>
           {descriptor}
         </span>
       )}
@@ -207,7 +207,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
         className="relative overflow-hidden flex flex-col"
         style={{
           minHeight: '75vh',
-          background: 'oklch(95% 0.01 75)',
+          background: 'oklch(95% 0.01 264)',
           paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
           paddingTop: 'clamp(6rem, 14vh, 10rem)',
           paddingBottom: 'clamp(3rem, 6vh, 5rem)',
@@ -216,7 +216,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse 50% 60% at 80% 20%, oklch(85% 0.06 75 / 0.3), transparent)' }}
+          style={{ background: 'radial-gradient(ellipse 50% 60% at 80% 20%, oklch(80% 0.05 264 / 0.24), transparent)' }}
         />
 
         <motion.div
@@ -233,10 +233,10 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             transition={{ duration: 0.35, delay: 0.2 }}
             className={`flex items-center flex-wrap gap-5 ${isAr ? 'flex-row-reverse' : ''}`}
           >
-            <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+            <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
               {isAr ? 'بيانات الاعتماد' : 'CERTIFICATION DATA'}
             </span>
-            <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}>
+            <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}>
               HM-500 / HILTI RE 500 V3
             </span>
           </motion.div>
@@ -256,7 +256,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                 className="font-incident block select-none"
                 style={{
                   fontSize: 'clamp(7rem, 28vw, 22rem)',
-                  color: 'oklch(10% 0.025 75)',
+                  color: 'oklch(10% 0.012 264)',
                   fontWeight: 900,
                   letterSpacing: '-0.02em',
                   lineHeight: 0.88,
@@ -280,7 +280,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                     fontSize: '0.5625rem',
                     letterSpacing: '0.22em',
                     textTransform: 'uppercase',
-                    color: 'oklch(50% 0.01 75)',
+                    color: 'oklch(50% 0.01 264)',
                     lineHeight: 1,
                     whiteSpace: 'nowrap',
                   }}
@@ -295,7 +295,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, ease: E, delay: 0.7 }}
-                style={{ fontSize: '0.5625rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(50% 0.01 75)' }}
+                style={{ fontSize: '0.5625rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(50% 0.01 264)' }}
               >
                 خاصية مختبرة
               </motion.p>
@@ -309,13 +309,13 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             transition={{ duration: 0.45, ease: E, delay: 0.85 }}
           >
             <div
-              style={{ height: '1px', background: 'oklch(87% 0.014 75)', marginBottom: '1.5rem' }}
+              style={{ height: '1px', background: 'oklch(87% 0.012 264)', marginBottom: '1.5rem' }}
             />
             <p
               className="font-display uppercase"
               style={{
                 fontSize: 'clamp(1.1rem, 2vw, 1.875rem)',
-                color: 'oklch(12% 0.025 75)',
+                color: 'oklch(12% 0.012 264)',
                 fontWeight: 700,
                 letterSpacing: '-0.01em',
                 lineHeight: 1.1,
@@ -331,7 +331,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
               style={{
                 marginTop: '1rem',
                 fontSize: '0.6875rem',
-                color: 'oklch(45% 0.01 75)',
+                color: 'oklch(45% 0.01 264)',
                 lineHeight: 1.65,
                 maxWidth: '58ch',
               }}
@@ -347,8 +347,8 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
         style={{
           paddingBlock: 'clamp(5rem, 10vh, 8rem)',
           paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-          background: 'oklch(98% 0.006 80)',
-          borderTop: '1px solid oklch(87% 0.014 75)',
+          background: 'oklch(98% 0.006 264)',
+          borderTop: '1px solid oklch(87% 0.012 264)',
         }}
       >
         <SectionHeader
@@ -369,7 +369,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             gap: 'clamp(0.75rem, 2vw, 2rem)',
             paddingInline: 'clamp(0.25rem, 1vw, 0.75rem)',
             paddingBottom: '0.75rem',
-            borderBottom: '1px solid oklch(80% 0.015 75)',
+            borderBottom: '1px solid oklch(80% 0.012 264)',
           }}
         >
           {[
@@ -378,7 +378,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             isAr ? 'Hilti' : 'HILTI',
             'HM-500',
           ].map((h) => (
-            <span key={h} className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}>
+            <span key={h} className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}>
               {h}
             </span>
           ))}
@@ -390,7 +390,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+          style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
         >
           {specRows.map((row) => (
             <motion.div
@@ -404,24 +404,24 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                 gap: 'clamp(0.75rem, 2vw, 2rem)',
                 paddingBlock: 'clamp(0.875rem, 1.5vh, 1.25rem)',
                 paddingInline: 'clamp(0.25rem, 1vw, 0.75rem)',
-                borderTop: '1px solid oklch(89% 0.012 75)',
+                borderTop: '1px solid oklch(89% 0.012 264)',
                 transition: 'background 0.15s',
               }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'oklch(92% 0.015 75)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'oklch(92% 0.012 264)' }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
             >
               {/* Property name */}
-              <div className="font-body" style={{ fontSize: 'clamp(0.75rem, 1.1vw, 0.9375rem)', color: 'oklch(20% 0.02 75)', fontWeight: 500, lineHeight: 1.3 }}>
+              <div className="font-body" style={{ fontSize: 'clamp(0.75rem, 1.1vw, 0.9375rem)', color: 'oklch(20% 0.012 264)', fontWeight: 500, lineHeight: 1.3 }}>
                 {isAr ? row.property.ar : row.property.en}
               </div>
 
               {/* Standard */}
-              <div className="font-body" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', color: 'oklch(32% 0.04 240)', lineHeight: 1.3 }}>
+              <div className="font-body" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', color: 'oklch(32% 0.04 264)', lineHeight: 1.3 }}>
                 {row.std}
               </div>
 
               {/* Hilti */}
-              <div className="font-body" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', color: 'oklch(40% 0.01 75)', lineHeight: 1.3 }}>
+              <div className="font-body" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', color: 'oklch(40% 0.01 264)', lineHeight: 1.3 }}>
                 {row.hilti}
               </div>
 
@@ -431,7 +431,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                 className="font-body flex items-center gap-2"
                 style={{
                   fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)',
-                  color: row.winner ? 'oklch(60% 0.20 65)' : 'oklch(55% 0.04 240)',
+                  color: row.winner ? 'oklch(51% 0.207 29)' : 'oklch(55% 0.04 264)',
                   fontWeight: row.winner ? 600 : 400,
                   lineHeight: 1.3,
                 }}
@@ -453,7 +453,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.3 }}
           className="font-body"
-          style={{ marginTop: '1.5rem', fontSize: '0.5625rem', color: 'oklch(55% 0.01 75)', lineHeight: 1.65, maxWidth: '70ch' }}
+          style={{ marginTop: '1.5rem', fontSize: '0.5625rem', color: 'oklch(55% 0.01 264)', lineHeight: 1.65, maxWidth: '70ch' }}
         >
           {c.disclaimer}
         </motion.p>
@@ -464,8 +464,8 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
         style={{
           paddingBlock: 'clamp(5rem, 10vh, 8rem)',
           paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-          background: 'oklch(95% 0.01 75)',
-          borderTop: '1px solid oklch(87% 0.014 75)',
+          background: 'oklch(95% 0.01 264)',
+          borderTop: '1px solid oklch(87% 0.012 264)',
         }}
       >
         <SectionHeader
@@ -483,7 +483,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
           className="font-body"
           style={{
             fontSize: '0.75rem',
-            color: 'oklch(35% 0.01 75)',
+            color: 'oklch(35% 0.01 264)',
             lineHeight: 1.65,
             maxWidth: '58ch',
             marginBottom: 'clamp(2rem, 4vh, 3rem)',
@@ -504,11 +504,11 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             gap: 'clamp(1rem, 3vw, 3rem)',
             paddingInline: 'clamp(0.25rem, 1vw, 0.75rem)',
             paddingBottom: '0.75rem',
-            borderBottom: '1px solid oklch(80% 0.015 75)',
+            borderBottom: '1px solid oklch(80% 0.012 264)',
           }}
         >
           {[c.curingTemp, c.curingWorking, c.curingFull].map((h) => (
-            <span key={h} className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}>
+            <span key={h} className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}>
               {h}
             </span>
           ))}
@@ -520,7 +520,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
-          style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+          style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
         >
           {curingRows.map((row, i) => (
             <motion.div
@@ -532,10 +532,10 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                 gap: 'clamp(1rem, 3vw, 3rem)',
                 paddingBlock: '1rem',
                 paddingInline: 'clamp(0.25rem, 1vw, 0.75rem)',
-                borderTop: '1px solid oklch(89% 0.012 75)',
+                borderTop: '1px solid oklch(89% 0.012 264)',
                 transition: 'background 0.15s',
               }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'oklch(92% 0.015 75)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'oklch(92% 0.012 264)' }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
             >
               {row.map((cell, j) => (
@@ -544,7 +544,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                   className="font-body"
                   style={{
                     fontSize: 'clamp(0.75rem, 1.1vw, 0.9375rem)',
-                    color: j === 2 ? 'oklch(60% 0.20 65)' : 'oklch(62% 0.03 240)',
+                    color: j === 2 ? 'oklch(51% 0.207 29)' : 'oklch(62% 0.03 264)',
                     fontWeight: j === 2 ? 600 : 400,
                   }}
                 >
@@ -561,8 +561,8 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
         style={{
           paddingBlock: 'clamp(5rem, 10vh, 8rem)',
           paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-          background: 'oklch(98% 0.006 80)',
-          borderTop: '1px solid oklch(87% 0.014 75)',
+          background: 'oklch(98% 0.006 264)',
+          borderTop: '1px solid oklch(87% 0.012 264)',
         }}
       >
         <SectionHeader
@@ -582,7 +582,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             className="font-incident block select-none"
             style={{
               fontSize: 'clamp(4rem, 14vw, 10rem)',
-              color: 'oklch(10% 0.025 75)',
+              color: 'oklch(10% 0.012 264)',
               fontWeight: 900,
               letterSpacing: '-0.02em',
               lineHeight: 0.88,
@@ -594,7 +594,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.6 }}
-            style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(50% 0.01 75)' }}
+            style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(50% 0.01 264)' }}
           >
             {isAr ? 'شهادات مستقلة' : 'INDEPENDENT CERTIFICATIONS'}
           </motion.p>
@@ -606,7 +606,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}
+          style={{ borderTop: '1px solid oklch(87% 0.012 264)' }}
         >
           {certRows.map((cert, i) => (
             <motion.div
@@ -620,24 +620,24 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                 gap: 'clamp(1rem, 3vw, 2.5rem)',
                 paddingBlock: 'clamp(1rem, 1.5vh, 1.5rem)',
                 paddingInline: 'clamp(0.25rem, 1vw, 0.75rem)',
-                borderBottom: '1px solid oklch(87% 0.014 75)',
+                borderBottom: '1px solid oklch(87% 0.012 264)',
                 transition: 'background 0.15s',
               }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'oklch(92% 0.015 75)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'oklch(92% 0.012 264)' }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
             >
-              <span className="font-incident block" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', color: 'oklch(80% 0.015 75)', fontWeight: 900, lineHeight: 1 }}>
+              <span className="font-incident block" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', color: 'oklch(80% 0.012 264)', fontWeight: 900, lineHeight: 1 }}>
                 {String(i + 1).padStart(2, '0')}
               </span>
 
               <div>
-                <div className="font-body" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.0625rem)', color: 'oklch(20% 0.02 75)', fontWeight: 500, lineHeight: 1.2 }}>
+                <div className="font-body" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.0625rem)', color: 'oklch(20% 0.012 264)', fontWeight: 500, lineHeight: 1.2 }}>
                   {isAr ? cert.ar : cert.en}
                 </div>
-                <p className="font-body mt-1 hidden md:block" style={{ fontSize: '0.5625rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'oklch(50% 0.01 75)' }}>
+                <p className="font-body mt-1 hidden md:block" style={{ fontSize: '0.5625rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'oklch(50% 0.01 264)' }}>
                   {isAr ? cert.authority.ar : cert.authority.en}
                 </p>
-                <p className="font-body mt-0.5" style={{ fontSize: '0.625rem', color: 'oklch(42% 0.04 240)', lineHeight: 1.5 }}>
+                <p className="font-body mt-0.5" style={{ fontSize: '0.625rem', color: 'oklch(42% 0.04 264)', lineHeight: 1.5 }}>
                   {isAr ? cert.result.ar : cert.result.en}
                 </p>
               </div>
@@ -659,8 +659,8 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
         style={{
           paddingBlock: 'clamp(5rem, 10vh, 8rem)',
           paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-          background: 'oklch(95% 0.01 75)',
-          borderTop: '1px solid oklch(87% 0.014 75)',
+          background: 'oklch(95% 0.01 264)',
+          borderTop: '1px solid oklch(87% 0.012 264)',
         }}
       >
         <SectionHeader
@@ -675,7 +675,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}
+          style={{ borderTop: '1px solid oklch(87% 0.012 264)' }}
         >
           {techAdvantages.map((adv, i) => {
             const item = isAr ? adv.ar : adv.en
@@ -688,17 +688,17 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
                   gridTemplateColumns: 'clamp(2rem, 4vw, 3.5rem) 1fr',
                   gap: 'clamp(1rem, 3vw, 2.5rem)',
                   paddingInline: 'clamp(0.25rem, 1vw, 0.75rem)',
-                  borderBottom: '1px solid oklch(87% 0.014 75)',
+                  borderBottom: '1px solid oklch(87% 0.012 264)',
                 }}
               >
-                <span className="font-incident block" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', color: 'oklch(80% 0.015 75)', fontWeight: 900, lineHeight: 1, paddingTop: '0.2rem' }}>
+                <span className="font-incident block" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', color: 'oklch(80% 0.012 264)', fontWeight: 900, lineHeight: 1, paddingTop: '0.2rem' }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>
-                  <div className="font-display uppercase" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.5rem)', color: 'oklch(12% 0.025 75)', fontWeight: 700, letterSpacing: '-0.01em', lineHeight: 1.1 }}>
+                  <div className="font-display uppercase" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.5rem)', color: 'oklch(12% 0.012 264)', fontWeight: 700, letterSpacing: '-0.01em', lineHeight: 1.1 }}>
                     {item.title}
                   </div>
-                  <p className="font-body" style={{ marginTop: '0.75rem', fontSize: 'clamp(0.8125rem, 0.9vw, 0.9375rem)', color: 'oklch(45% 0.03 240)', lineHeight: 1.72, maxWidth: '58ch' }}>
+                  <p className="font-body" style={{ marginTop: '0.75rem', fontSize: 'clamp(0.8125rem, 0.9vw, 0.9375rem)', color: 'oklch(45% 0.03 264)', lineHeight: 1.72, maxWidth: '58ch' }}>
                     {item.body}
                   </p>
                 </div>
@@ -713,8 +713,8 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
         style={{
           paddingBlock: 'clamp(5rem, 10vh, 8rem)',
           paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-          background: 'oklch(98% 0.006 80)',
-          borderTop: '1px solid oklch(87% 0.014 75)',
+          background: 'oklch(98% 0.006 264)',
+          borderTop: '1px solid oklch(87% 0.012 264)',
         }}
       >
         <SectionHeader
@@ -738,7 +738,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
               className="font-display uppercase"
               style={{
                 fontSize: 'clamp(2rem, 5vw, 4.5rem)',
-                color: 'oklch(12% 0.025 75)',
+                color: 'oklch(12% 0.012 264)',
                 fontWeight: 700,
                 letterSpacing: '-0.015em',
                 lineHeight: 0.95,
@@ -748,7 +748,7 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             </h2>
             <p
               className="font-body"
-              style={{ marginTop: '1.25rem', fontSize: '0.6875rem', color: 'oklch(45% 0.01 75)', letterSpacing: '0.1em', textTransform: 'uppercase' }}
+              style={{ marginTop: '1.25rem', fontSize: '0.6875rem', color: 'oklch(45% 0.01 264)', letterSpacing: '0.1em', textTransform: 'uppercase' }}
             >
               {c.ctaBody}
             </p>
@@ -762,25 +762,25 @@ export function ComparisonContent({ dict, lang }: { dict: Dictionary; lang: 'en'
             transition={{ duration: 0.4, delay: 0.15 }}
             style={{ minWidth: 'clamp(12rem, 18vw, 18rem)' }}
           >
-            <div style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}>
+            <div style={{ borderTop: '1px solid oklch(87% 0.012 264)' }}>
               <Link
                 href={`/${lang}/contact`}
-                className="font-body block py-4 hover:text-[oklch(60%_0.20_65)] transition-colors duration-150"
-                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)', borderBottom: '1px solid oklch(87% 0.014 75)' }}
+                className="font-body block py-4 hover:text-[oklch(51%_0.207_29)] transition-colors duration-150"
+                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(51% 0.207 29)', borderBottom: '1px solid oklch(87% 0.012 264)' }}
               >
                 {isAr ? `← ${dict.cta.primary}` : `${dict.cta.primary} →`}
               </Link>
               <a
                 href={`/${lang}/services/drilling-anchoring`}
-                className="font-body block py-4 hover:text-[oklch(55%_0.04_240)] transition-colors duration-150"
-                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(50% 0.01 75)', borderBottom: '1px solid oklch(87% 0.014 75)' }}
+                className="font-body block py-4 hover:text-[oklch(55%_0.04_264)] transition-colors duration-150"
+                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(50% 0.01 264)', borderBottom: '1px solid oklch(87% 0.012 264)' }}
               >
                 {isAr ? '← خدمة الحفر والتثبيت' : 'Drilling & Anchoring service →'}
               </a>
               <a
                 href="tel:+201028588003"
-                className="font-body block py-4 hover:text-[oklch(55%_0.04_240)] transition-colors duration-150"
-                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}
+                className="font-body block py-4 hover:text-[oklch(55%_0.04_264)] transition-colors duration-150"
+                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}
               >
                 +20 102 858 8003
               </a>

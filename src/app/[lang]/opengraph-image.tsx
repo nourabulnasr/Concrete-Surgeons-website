@@ -3,9 +3,9 @@
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-// oklch(98% 0.006 80) → #090e16   oklch(60% 0.20 65) → #e09318
-// oklch(82% 0.015 75) → #1a2535   oklch(10% 0.025 75) → #f4f4f6
-// oklch(55% 0.01 75) → #9aa0a8
+// oklch(98% 0.006 264) → #090e16   oklch(41% 0.144 264) → #e09318
+// oklch(82% 0.012 264) → #1a2535   oklch(10% 0.012 264) → #f4f4f6
+// oklch(55% 0.01 264) → #9aa0a8
 
 export default async function Image({
   params,

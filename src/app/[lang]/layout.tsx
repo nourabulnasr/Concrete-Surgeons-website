@@ -106,7 +106,7 @@ export default async function LangLayout({
       dir={isRTL ? 'rtl' : 'ltr'}
       className={`${chivo.variable} ${barlowCondensed.variable} ${cairo.variable} ${bigShoulders.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-[oklch(99%_0.004_80)] text-[oklch(12%_0.025_75)] antialiased font-body">
+      <body className="min-h-full flex flex-col bg-[oklch(99%_0.004_264)] text-[oklch(12%_0.012_264)] antialiased font-body">
         <Navbar dict={dict.nav} lang={lang as 'en' | 'ar'} />
         <LenisProvider>
           <MotionProvider>

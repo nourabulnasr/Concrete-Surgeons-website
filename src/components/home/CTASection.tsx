@@ -16,8 +16,8 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
       style={{
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-        background: 'oklch(98% 0.006 80)',
-        borderTop: '1px solid oklch(87% 0.014 75)',
+        background: 'oklch(98% 0.006 264)',
+        borderTop: '1px solid oklch(87% 0.012 264)',
       }}
     >
       {/* 05 / CONTACT */}
@@ -28,13 +28,13 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
         transition={{ duration: 0.4 }}
         className="flex items-baseline gap-5 mb-12"
       >
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
           06 /
         </span>
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 75)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 264)' }}>
           {isAr ? 'التواصل' : 'CONTACT'}
         </span>
-        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.015 75)' }}>
+        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.012 264)' }}>
           {isAr ? 'استجابة خلال 24 ساعة — القاهرة ومصر والخليج' : '24-HOUR RESPONSE — CAIRO, EGYPT & THE GULF'}
         </span>
       </motion.div>
@@ -55,7 +55,7 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
             className="font-display uppercase"
             style={{
               fontSize: 'clamp(2.5rem, 6vw, 5.5rem)',
-              color: 'oklch(12% 0.025 75)',
+              color: 'oklch(12% 0.012 264)',
               fontWeight: 700,
               letterSpacing: '-0.015em',
               lineHeight: 0.95,
@@ -68,7 +68,7 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
             style={{
               marginTop: '1.5rem',
               fontSize: '0.6875rem',
-              color: 'oklch(45% 0.01 75)',
+              color: 'oklch(45% 0.01 264)',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
             }}
@@ -85,18 +85,18 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
           transition={{ duration: 0.4, delay: 0.15 }}
           style={{ minWidth: 'clamp(14rem, 22vw, 20rem)' }}
         >
-          <div style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}>
+          <div style={{ borderTop: '1px solid oklch(87% 0.012 264)' }}>
             <a
               href="tel:+201028588003"
               className="group flex items-baseline justify-between py-4"
-              style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+              style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
             >
-              <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}>
+              <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}>
                 {isAr ? 'هاتف' : 'PHONE'}
               </span>
               <span
-                className="font-body group-hover:text-[oklch(35%_0.01_75)] transition-colors duration-150"
-                style={{ fontSize: '0.75rem', color: 'oklch(35% 0.01 75)', letterSpacing: '0.05em' }}
+                className="font-body group-hover:text-[oklch(35%_0.01_264)] transition-colors duration-150"
+                style={{ fontSize: '0.75rem', color: 'oklch(35% 0.01 264)', letterSpacing: '0.05em' }}
               >
                 +20 102 858 8003
               </span>
@@ -107,14 +107,14 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-baseline justify-between py-4"
-              style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+              style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
             >
-              <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}>
+              <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}>
                 WHATSAPP
               </span>
               <span
-                className="font-body group-hover:text-[oklch(35%_0.01_75)] transition-colors duration-150"
-                style={{ fontSize: '0.75rem', color: 'oklch(35% 0.01 75)' }}
+                className="font-body group-hover:text-[oklch(35%_0.01_264)] transition-colors duration-150"
+                style={{ fontSize: '0.75rem', color: 'oklch(35% 0.01 264)' }}
               >
                 {isAr ? '← ابدأ محادثة' : 'Start a conversation →'}
               </span>
@@ -123,14 +123,14 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
             <a
               href="mailto:info@csmisr.com"
               className="group flex items-baseline justify-between py-4"
-              style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+              style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
             >
-              <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 75)' }}>
+              <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(55% 0.01 264)' }}>
                 {isAr ? 'بريد' : 'EMAIL'}
               </span>
               <span
-                className="font-body group-hover:text-[oklch(35%_0.01_75)] transition-colors duration-150"
-                style={{ fontSize: '0.75rem', color: 'oklch(35% 0.01 75)', letterSpacing: '0.02em' }}
+                className="font-body group-hover:text-[oklch(35%_0.01_264)] transition-colors duration-150"
+                style={{ fontSize: '0.75rem', color: 'oklch(35% 0.01 264)', letterSpacing: '0.02em' }}
               >
                 info@csmisr.com
               </span>
@@ -145,7 +145,7 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
                     fontSize: '0.5625rem',
                     letterSpacing: '0.2em',
                     textTransform: 'uppercase',
-                    color: 'oklch(60% 0.20 65)',
+                    color: 'oklch(51% 0.207 29)',
                   }}
                 >
                   {isAr ? `← ${c.primary}` : `${c.primary} →`}

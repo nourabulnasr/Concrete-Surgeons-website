@@ -96,17 +96,17 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
 
   // Contextual colors
   const bg = isDark
-    ? scrolled ? 'oklch(7% 0.02 75 / 0.92)' : 'transparent'
-    : scrolled ? 'oklch(98% 0.006 80 / 0.97)' : 'transparent'
+    ? scrolled ? 'oklch(7% 0.012 264 / 0.92)' : 'transparent'
+    : scrolled ? 'oklch(98% 0.006 264 / 0.97)' : 'transparent'
 
   const borderColor = scrolled
-    ? isDark ? 'oklch(20% 0.015 75)' : 'oklch(87% 0.014 75)'
+    ? isDark ? 'oklch(20% 0.012 264)' : 'oklch(87% 0.012 264)'
     : 'transparent'
 
-  const logoAccent = 'oklch(60% 0.20 65)'
-  const logoText = isDark ? 'oklch(92% 0.008 75)' : 'oklch(12% 0.025 75)'
-  const linkBase = isDark ? 'oklch(58% 0.01 75)' : 'oklch(45% 0.01 75)'
-  const langColor = isDark ? 'oklch(45% 0.01 75)' : 'oklch(60% 0.01 75)'
+  const logoAccent = 'oklch(41% 0.144 264)'
+  const logoText = isDark ? 'oklch(92% 0.008 264)' : 'oklch(12% 0.012 264)'
+  const linkBase = isDark ? 'oklch(58% 0.01 264)' : 'oklch(45% 0.01 264)'
+  const langColor = isDark ? 'oklch(45% 0.01 264)' : 'oklch(60% 0.01 264)'
 
   return (
     <header
@@ -207,16 +207,16 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
               style={{
                 display: 'block',
                 padding: '0.6rem 1.25rem',
-                background: 'oklch(60% 0.20 65)',
-                color: 'oklch(12% 0.025 75)',
+                background: 'oklch(51% 0.207 29)',
+                color: 'oklch(99% 0 264)',
                 fontSize: '0.5625rem',
                 fontWeight: 700,
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
                 transition: 'background 0.15s',
               }}
-              onMouseOver={(e) => { e.currentTarget.style.background = 'oklch(52% 0.20 62)' }}
-              onMouseOut={(e) => { e.currentTarget.style.background = 'oklch(60% 0.20 65)' }}
+              onMouseOver={(e) => { e.currentTarget.style.background = 'oklch(44% 0.20 29)' }}
+              onMouseOut={(e) => { e.currentTarget.style.background = 'oklch(51% 0.207 29)' }}
             >
               {dict.getQuote}
             </Link>
@@ -261,8 +261,8 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
             className="md:hidden"
             style={{
-              background: isDark ? 'oklch(10% 0.02 75 / 0.97)' : 'oklch(96% 0.008 80)',
-              borderBottom: `1px solid ${isDark ? 'oklch(20% 0.015 75)' : 'oklch(87% 0.014 75)'}`,
+              background: isDark ? 'oklch(10% 0.012 264 / 0.97)' : 'oklch(96% 0.008 264)',
+              borderBottom: `1px solid ${isDark ? 'oklch(20% 0.012 264)' : 'oklch(87% 0.012 264)'}`,
             }}
           >
             <div style={{ paddingInline: 'clamp(1.5rem, 5vw, 5rem)', paddingBlock: '1.25rem' }}>
@@ -274,7 +274,7 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: i * 0.03, duration: 0.15 }}
-                    style={{ borderBottom: `1px solid ${isDark ? 'oklch(18% 0.015 75)' : 'oklch(89% 0.012 75)'}` }}
+                    style={{ borderBottom: `1px solid ${isDark ? 'oklch(18% 0.012 264)' : 'oklch(89% 0.012 264)'}` }}
                   >
                     <Link
                       href={href}
@@ -305,8 +305,8 @@ export function Navbar({ dict, lang }: { dict: NavDict; lang: 'en' | 'ar' }) {
                   className="font-body"
                   style={{
                     padding: '0.6rem 1.25rem',
-                    background: 'oklch(60% 0.20 65)',
-                    color: 'oklch(12% 0.025 75)',
+                    background: 'oklch(51% 0.207 29)',
+                    color: 'oklch(99% 0 264)',
                     fontSize: '0.5625rem',
                     fontWeight: 700,
                     letterSpacing: '0.15em',

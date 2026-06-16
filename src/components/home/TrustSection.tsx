@@ -69,8 +69,8 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
       style={{
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
-        background: 'oklch(95% 0.01 75)',
-        borderTop: '1px solid oklch(87% 0.014 75)',
+        background: 'oklch(95% 0.01 264)',
+        borderTop: '1px solid oklch(87% 0.012 264)',
       }}
     >
       {/* 03 / CERTIFICATION RECORD */}
@@ -81,13 +81,13 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
         transition={{ duration: 0.4 }}
         className="flex items-baseline gap-5 mb-12"
       >
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
           03 /
         </span>
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 75)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(45% 0.01 264)' }}>
           {isAr ? 'سجل الاعتمادات' : 'CERTIFICATION RECORD'}
         </span>
-        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.015 75)' }}>
+        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(80% 0.012 264)' }}>
           {isAr ? 'سبعة مختبرات — ست وعشرون خاصية إنشائية' : 'SEVEN LABORATORIES — TWENTY-SIX STRUCTURAL PROPERTIES'}
         </span>
       </motion.div>
@@ -104,7 +104,7 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
           className="font-display uppercase"
           style={{
             fontSize: 'clamp(1.4rem, 2.8vw, 2.5rem)',
-            color: 'oklch(12% 0.025 75)',
+            color: 'oklch(12% 0.012 264)',
             fontWeight: 700,
             letterSpacing: '-0.01em',
             lineHeight: 1.1,
@@ -122,7 +122,7 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-40px' }}
-        style={{ borderTop: '1px solid oklch(87% 0.014 75)' }}
+        style={{ borderTop: '1px solid oklch(87% 0.012 264)' }}
       >
         {certs.map((cert, i) => {
           const name = isAr ? cert.nameAr : cert.nameEn
@@ -132,7 +132,7 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
             <motion.div
               key={cert.nameEn}
               variants={itemVariants}
-              style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+              style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
             >
               <div
                 className="grid items-center py-5 md:py-6"
@@ -147,7 +147,7 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
                   className="font-incident block"
                   style={{
                     fontSize: 'clamp(1.25rem, 2vw, 1.75rem)',
-                    color: 'oklch(80% 0.015 75)',
+                    color: 'oklch(80% 0.012 264)',
                     fontWeight: 900,
                     lineHeight: 1,
                   }}
@@ -161,7 +161,7 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
                     className="font-body"
                     style={{
                       fontSize: 'clamp(0.875rem, 1.2vw, 1.0625rem)',
-                      color: 'oklch(20% 0.02 75)',
+                      color: 'oklch(20% 0.012 264)',
                       fontWeight: 500,
                       letterSpacing: '0.01em',
                       lineHeight: 1.2,
@@ -173,7 +173,7 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
                     className="font-body mt-1 hidden md:block"
                     style={{
                       fontSize: '0.625rem',
-                      color: 'oklch(50% 0.01 75)',
+                      color: 'oklch(50% 0.01 264)',
                       letterSpacing: '0.08em',
                       textTransform: 'uppercase',
                     }}
@@ -215,7 +215,7 @@ export function TrustSection({ dict: _dict, lang }: { dict: Dictionary; lang: 'e
             fontSize: '0.5625rem',
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color: 'oklch(45% 0.01 75)',
+            color: 'oklch(45% 0.01 264)',
           }}
         >
           {isAr ? '← عرض بيانات الاعتماد الكاملة' : 'View full certification data →'}

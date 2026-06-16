@@ -117,7 +117,7 @@ export function ClientsContent({ lang, dict }: Props) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: E }}
-          className={`flex flex-wrap gap-x-16 gap-y-4 pb-12 mb-12 border-b border-[oklch(82%_0.015_75)] ${isAr ? 'flex-row-reverse' : ''}`}
+          className={`flex flex-wrap gap-x-16 gap-y-4 pb-12 mb-12 border-b border-[oklch(82%_0.012_264)] ${isAr ? 'flex-row-reverse' : ''}`}
         >
           {[
             { n: String(clients.length).padStart(2, '0'), label: isAr ? 'عميل رئيسي' : 'KEY CLIENTS' },
@@ -131,7 +131,7 @@ export function ClientsContent({ lang, dict }: Props) {
                   fontSize: 'clamp(2rem, 4vw, 3.25rem)',
                   fontWeight: 900,
                   lineHeight: 1,
-                  color: 'oklch(12% 0.025 75)',
+                  color: 'oklch(12% 0.012 264)',
                   letterSpacing: '-0.03em',
                 }}
               >
@@ -143,7 +143,7 @@ export function ClientsContent({ lang, dict }: Props) {
                   fontSize: '0.5rem',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  color: 'oklch(50% 0.01 75)',
+                  color: 'oklch(50% 0.01 264)',
                 }}
               >
                 {s.label}
@@ -157,7 +157,7 @@ export function ClientsContent({ lang, dict }: Props) {
           variants={listVariants}
           initial="hidden"
           animate="visible"
-          style={{ borderTop: '1px solid oklch(82% 0.015 75)' }}
+          style={{ borderTop: '1px solid oklch(82% 0.012 264)' }}
         >
           {clients.map((client, i) => {
             const name = isAr ? client.nameAr : client.name
@@ -168,10 +168,10 @@ export function ClientsContent({ lang, dict }: Props) {
               <motion.div
                 key={client.name}
                 variants={rowVariants}
-                style={{ borderBottom: '1px solid oklch(82% 0.015 75)' }}
+                style={{ borderBottom: '1px solid oklch(82% 0.012 264)' }}
               >
                 <div
-                  className="grid items-center hover:bg-[oklch(96%_0.008_75)] transition-colors duration-150"
+                  className="grid items-center hover:bg-[oklch(96%_0.008_264)] transition-colors duration-150"
                   style={{
                     gridTemplateColumns: 'clamp(2rem, 4vw, 3.25rem) 80px 1fr auto',
                     gap: 'clamp(1rem, 2vw, 2rem)',
@@ -186,7 +186,7 @@ export function ClientsContent({ lang, dict }: Props) {
                       fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
                       fontWeight: 900,
                       lineHeight: 1,
-                      color: 'oklch(82% 0.012 75)',
+                      color: 'oklch(82% 0.012 264)',
                     }}
                   >
                     {String(i + 1).padStart(2, '0')}
@@ -225,13 +225,13 @@ export function ClientsContent({ lang, dict }: Props) {
                         fontWeight: 700,
                         letterSpacing: '-0.01em',
                         lineHeight: 1.1,
-                        color: 'oklch(12% 0.025 75)',
+                        color: 'oklch(12% 0.012 264)',
                       }}
                     >
                       {name}
                     </div>
                     <p
-                      className="text-stone-400 mt-1 hidden md:block"
+                      className="text-[oklch(58%_0.006_264)] mt-1 hidden md:block"
                       style={{ fontSize: '0.75rem' }}
                     >
                       {note}
@@ -246,7 +246,7 @@ export function ClientsContent({ lang, dict }: Props) {
                         fontSize: '0.5rem',
                         letterSpacing: '0.2em',
                         textTransform: 'uppercase',
-                        color: 'oklch(60% 0.20 65)',
+                        color: 'oklch(41% 0.144 264)',
                         display: 'block',
                       }}
                     >
@@ -265,10 +265,10 @@ export function ClientsContent({ lang, dict }: Props) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: E }}
-          className="mt-16 pt-10 border-t border-[oklch(82%_0.015_75)]"
+          className="mt-16 pt-10 border-t border-[oklch(82%_0.012_264)]"
         >
           <p
-            className="text-stone-400 text-base leading-relaxed mb-8 max-w-[560px]"
+            className="text-[oklch(58%_0.006_264)] text-base leading-relaxed mb-8 max-w-[560px]"
             style={{ textAlign: isAr ? 'right' : 'left' }}
           >
             {isAr
@@ -280,8 +280,8 @@ export function ClientsContent({ lang, dict }: Props) {
               href={`/${lang}/contact`}
               className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-700 uppercase tracking-widest transition-colors hover:opacity-90"
               style={{
-                background: 'oklch(60% 0.20 65)',
-                color: 'oklch(12% 0.025 75)',
+                background: 'oklch(51% 0.207 29)',
+                color: 'oklch(99% 0 264)',
               }}
             >
               {dict.cta.primary}

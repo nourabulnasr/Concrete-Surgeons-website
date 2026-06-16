@@ -60,8 +60,8 @@ export function SupplySection({ lang }: Props) {
   return (
     <section
       style={{
-        background: 'oklch(99% 0.004 80)',
-        borderTop: '1px solid oklch(87% 0.014 75)',
+        background: 'oklch(99% 0.004 264)',
+        borderTop: '1px solid oklch(87% 0.012 264)',
         paddingBlock: 'clamp(5rem, 10vh, 8rem)',
         paddingInline: 'clamp(1.5rem, 5vw, 5rem)',
       }}
@@ -74,13 +74,13 @@ export function SupplySection({ lang }: Props) {
         transition={{ duration: 0.4 }}
         className={`flex items-baseline gap-5 mb-12 ${isAr ? 'flex-row-reverse' : ''}`}
       >
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}>
           04 /
         </span>
-        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(50% 0.01 75)' }}>
+        <span className="font-body" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(50% 0.01 264)' }}>
           {isAr ? 'توريد HM-500' : 'HM-500 SUPPLY'}
         </span>
-        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(40% 0.01 75)' }}>
+        <span className="font-body hidden md:inline" style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(40% 0.01 264)' }}>
           {isAr ? 'الموزع الإقليمي المعتمد — مصر' : 'AUTHORIZED REGIONAL DISTRIBUTOR · EGYPT'}
         </span>
       </motion.div>
@@ -103,7 +103,7 @@ export function SupplySection({ lang }: Props) {
                 fontWeight: 900,
                 lineHeight: 0.84,
                 letterSpacing: '-0.03em',
-                color: 'oklch(88% 0.01 75)',
+                color: 'oklch(88% 0.01 264)',
               }}
             >
               HM-500
@@ -120,7 +120,7 @@ export function SupplySection({ lang }: Props) {
               fontSize: 'clamp(0.5rem, 0.9vw, 0.6875rem)',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: 'oklch(52% 0.01 75)',
+              color: 'oklch(52% 0.01 264)',
               lineHeight: 1.8,
             }}
           >
@@ -135,18 +135,18 @@ export function SupplySection({ lang }: Props) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease: E }}
-            style={{ marginTop: '2.5rem', borderTop: '1px solid oklch(87% 0.014 75)' }}
+            style={{ marginTop: '2.5rem', borderTop: '1px solid oklch(87% 0.012 264)' }}
           >
             {specs.map((s) => (
               <div
                 key={s.labelEn}
                 className={`flex items-baseline justify-between py-3.5 ${isAr ? 'flex-row-reverse' : ''}`}
-                style={{ borderBottom: '1px solid oklch(87% 0.014 75)' }}
+                style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
               >
-                <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(54% 0.01 75)' }}>
+                <span className="font-body" style={{ fontSize: '0.5rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'oklch(54% 0.01 264)' }}>
                   {isAr ? s.labelAr : s.labelEn}
                 </span>
-                <span className="font-incident" style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1.2rem)', fontWeight: 900, color: 'oklch(60% 0.20 65)', letterSpacing: '-0.01em' }}>
+                <span className="font-incident" style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1.2rem)', fontWeight: 900, color: 'oklch(41% 0.144 264)', letterSpacing: '-0.01em' }}>
                   {s.value}
                 </span>
               </div>
@@ -162,8 +162,8 @@ export function SupplySection({ lang }: Props) {
             style={{
               marginTop: '2rem',
               padding: '1.25rem 1.5rem',
-              border: '1px solid oklch(60% 0.20 65 / 0.25)',
-              background: 'oklch(60% 0.20 65 / 0.04)',
+              border: '1px solid oklch(41% 0.144 264 / 0.25)',
+              background: 'oklch(41% 0.144 264 / 0.04)',
             }}
           >
             <p
@@ -172,7 +172,7 @@ export function SupplySection({ lang }: Props) {
                 fontSize: '0.5rem',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: 'oklch(60% 0.20 65)',
+                color: 'oklch(41% 0.144 264)',
                 lineHeight: 1.9,
               }}
             >
@@ -191,7 +191,7 @@ export function SupplySection({ lang }: Props) {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
             className="font-body mb-8"
-            style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(52% 0.01 75)' }}
+            style={{ fontSize: '0.5rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'oklch(52% 0.01 264)' }}
           >
             {isAr ? 'أربع تقنيات احتكارية' : '4 PROPRIETARY TECHNOLOGIES'}
           </motion.p>
@@ -206,12 +206,12 @@ export function SupplySection({ lang }: Props) {
               <motion.div
                 key={tech.n}
                 variants={techItem}
-                style={{ borderTop: '1px solid oklch(87% 0.014 75)', paddingBlock: '1.5rem' }}
+                style={{ borderTop: '1px solid oklch(87% 0.012 264)', paddingBlock: '1.5rem' }}
               >
                 <div className={`flex gap-5 items-start ${isAr ? 'flex-row-reverse' : ''}`}>
                   <span
                     className="font-incident shrink-0"
-                    style={{ fontSize: '0.875rem', fontWeight: 900, color: 'oklch(44% 0.015 75)', letterSpacing: '-0.01em', paddingTop: '0.1rem' }}
+                    style={{ fontSize: '0.875rem', fontWeight: 900, color: 'oklch(44% 0.012 264)', letterSpacing: '-0.01em', paddingTop: '0.1rem' }}
                   >
                     {tech.n}
                   </span>
@@ -221,7 +221,7 @@ export function SupplySection({ lang }: Props) {
                       style={{
                         fontSize: '0.6875rem',
                         fontWeight: 600,
-                        color: 'oklch(14% 0.025 75)',
+                        color: 'oklch(14% 0.012 264)',
                         lineHeight: 1.3,
                         marginBottom: '0.5rem',
                       }}
@@ -230,7 +230,7 @@ export function SupplySection({ lang }: Props) {
                     </p>
                     <p
                       className="font-body"
-                      style={{ fontSize: '0.625rem', color: 'oklch(58% 0.01 75)', lineHeight: 1.65 }}
+                      style={{ fontSize: '0.625rem', color: 'oklch(58% 0.01 264)', lineHeight: 1.65 }}
                     >
                       {isAr ? tech.bodyAr : tech.bodyEn}
                     </p>
@@ -238,7 +238,7 @@ export function SupplySection({ lang }: Props) {
                 </div>
               </motion.div>
             ))}
-            <div style={{ borderTop: '1px solid oklch(87% 0.014 75)' }} />
+            <div style={{ borderTop: '1px solid oklch(87% 0.012 264)' }} />
           </motion.div>
 
           <motion.div
@@ -252,7 +252,7 @@ export function SupplySection({ lang }: Props) {
               <Link
                 href={`/${lang}/comparison`}
                 className="font-body"
-                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(60% 0.20 65)' }}
+                style={{ fontSize: '0.5625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'oklch(41% 0.144 264)' }}
               >
                 {isAr ? '← مقارنة المواصفات مع هيلتي' : 'COMPARE SPECIFICATIONS VS HILTI →'}
               </Link>
