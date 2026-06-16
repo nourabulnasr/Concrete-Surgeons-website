@@ -1,14 +1,36 @@
 # CSMISR — SESSION CHECKPOINT
 
-**Last updated:** 2026-06-16 · **Branch:** `main` · **Remote:** `github.com/nourabulnasr/Concrete-Surgeons-website`
-**Phase status:** Phase 1 (read-only inventory) DONE → awaiting Nour's approval to start Phase 2.
+**Last updated:** 2026-06-17 · **Branch:** `main` · **Remote:** `github.com/nourabulnasr/Concrete-Surgeons-website`
+**Phase status:** Phase 2 IN PROGRESS. **Item #1 (RECOLOUR) DONE + pushed** (commit `3dad380`) → **awaiting Nour's approval before item #2.**
 
 > If the laptop crashes: code on disk + this file + commits on GitHub = full recovery.
 > A fresh session resumes from this file — the plan, asset map, and colours are all here.
 
 ---
 
-## THE THREE BRAND COLOURS (sampled from real artwork — approved? PENDING)
+## RESUME HERE (next session)
+
+1. **Item #1 recolour is DONE and pushed.** Do NOT redo it. Verify with:
+   `git log --oneline -1` should show `3dad380 feat(brand): recolour…`.
+2. **Awaiting Nour's approval of the recolour** + answers to 3 flags (below) before starting **item #2 (remove hero numbers)**.
+3. Colours are **INLINE `oklch()` literals inside `style={{}}`** across 27 files — NOT Tailwind tokens. The `@theme` block in `globals.css` is the documented system but components inline everything. Live hero = the **dark `CinematicHero.tsx`** (not `Hero.tsx`).
+4. **Lenis** owns smooth scroll → `window.scrollTo` is hijacked, so the desktop 3D `ProductReveal` is hard to screenshot. Its 4 accents are red (verified in code + build).
+5. Review screenshots (outside the repo): `C:\Users\noura\OneDrive\Desktop\csmisr\csmisr-recolor-0{1..5}-*.png`.
+
+### Recolour — what shipped (item #1)
+- Amber accent split by ROLE: **BLUE** `oklch(41% 0.144 264)` = brand/structure (logo, eyebrows, section indices, focus, rules, ::selection); **RED** `oklch(51% 0.207 29)` = product + CTAs (all `ProductReveal`, filled buttons with WHITE text, comparison winner column, primary contact links). RED hover `oklch(44% 0.20 29)`.
+- Warm cream/ink neutrals (hue 75/80) + all `stone-*` utilities → cool **GREY** ramp hue 264. Steel hue 240 → 264. Body text grey-600+ (≥4.5:1).
+- Green (hue 145) + pale-red error (hue 28) kept as **semantic states** (not brand).
+- Done via a one-pass Python script (dry-run verified, then `--apply`, then deleted). Build passes; 0 amber/stone/warm literals remain.
+
+### OPEN FLAGS — awaiting Nour's decision
+1. **Green "LEADS" tags + WhatsApp icon** kept green (semantic). Switch to red/blue for brand cohesion, or leave?
+2. **"KA" founder square (About)** = the amber-initials-square anti-pattern (CLAUDE.md forbids). Recoloured blue for now; should become a real founder photo — add to scope?
+3. Desktop 3D product reveal not screenshotted (Lenis). Trust code, or capture another way?
+
+---
+
+## THE THREE BRAND COLOURS (sampled from real artwork — APPROVED by Nour 2026-06-17, shipped in item #1)
 
 | Role | Hex | OKLCH (token system) | Source |
 |---|---|---|---|
@@ -66,8 +88,8 @@ horizon-egypt, ministry-housing, petrojet, saffarini, sika). Project photos in `
 
 ---
 
-## PHASE 2 PLAN (after approval — build top-down, COMMIT + PUSH after EACH item)
-1. **RECOLOUR (first, foundational):** replace amber OKLCH accent → Blue=brand/structure, Red=product+CTAs, Grey=neutral. Re-check contrast. **Show recoloured homepage for approval before continuing.**
+## PHASE 2 PLAN (build top-down, COMMIT + PUSH after EACH item)
+1. ~~**RECOLOUR**~~ ✅ **DONE 2026-06-17 (commit `3dad380`)** — amber → Blue/Red/Grey, neutrals + stone-* → grey 264, contrast verified, build passes. Awaiting Nour's sign-off + flag answers before #2.
 2. Hero: remove the numbers (#2).
 3. Re-file diamond saw cutter under Controlled Demolition (#11).
 4. HM certificates (#4): clickable gallery — lightbox for images, open-in-tab for PDFs.
