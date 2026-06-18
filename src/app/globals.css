@@ -157,6 +157,16 @@ body {
   animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Transform-only entrance — element stays opacity:1 so it can be the LCP
+   element and paint on the first frame (no opacity gate on slow main threads). */
+@keyframes rise-in {
+  from { transform: translateY(24px); }
+  to { transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 hr {
   border: none;
   border-top: 1px solid oklch(92% 0.004 264);

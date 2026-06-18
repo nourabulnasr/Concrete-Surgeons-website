@@ -257,7 +257,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                 so it paints at first frame and stays the LCP element — no
                 hydration gate. */}
             <h2
-              className="font-incident select-none animate-fade-up"
+              className="font-incident select-none animate-rise"
               style={{
                 fontSize: 'clamp(2.75rem, 9vw, 8.5rem)',
                 fontWeight: 900,
@@ -273,7 +273,7 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
 
             {/* Second beat — muted grey, lighter weight (CSS, slight delay) */}
             <p
-              className="font-incident select-none animate-fade-up"
+              className="font-incident select-none animate-rise"
               style={{
                 fontSize: 'clamp(1.5rem, 5vw, 4rem)',
                 fontWeight: 800,
