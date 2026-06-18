@@ -13,6 +13,7 @@ import { CertGallery } from '@/components/home/CertGallery'
 import { QualityPrice } from '@/components/home/QualityPrice'
 import { ProjectsTeaser } from '@/components/home/ProjectsTeaser'
 import { PreQualification } from '@/components/home/PreQualification'
+import { VideoDemos } from '@/components/home/VideoDemos'
 import { CTASection } from '@/components/home/CTASection'
 
 export async function generateMetadata({
@@ -121,6 +122,8 @@ export default async function HomePage({
       <ProductReveal lang={lang as 'en' | 'ar'} />
       {/* 05 — Verified in the field: 5 Egyptian projects */}
       <EgyptianProjects lang={lang as 'en' | 'ar'} />
+      {/* Field demo videos — embed slots (placeholders until client supplies links) */}
+      <VideoDemos lang={lang as 'en' | 'ar'} />
       {/* Certifications film strip */}
       <CertFilmStrip lang={lang as 'en' | 'ar'} />
       {/* Real verification documents — clickable PDF gallery */}
