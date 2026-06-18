@@ -51,7 +51,7 @@ export default async function HomePage({
       "Middle East's leading specialist in diamond sawing, controlled demolition, and structural retrofitting. Serving Egypt and the Gulf since 2007.",
     url: 'https://csmisr.com',
     telephone: '+201028588003',
-    email: 'info@csmisr.com',
+    email: 'contact@csmisr.com',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '70 Joseph Tito Street',

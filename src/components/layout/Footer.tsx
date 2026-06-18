@@ -173,11 +173,11 @@ export function Footer({ dict, lang }: { dict: FooterDict; lang: 'en' | 'ar' }) 
                 +20 102 858 8003
               </a>
               <a
-                href="mailto:info@csmisr.com"
+                href="mailto:contact@csmisr.com"
                 className="font-body transition-colors duration-150 hover:text-[oklch(92%_0.008_264)]"
                 style={{ fontSize: '0.75rem', color: 'oklch(50% 0.01 264)' }}
               >
-                info@csmisr.com
+                contact@csmisr.com
               </a>
               <MagneticButton strength={0.22}>
                 <a

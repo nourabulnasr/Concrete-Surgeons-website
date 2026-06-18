@@ -40,13 +40,31 @@ export default async function ContactPage({
       '@type': 'LocalBusiness',
       name: 'Concrete Surgeons',
       telephone: '+201028588003',
-      email: 'info@csmisr.com',
+      email: 'contact@csmisr.com',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '70 Joseph Tito Street',
         addressLocality: 'New Nozha, Cairo',
         addressCountry: 'EG',
       },
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'sales',
+          email: 'sales@csmisr.com',
+          telephone: '+201028588003',
+          areaServed: ['EG', 'AE', 'SA'],
+          availableLanguage: ['en', 'ar'],
+        },
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: 'contact@csmisr.com',
+          telephone: '+201028588003',
+          areaServed: ['EG', 'AE', 'SA'],
+          availableLanguage: ['en', 'ar'],
+        },
+      ],
     },
   }
 
@@ -93,9 +111,17 @@ export default async function ContactPage({
                       icon: (
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                       ),
-                      label: lang === 'ar' ? 'بريد إلكتروني' : 'Email',
-                      value: 'info@csmisr.com',
-                      href: 'mailto:info@csmisr.com',
+                      label: lang === 'ar' ? 'مبيعات وعروض أسعار' : 'Sales & Quotes',
+                      value: 'sales@csmisr.com',
+                      href: 'mailto:sales@csmisr.com',
+                    },
+                    {
+                      icon: (
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      ),
+                      label: lang === 'ar' ? 'استفسار عام' : 'General Enquiry',
+                      value: 'contact@csmisr.com',
+                      href: 'mailto:contact@csmisr.com',
                     },
                     {
                       icon: (

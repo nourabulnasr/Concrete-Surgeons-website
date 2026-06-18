@@ -121,7 +121,7 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
             </a>
 
             <a
-              href="mailto:info@csmisr.com"
+              href="mailto:sales@csmisr.com"
               className="group flex items-baseline justify-between py-4"
               style={{ borderBottom: '1px solid oklch(87% 0.012 264)' }}
             >
@@ -132,7 +132,7 @@ export function CTASection({ dict, lang }: { dict: Dictionary; lang: 'en' | 'ar'
                 className="font-body group-hover:text-[oklch(35%_0.01_264)] transition-colors duration-150"
                 style={{ fontSize: '0.75rem', color: 'oklch(35% 0.01 264)', letterSpacing: '0.02em' }}
               >
-                info@csmisr.com
+                sales@csmisr.com
               </span>
             </a>
 

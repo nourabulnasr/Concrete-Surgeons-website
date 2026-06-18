@@ -3,15 +3,17 @@ import { Resend } from 'resend'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
-// CONTACT_EMAIL = where form submissions land.
-// Until csmisr.com is verified as a Resend sending domain, use your own email here.
-// Once verified: change from address below to 'noreply@csmisr.com' and CONTACT_EMAIL to 'info@csmisr.com'.
+// Where form submissions land, by department.
+// Until csmisr.com is verified as a Resend sending domain, both fall back to
+// your own inbox. Once verified, set env: CONTACT_EMAIL=contact@csmisr.com and
+// SALES_EMAIL=sales@csmisr.com (and switch the `from` address below).
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || '1432amr@gmail.com'
+const SALES_EMAIL = process.env.SALES_EMAIL || CONTACT_EMAIL
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, service, message, website } = body
+    const { name, email, phone, service, message, website, department } = body
 
     if (website) {
       return NextResponse.json({ ok: true })
@@ -26,6 +28,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid email' }, { status: 400 })
     }
 
+    const isSales = department === 'sales'
+    const deptLabel = isSales ? 'Sales & Quotes' : 'General Enquiry'
+    const destination = isSales ? SALES_EMAIL : CONTACT_EMAIL
+
     const serviceLabel = service ? `<p><strong>Service:</strong> ${service}</p>` : ''
     const phoneLabel = phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''
 
@@ -34,12 +40,13 @@ export async function POST(request: NextRequest) {
         // 'onboarding@resend.dev' works without domain verification.
         // Switch to 'Concrete Surgeons <noreply@csmisr.com>' after verifying csmisr.com in Resend.
         from: 'Concrete Surgeons <onboarding@resend.dev>',
-        to: CONTACT_EMAIL,
+        to: destination,
         replyTo: email,
-        subject: `New inquiry from ${name} — csmisr.com`,
+        subject: `[${deptLabel}] New inquiry from ${name} — csmisr.com`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#f9f9f9;">
-            <h2 style="color:#1a1a1a;margin-bottom:16px;font-family:sans-serif;">New contact form submission — Concrete Surgeons</h2>
+            <h2 style="color:#1a1a1a;margin-bottom:16px;font-family:sans-serif;">New ${deptLabel} submission — Concrete Surgeons</h2>
+            <p><strong>Department:</strong> ${deptLabel}</p>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
             ${phoneLabel}
@@ -54,7 +61,7 @@ export async function POST(request: NextRequest) {
       })
     } else {
       console.log('[contact] RESEND_API_KEY not set — logging submission:', {
-        name, email, phone, service,
+        department: deptLabel, destination, name, email, phone, service,
         message: message.slice(0, 500),
         timestamp: new Date().toISOString(),
       })

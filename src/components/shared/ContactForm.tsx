@@ -7,8 +7,16 @@ import { services } from '@/lib/services'
 type ContactDict = Dictionary['contact']
 
 export function ContactForm({ dict, lang }: { dict: ContactDict; lang: 'en' | 'ar' }) {
+  const isAr = lang === 'ar'
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [honeypot, setHoneypot] = useState('')
+  const [department, setDepartment] = useState<'sales' | 'contact'>('sales')
+
+  const departments = [
+    { key: 'sales' as const, label: isAr ? 'مبيعات وعروض أسعار' : 'Sales & Quotes', email: 'sales@csmisr.com' },
+    { key: 'contact' as const, label: isAr ? 'استفسار عام' : 'General Enquiry', email: 'contact@csmisr.com' },
+  ]
+  const activeEmail = departments.find((d) => d.key === department)!.email
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -53,6 +61,37 @@ export function ContactForm({ dict, lang }: { dict: ContactDict; lang: 'en' | 'a
         className="hidden"
         autoComplete="off"
       />
+
+      {/* Department toggle — routes the lead to Sales or General */}
+      <div>
+        <label className={labelClass}>{isAr ? 'نوع الطلب' : 'Inquiry type'}</label>
+        <div className="grid grid-cols-2 gap-2" role="radiogroup">
+          {departments.map((d) => {
+            const active = d.key === department
+            return (
+              <button
+                key={d.key}
+                type="button"
+                role="radio"
+                aria-checked={active}
+                onClick={() => setDepartment(d.key)}
+                className={`py-3 text-xs uppercase tracking-widest border transition-colors cursor-pointer ${
+                  active
+                    ? 'bg-[oklch(41%_0.144_264)] text-[oklch(99%_0_0)] border-[oklch(41%_0.144_264)]'
+                    : 'bg-white text-[oklch(48%_0.007_264)] border-[oklch(82%_0.012_264)] hover:border-[oklch(41%_0.144_264/0.5)]'
+                }`}
+              >
+                {d.label}
+              </button>
+            )
+          })}
+        </div>
+        <input type="hidden" name="department" value={department} />
+        <p className="mt-2 text-[0.625rem] tracking-wide text-[oklch(54%_0.006_264)]">
+          {isAr ? 'يُوجَّه إلى' : 'Routes to'}{' '}
+          <span className="text-[oklch(41%_0.144_264)]">{activeEmail}</span>
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
