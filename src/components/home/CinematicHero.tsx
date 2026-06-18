@@ -28,6 +28,13 @@ function CinematicCanvas() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    // Defer the decorative RAF loop until after the LCP window so it doesn't
+    // contend for the main thread while the hero headline is painting.
+    let startId = 0
+    const startTimer = window.setTimeout(() => {
+      startId = requestAnimationFrame(draw)
+    }, 2600)
+
     let W = canvas.offsetWidth
     let H = canvas.offsetHeight
     canvas.width = W
@@ -93,8 +100,6 @@ function CinematicCanvas() {
       rafRef.current = requestAnimationFrame(draw)
     }
 
-    rafRef.current = requestAnimationFrame(draw)
-
     const ro = new ResizeObserver(() => {
       W = canvas.offsetWidth
       H = canvas.offsetHeight
@@ -105,6 +110,8 @@ function CinematicCanvas() {
 
     return () => {
       running = false
+      window.clearTimeout(startTimer)
+      cancelAnimationFrame(startId)
       cancelAnimationFrame(rafRef.current)
       ro.disconnect()
     }

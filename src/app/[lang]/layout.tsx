@@ -20,12 +20,16 @@ const barlowCondensed = Barlow_Condensed({
   variable: '--font-display',
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
+  // Section headings (below the fold) — don't compete with the hero font preload.
+  preload: false,
 })
 
 const cairo = Cairo({
-  subsets: ['arabic', 'latin'],
+  subsets: ['arabic'],
   variable: '--font-arabic',
   display: 'swap',
+  // Arabic is only needed on /ar — load on demand, never preload on /en.
+  preload: false,
 })
 
 const bigShoulders = Big_Shoulders({
@@ -33,6 +37,7 @@ const bigShoulders = Big_Shoulders({
   weight: ['900'],
   variable: '--font-incident',
   display: 'swap',
+  // The hero headline is the LCP element — keep this preloaded and uncontended.
 })
 
 export const viewport: Viewport = {
