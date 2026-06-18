@@ -1,11 +1,16 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'motion/react'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import type { Dictionary } from '@/lib/dictionaries'
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
+// Founder headshot. Drop the photo at public/team/founder.jpg and set this to
+// '/team/founder.jpg' — until then a neutral placeholder slot is shown.
+const FOUNDER_PHOTO: string | null = null
 
 const listVariants = {
   hidden: {},
@@ -210,20 +215,34 @@ export function AboutContent({ dict, lang }: Props) {
                 transition={{ duration: 0.45, ease: E }}
                 className={`flex items-center gap-5 py-6 border-t border-[oklch(82%_0.012_264)] ${isAr ? 'flex-row-reverse' : ''}`}
               >
-                <div
-                  className="flex-shrink-0 flex items-center justify-center"
-                  style={{
-                    width: '3rem',
-                    height: '3rem',
-                    background: 'oklch(41% 0.144 264)',
-                    fontSize: '0.875rem',
-                    fontWeight: 700,
-                    color: 'oklch(99% 0 264)',
-                    fontFamily: 'var(--font-display)',
-                  }}
-                >
-                  KA
-                </div>
+                {FOUNDER_PHOTO ? (
+                  <Image
+                    src={FOUNDER_PHOTO}
+                    alt={`${a.founderName} — ${a.founderTitle}, Concrete Surgeons`}
+                    width={64}
+                    height={64}
+                    className="flex-shrink-0"
+                    style={{ width: '3.5rem', height: '3.5rem', objectFit: 'cover' }}
+                  />
+                ) : (
+                  // Photo slot — client to supply a headshot (see HANDOFF).
+                  <div
+                    className="flex-shrink-0 flex items-center justify-center"
+                    style={{
+                      width: '3.5rem',
+                      height: '3.5rem',
+                      background: 'oklch(93% 0.008 264)',
+                      border: '1px solid oklch(82% 0.012 264)',
+                      color: 'oklch(60% 0.01 264)',
+                    }}
+                    aria-label={`${a.founderName} — photo`}
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <circle cx="12" cy="8" r="4" />
+                      <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" />
+                    </svg>
+                  </div>
+                )}
                 <div style={{ textAlign: isAr ? 'right' : 'left' }}>
                   <div className="text-sm font-600 text-[oklch(38%_0.008_264)]">{a.founderName}</div>
                   <div className="text-xs text-[oklch(48%_0.007_264)] uppercase tracking-widest mt-0.5">{a.founderTitle}</div>
