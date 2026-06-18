@@ -10,6 +10,7 @@ import { ProductReveal } from '@/components/home/ProductReveal'
 import { EgyptianProjects } from '@/components/home/EgyptianProjects'
 import { CertFilmStrip } from '@/components/home/CertFilmStrip'
 import { CertGallery } from '@/components/home/CertGallery'
+import { QualityPrice } from '@/components/home/QualityPrice'
 import { ProjectsTeaser } from '@/components/home/ProjectsTeaser'
 import { PreQualification } from '@/components/home/PreQualification'
 import { CTASection } from '@/components/home/CTASection'
@@ -124,6 +125,8 @@ export default async function HomePage({
       <CertFilmStrip lang={lang as 'en' | 'ar'} />
       {/* Real verification documents — clickable PDF gallery */}
       <CertGallery lang={lang as 'en' | 'ar'} />
+      {/* Quality & pricing — real specs + request a quote */}
+      <QualityPrice lang={lang as 'en' | 'ar'} />
       {/* 500+ parallax teaser */}
       <ProjectsTeaser dict={dict} lang={lang as 'en' | 'ar'} />
       {/* Pre-qualification — project photo wall + client logos */}
