@@ -3,9 +3,8 @@
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-// oklch(98% 0.006 264) → #090e16   oklch(41% 0.144 264) → #e09318
-// oklch(82% 0.012 264) → #1a2535   oklch(10% 0.012 264) → #f4f4f6
-// oklch(55% 0.01 264) → #9aa0a8
+// Brand palette: BLUE #204498 (brand/structure) · RED #C20809 (product)
+// Dark stage #090e16 · hairline #1a2535 · ink-on-light #f4f4f6 · muted #9aa0a8
 
 export default async function Image({
   params,
@@ -45,7 +44,7 @@ export default async function Image({
               left: 0,
               width: 3,
               height: 120,
-              background: '#e09318',
+              background: '#5277d8',
             }}
           />
           <div
@@ -55,7 +54,7 @@ export default async function Image({
               left: 0,
               width: 120,
               height: 3,
-              background: '#e09318',
+              background: '#5277d8',
             }}
           />
         </div>
@@ -69,7 +68,7 @@ export default async function Image({
               fontWeight: 600,
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
-              color: '#e09318',
+              color: '#5277d8',
               marginBottom: 24,
             }}
           >
@@ -128,13 +127,13 @@ export default async function Image({
               style={{
                 width: 48,
                 height: 48,
-                background: '#e09318',
+                background: '#204498',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: 18,
                 fontWeight: 800,
-                color: '#090e16',
+                color: '#f4f4f6',
                 letterSpacing: '-0.02em',
               }}
             >
@@ -163,14 +162,14 @@ export default async function Image({
               border: '1px solid #1a2535',
             }}
           >
-            <div style={{ width: 20, height: 1, background: '#e09318' }} />
+            <div style={{ width: 20, height: 1, background: '#c20809' }} />
             <div
               style={{
                 fontSize: 11,
                 fontWeight: 600,
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                color: 'rgba(224, 147, 24, 0.7)',
+                color: 'rgba(216, 58, 47, 0.9)',
               }}
             >
               HM-500 · 7 Certifications · 26 Tested Properties

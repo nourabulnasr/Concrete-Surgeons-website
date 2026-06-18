@@ -75,7 +75,7 @@ export async function generateMetadata({
       siteName: 'Concrete Surgeons',
       locale: lang === 'ar' ? 'ar_EG' : 'en_US',
       type: 'website',
-      images: [{ url: 'https://csmisr.com/logo.jpg', width: 512, height: 512, alt: 'Concrete Surgeons Egypt' }],
+      // OG image comes from the dynamic opengraph-image route (no hardcoded override).
     },
     twitter: {
       card: 'summary_large_image',

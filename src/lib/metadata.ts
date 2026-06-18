@@ -1,5 +1,3 @@
-const LOGO_URL = 'https://csmisr.com/logo.jpg'
-
 export function buildAlternates(lang: string, path: string) {
   return {
     canonical: `https://csmisr.com/${lang}${path}`,
@@ -19,7 +17,7 @@ export function buildOG(lang: string, title: string, description: string, path =
     type: 'website' as const,
     title,
     description,
-    images: [{ url: LOGO_URL, width: 512, height: 512, alt: 'Concrete Surgeons — Diamond Sawing & Structural Retrofitting Egypt' }],
+    // OG image is generated per-locale by the dynamic opengraph-image route.
   }
 }
 
