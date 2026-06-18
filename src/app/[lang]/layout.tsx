@@ -36,8 +36,13 @@ const bigShoulders = Big_Shoulders({
   subsets: ['latin'],
   weight: ['900'],
   variable: '--font-incident',
-  display: 'swap',
-  // The hero headline is the LCP element — keep this preloaded and uncontended.
+  // The hero headline is the LCP element. next/font can't compute fallback
+  // metrics for Big Shoulders, so a swap repaints larger and moves LCP to the
+  // swap time. 'optional' paints the condensed fallback instantly (LCP ≈ FCP)
+  // and upgrades to Big Shoulders only when it arrives fast — no reflow.
+  display: 'optional',
+  adjustFontFallback: false,
+  fallback: ['Arial Narrow', 'Roboto Condensed', 'Oswald', 'sans-serif'],
 })
 
 export const viewport: Viewport = {
