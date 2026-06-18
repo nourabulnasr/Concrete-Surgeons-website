@@ -1,21 +1,45 @@
 # CSMISR — SESSION CHECKPOINT
 
-**Last updated:** 2026-06-17 · **Branch:** `main` · **Remote:** `github.com/nourabulnasr/Concrete-Surgeons-website`
-**Phase status:** Phase 2 IN PROGRESS. **Item #1 (RECOLOUR) DONE + pushed** (commit `3dad380`) → **awaiting Nour's approval before item #2.**
+**Last updated:** 2026-06-18 · **Branch:** `main` · **Remote:** `github.com/nourabulnasr/Concrete-Surgeons-website`
+**Phase status:** ✅ **PHASE 2 COMPLETE + PHASE 3 DEPLOYED.** All items #1–#12 done, committed, pushed.
+**Live preview:** https://csmisr-site.vercel.app (Vercel project `nour-abulnasrs-projects/csmisr-site`; csmisr.com NOT attached).
 
-> If the laptop crashes: code on disk + this file + commits on GitHub = full recovery.
-> A fresh session resumes from this file — the plan, asset map, and colours are all here.
+> If the laptop crashes: code on disk + this file + `HANDOFF.md` + commits on GitHub = full recovery.
 
 ---
 
 ## RESUME HERE (next session)
 
-1. **Item #1 recolour is DONE and pushed.** Do NOT redo it. Verify with:
-   `git log --oneline -1` should show `3dad380 feat(brand): recolour…`.
-2. **Awaiting Nour's approval of the recolour** + answers to 3 flags (below) before starting **item #2 (remove hero numbers)**.
-3. Colours are **INLINE `oklch()` literals inside `style={{}}`** across 27 files — NOT Tailwind tokens. The `@theme` block in `globals.css` is the documented system but components inline everything. Live hero = the **dark `CinematicHero.tsx`** (not `Hero.tsx`).
-4. **Lenis** owns smooth scroll → `window.scrollTo` is hijacked, so the desktop 3D `ProductReveal` is hard to screenshot. Its 4 accents are red (verified in code + build).
-5. Review screenshots (outside the repo): `C:\Users\noura\OneDrive\Desktop\csmisr\csmisr-recolor-0{1..5}-*.png`.
+**Phase 2 is finished — do NOT redo any of it.** What's left is client-dependent +
+optional polish. See **`HANDOFF.md`** for the full client checklist, DNS records, and env vars.
+
+Open items awaiting the CLIENT (not code work):
+1. Founder photo → `public/team/founder.jpg` + set `FOUNDER_PHOTO` in `AboutContent.tsx`.
+2. Demo video links → fill `provider`+`id` in `VideoDemos.tsx`.
+3. Carbon-fibre (CFRP) section — Nour to decide if wanted (currently skipped).
+4. When going live: add DNS (Vercel A/CNAME + Resend SPF/DKIM/MX), set env vars
+   (`RESEND_API_KEY`, `CONTACT_EMAIL`, `SALES_EMAIL`), flip Resend `from:` to noreply@csmisr.com.
+
+Performance note (mobile Lighthouse): CLS 0 ✅, TBT ~100ms ✅, **LCP ~2.7–3.2s (lab, noisy)** —
+hero text is the LCP element; fully optimised in code, residual is cold TTFB + brand display
+font. Hero font is `display:'optional'` (slow connections see a condensed fallback) — switch to
+`'swap'` in `[lang]/layout.tsx` if Nour wants Big Shoulders always. Re-validate via PageSpeed
+Insights once the domain is attached.
+
+Decisions locked this session: recolour APPROVED · green LEADS/WhatsApp kept semantic ·
+founder square → real photo slot (client supplies). Approved Phase-1 colours/assets unchanged.
+
+Build: `npm run build` passes · `npm audit` = 0 vulnerabilities. Dev: `npm run dev`.
+Stack now Next **16.2.9** (was 16.2.6). New homepage sections: CertGallery, QualityPrice,
+PreQualification, VideoDemos (in `src/components/home/`). The old 3D `HM500*` components +
+three/R3F/drei deps are now UNUSED (product reveal uses a real PNG) — safe to remove later.
+
+--- (history below) ---
+
+Prior colour/system notes (still accurate):
+- Colours are **INLINE `oklch()` literals inside `style={{}}`** — NOT Tailwind tokens. Live hero = dark `CinematicHero.tsx`.
+- **Lenis** owns smooth scroll → screenshot scroll positions via `window.scrollTo({behavior:'instant'})` works in Playwright.
+- Recolour review screenshots (outside repo): `C:\Users\noura\OneDrive\Desktop\csmisr\csmisr-*.png`.
 
 ### Recolour — what shipped (item #1)
 - Amber accent split by ROLE: **BLUE** `oklch(41% 0.144 264)` = brand/structure (logo, eyebrows, section indices, focus, rules, ::selection); **RED** `oklch(51% 0.207 29)` = product + CTAs (all `ProductReveal`, filled buttons with WHITE text, comparison winner column, primary contact links). RED hover `oklch(44% 0.20 29)`.
