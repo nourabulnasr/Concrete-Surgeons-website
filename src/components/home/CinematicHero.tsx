@@ -253,12 +253,11 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
               transformOrigin: isAr ? 'right' : 'left',
             }}
           >
-            {/* Primary statement — oversized display, staggered entrance */}
-            <motion.h2
-              className="font-incident select-none"
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25, ease: E }}
+            {/* Primary statement — oversized display. CSS entrance (not Motion)
+                so it paints at first frame and stays the LCP element — no
+                hydration gate. */}
+            <h2
+              className="font-incident select-none animate-fade-up"
               style={{
                 fontSize: 'clamp(2.75rem, 9vw, 8.5rem)',
                 fontWeight: 900,
@@ -270,14 +269,11 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
               }}
             >
               {isAr ? 'نضع معيار المواد.' : 'We set the material standard.'}
-            </motion.h2>
+            </h2>
 
-            {/* Second beat — muted grey, lighter weight */}
-            <motion.p
-              className="font-incident select-none"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6, ease: E }}
+            {/* Second beat — muted grey, lighter weight (CSS, slight delay) */}
+            <p
+              className="font-incident select-none animate-fade-up"
               style={{
                 fontSize: 'clamp(1.5rem, 5vw, 4rem)',
                 fontWeight: 800,
@@ -285,10 +281,11 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
                 letterSpacing: '-0.01em',
                 color: 'oklch(52% 0.012 264)',
                 marginTop: '0.4rem',
+                animationDelay: '0.18s',
               }}
             >
               {isAr ? 'ثم نلتزم به.' : 'Then we meet it.'}
-            </motion.p>
+            </p>
           </motion.div>
 
           {/* Capability line — clip-path wipe reveal */}
