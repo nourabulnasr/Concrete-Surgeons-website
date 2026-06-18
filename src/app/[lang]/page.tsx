@@ -9,6 +9,7 @@ import { SupplySection } from '@/components/home/SupplySection'
 import { ProductReveal } from '@/components/home/ProductReveal'
 import { EgyptianProjects } from '@/components/home/EgyptianProjects'
 import { CertFilmStrip } from '@/components/home/CertFilmStrip'
+import { CertGallery } from '@/components/home/CertGallery'
 import { ProjectsTeaser } from '@/components/home/ProjectsTeaser'
 import { CTASection } from '@/components/home/CTASection'
 
@@ -120,6 +121,8 @@ export default async function HomePage({
       <EgyptianProjects lang={lang as 'en' | 'ar'} />
       {/* Certifications film strip */}
       <CertFilmStrip lang={lang as 'en' | 'ar'} />
+      {/* Real verification documents — clickable PDF gallery */}
+      <CertGallery lang={lang as 'en' | 'ar'} />
       {/* 500+ parallax teaser */}
       <ProjectsTeaser dict={dict} lang={lang as 'en' | 'ar'} />
       {/* 06 — Contact */}
