@@ -1,36 +1,17 @@
 'use client'
-import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { useRef, useEffect } from 'react'
 import { motion, useMotionValue, useTransform, useSpring, useReducedMotion } from 'motion/react'
 import { useIsMobile } from '@/hooks/useIsMobile'
 
-const HM500Scene = dynamic(() => import('@/components/3d/HM500Scene'), {
-  ssr: false,
-  loading: () => (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <div
-        style={{
-          width: '3rem',
-          height: '3rem',
-          borderRadius: '50%',
-          border: '1px solid oklch(30% 0.012 264)',
-          borderTopColor: 'oklch(51% 0.207 29)',
-          animation: 'csm-spin 0.9s linear infinite',
-        }}
-      />
-    </div>
-  ),
-})
-
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
+// Flagship product media. The real two-cartridge cutout ships today.
+// To upgrade to a true turntable later, set PRODUCT_VIDEO to the clip path
+// (e.g. '/videos/hm500-turntable.mp4') — the section swaps <img> → <video>
+// with no other changes.
+const PRODUCT_IMAGE = '/products/hm500-cartridges.png'
+const PRODUCT_VIDEO: string | null = null
 
 interface Props {
   lang: 'en' | 'ar'
@@ -59,14 +40,19 @@ export function ProductReveal({ lang }: Props) {
     return () => window.removeEventListener('scroll', update)
   }, [scrollYProgress])
 
-  const rawRotation = useTransform(scrollYProgress, [0, 1], [0, Math.PI * 2.2])
-  const smoothRotation = useSpring(rawRotation, { stiffness: 35, damping: 18 })
+  // Scroll-driven product reveal: rise + settle, gentle parallax, subtle 3D tilt.
+  const rawScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.88, 1.04, 1.0])
+  const scale = useSpring(rawScale, { stiffness: 60, damping: 20 })
+  const rawY = useTransform(scrollYProgress, [0, 1], [60, -60])
+  const y = useSpring(rawY, { stiffness: 45, damping: 20 })
+  const rotateY = useTransform(scrollYProgress, [0, 1], [-10, 10])
+  const mediaOpacity = useTransform(scrollYProgress, [0, 0.06], [0, 1])
 
   // Text phase opacities
   const phase1Opacity = useTransform(scrollYProgress, [0, 0.08, 0.38, 0.5], [0, 1, 1, 0])
   const phase2Opacity = useTransform(scrollYProgress, [0.42, 0.52, 0.78, 0.88], [0, 1, 1, 0])
   const phase3Opacity = useTransform(scrollYProgress, [0.82, 0.92, 1], [0, 1, 1])
-  const dragHintOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
+  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
   if (isMobile || prefersReduced) {
     return (
@@ -90,6 +76,18 @@ export function ProductReveal({ lang }: Props) {
           >
             {isAr ? 'المنتج الرئيسي' : 'FLAGSHIP PRODUCT'}
           </p>
+
+          <Image
+            src={PRODUCT_IMAGE}
+            alt={isAr
+              ? 'خرطوشتا إيبوكسي HORSE HM-500 لتثبيت المراسي'
+              : 'HORSE HM-500 injectable epoxy anchor adhesive — twin cartridges'}
+            width={463}
+            height={752}
+            sizes="(max-width: 767px) 60vw, 320px"
+            style={{ width: 'auto', height: 'clamp(16rem, 50vw, 22rem)', marginBottom: '2rem' }}
+          />
+
           <h2
             className="font-display uppercase"
             style={{
@@ -98,6 +96,7 @@ export function ProductReveal({ lang }: Props) {
               letterSpacing: '-0.02em',
               lineHeight: 1.05,
               color: 'oklch(12% 0.012 264)',
+              whiteSpace: 'pre-line',
             }}
           >
             {isAr ? 'نظام التثبيت\nHM-500' : 'HM-500\nANCHOR SYSTEM'}
@@ -125,7 +124,7 @@ export function ProductReveal({ lang }: Props) {
       ref={sectionRef}
       data-navbar-dark="true"
       style={{ height: '260vh', position: 'relative' }}
-      aria-label={isAr ? 'عرض منتج HM-500 ثلاثي الأبعاد' : 'HM-500 product 3D reveal'}
+      aria-label={isAr ? 'عرض منتج HM-500' : 'HM-500 product reveal'}
     >
       {/* Sticky viewport */}
       <div
@@ -139,19 +138,58 @@ export function ProductReveal({ lang }: Props) {
           alignItems: 'center',
           justifyContent: 'center',
           borderTop: '1px solid oklch(18% 0.012 264)',
+          perspective: '1400px',
         }}
       >
-        {/* 3D Canvas — full bleed */}
+        {/* Floor glow — grounds the product on the dark stage */}
         <div
+          aria-hidden
           style={{
             position: 'absolute',
             inset: 0,
-            zIndex: 0,
-            contain: 'layout',
+            background:
+              'radial-gradient(ellipse 45% 55% at 50% 52%, oklch(20% 0.03 29 / 0.35) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Product media — swappable img/video, scroll-driven reveal */}
+        <motion.div
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            scale,
+            y,
+            rotateY,
+            opacity: mediaOpacity,
+            transformStyle: 'preserve-3d',
+            filter: 'drop-shadow(0 30px 50px oklch(0% 0 0 / 0.55))',
           }}
         >
-          <HM500Scene scrollRotation={smoothRotation} />
-        </div>
+          {PRODUCT_VIDEO ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ height: 'min(72vh, 660px)', width: 'auto', display: 'block' }}
+            >
+              <source src={PRODUCT_VIDEO} type="video/mp4" />
+            </video>
+          ) : (
+            <Image
+              src={PRODUCT_IMAGE}
+              alt={isAr
+                ? 'خرطوشتا إيبوكسي HORSE HM-500 لتثبيت المراسي'
+                : 'HORSE HM-500 injectable epoxy anchor adhesive — twin cartridges'}
+              width={463}
+              height={752}
+              priority={false}
+              sizes="(max-width: 1200px) 40vh, 660px"
+              style={{ height: 'min(72vh, 660px)', width: 'auto', display: 'block' }}
+            />
+          )}
+        </motion.div>
 
         {/* Text overlay — Phase 1 */}
         <motion.div
@@ -184,13 +222,14 @@ export function ProductReveal({ lang }: Props) {
               letterSpacing: '-0.02em',
               lineHeight: 1.0,
               color: 'oklch(96% 0.008 264)',
+              whiteSpace: 'pre-line',
             }}
           >
             {isAr ? 'نظام التثبيت\nHM-500' : 'HM-500\nANCHOR SYSTEM'}
           </h2>
         </motion.div>
 
-        {/* Drag hint — vertical writing */}
+        {/* Scroll hint — vertical writing */}
         <motion.div
           style={{
             position: 'absolute',
@@ -198,7 +237,7 @@ export function ProductReveal({ lang }: Props) {
             top: '50%',
             transform: 'translateY(-50%)',
             zIndex: 10,
-            opacity: dragHintOpacity,
+            opacity: scrollHintOpacity,
             pointerEvents: 'none',
           }}
         >
@@ -213,7 +252,7 @@ export function ProductReveal({ lang }: Props) {
               color: 'oklch(52% 0.01 264)',
             }}
           >
-            {isAr ? '← اسحب' : 'drag →'}
+            {isAr ? '← مرر' : 'scroll →'}
           </span>
         </motion.div>
 
@@ -232,21 +271,9 @@ export function ProductReveal({ lang }: Props) {
           }}
         >
           {[
-            {
-              n: '≥13',
-              unit: 'MPa',
-              label: isAr ? 'مقاومة شد' : 'BOND STRENGTH',
-            },
-            {
-              n: '≥99',
-              unit: 'MPa',
-              label: isAr ? 'ضغط محوري' : 'COMPRESSIVE',
-            },
-            {
-              n: '6',
-              unit: 'HRS',
-              label: isAr ? 'تصلب كامل ≥30°C' : 'FULL CURE AT ≥30°C',
-            },
+            { n: '≥13', unit: 'MPa', label: isAr ? 'مقاومة شد' : 'BOND STRENGTH' },
+            { n: '≥99', unit: 'MPa', label: isAr ? 'ضغط محوري' : 'COMPRESSIVE' },
+            { n: '6', unit: 'HRS', label: isAr ? 'تصلب كامل ≥30°C' : 'FULL CURE AT ≥30°C' },
           ].map((spec, i) => (
             <motion.div
               key={spec.label}
