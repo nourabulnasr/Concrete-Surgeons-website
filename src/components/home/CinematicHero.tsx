@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'motion/react'
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import type { Dictionary } from '@/lib/dictionaries'
 import { useIsMobile } from '@/hooks/useIsMobile'
 
@@ -135,9 +135,8 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
   const prefersReduced = useReducedMotion()
 
   const { scrollY } = useScroll()
-  const rawScale = useTransform(scrollY, [0, 700], [1, 0.06])
-  const scale = useSpring(rawScale, { stiffness: 120, damping: 22 })
-  const numberOpacity = useTransform(scrollY, [0, 350, 550], [1, 1, 0])
+  const headlineY = useTransform(scrollY, [0, 600], [0, -80])
+  const headlineOpacity = useTransform(scrollY, [0, 300, 520], [1, 1, 0])
   const contextOpacity = useTransform(scrollY, [0, 180, 400], [1, 0.8, 0])
 
   return (
@@ -246,73 +245,58 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
             }}
           />
 
-          {/* Main number — scroll-compressed */}
+          {/* Headline — scroll-fade + gentle parallax */}
           <motion.div
             style={{
-              scale: prefersReduced ? 1 : scale,
-              opacity: numberOpacity,
+              y: prefersReduced ? 0 : headlineY,
+              opacity: prefersReduced ? 1 : headlineOpacity,
               transformOrigin: isAr ? 'right' : 'left',
             }}
           >
-            {/* "14" and ".98" on the same line with staggered entrance */}
-            <div style={{ display: 'flex', alignItems: 'baseline', whiteSpace: 'nowrap' }}>
-              <motion.span
-                className="font-incident select-none"
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.25, ease: E }}
-                style={{
-                  fontSize: 'clamp(5rem, 22vw, 20rem)',
-                  fontWeight: 900,
-                  lineHeight: 0.84,
-                  letterSpacing: '-0.04em',
-                  color: 'oklch(96% 0.008 264)',
-                }}
-              >
-                14
-              </motion.span>
-              <motion.span
-                className="font-incident select-none"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.65, ease: E }}
-                style={{
-                  fontSize: 'clamp(5rem, 22vw, 20rem)',
-                  fontWeight: 900,
-                  lineHeight: 0.84,
-                  letterSpacing: '-0.04em',
-                  color: 'oklch(96% 0.008 264)',
-                }}
-              >
-                .98
-              </motion.span>
-            </div>
-
-            {/* Unit — amber, slides in from the left */}
-            <motion.p
+            {/* Primary statement — oversized display, staggered entrance */}
+            <motion.h2
               className="font-incident select-none"
-              initial={{ opacity: 0, x: isAr ? 8 : -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1.05, ease: E }}
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.25, ease: E }}
               style={{
-                fontSize: 'clamp(1.25rem, 3.5vw, 3rem)',
+                fontSize: 'clamp(2.75rem, 9vw, 8.5rem)',
                 fontWeight: 900,
-                letterSpacing: '0.04em',
-                color: 'oklch(41% 0.144 264)',
-                lineHeight: 1,
-                marginTop: '0.5rem',
+                lineHeight: 0.94,
+                letterSpacing: '-0.02em',
+                color: 'oklch(96% 0.008 264)',
+                margin: 0,
+                maxWidth: '14ch',
               }}
             >
-              N/MM²
+              {isAr ? 'نضع معيار المواد.' : 'We set the material standard.'}
+            </motion.h2>
+
+            {/* Second beat — muted grey, lighter weight */}
+            <motion.p
+              className="font-incident select-none"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6, ease: E }}
+              style={{
+                fontSize: 'clamp(1.5rem, 5vw, 4rem)',
+                fontWeight: 800,
+                lineHeight: 1,
+                letterSpacing: '-0.01em',
+                color: 'oklch(52% 0.012 264)',
+                marginTop: '0.4rem',
+              }}
+            >
+              {isAr ? 'ثم نلتزم به.' : 'Then we meet it.'}
             </motion.p>
           </motion.div>
 
-          {/* Project label — clip-path wipe reveal */}
+          {/* Capability line — clip-path wipe reveal */}
           <motion.div
             initial={{ clipPath: 'inset(0 100% 0 0)' }}
             animate={{ clipPath: 'inset(0 0% 0 0)' }}
             transition={{ duration: 0.7, delay: 1.45, ease: E }}
-            style={{ opacity: prefersReduced ? 1 : contextOpacity, marginTop: '1.25rem' }}
+            style={{ opacity: prefersReduced ? 1 : contextOpacity, marginTop: '1.75rem' }}
           >
             <p
               className="font-body"
@@ -325,8 +309,8 @@ export function CinematicHero({ lang, dict: _dict }: Props) {
               }}
             >
               {isAr
-                ? 'قوة الترابط · محطة قطار السرعة نبارية-السادات الجديدة'
-                : 'BONDING STRENGTH · NEW NUBARIA-ALSADAT SPEED TRAIN STATION'}
+                ? 'قطع بالماس · هدم هندسي · توريد إيبوكسي HM-500'
+                : 'DIAMOND SAWING · CONTROLLED DEMOLITION · HM-500 EPOXY SUPPLY'}
             </p>
           </motion.div>
 
